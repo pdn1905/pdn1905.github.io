@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Ngoc Phan">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Ngoc Phan">
+    <meta name="keywords" content=" | Ngoc Phan">
+    <meta name="description" content="">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Blockchain Overview · Home</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/avatar/me.jpg" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Blockchain Overview</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Home</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Blockchain Overview
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">3,184</span> / Reading time: <span class="post-count">20 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/10/06</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Tại sao lại có Cryptocurrency</p>
+<p>Chúng ta không cần phải học tài chính để có thể nhận ra được tiền là một loại hàng hóa đặc biệt, dùng để làm phương tiện trao đổi trung gian. Chúng ta quy mọi giá trị của hàng hóa cần trao đổi thành tiền thì từ đó sẽ dễ dàng trao đổi hơn.</p>
+<p>Mỗi một quốc gia lại ban hành một đơn vị tiền tệ khác nhau. Chúng không cùng tỉ giá và khi có một giao dịch chuyển tiền thì cần phải thông qua một tổ chức trung gian (trusted 3rd party), thường là các ngân hàng.</p>
+<p>Giao dịch qua ngân hàng đảm bảo giao dịch trở “đáng tin” hơn, giảm thiểu rủi ro các bên bị lừa đảo. Tuy nhiên đổi lại thời gian sẽ lâu hơn, các bên phải tốn phí và thông tin của người giao dịch có thể bị rò rỉ.</p>
+<p>Câu hỏi đáng giá lúc này là: Liệu ta có thể thực hiện các giao dịch mà không cần phải thông qua các bên trung gian và vẫn đảm bảo tính tin cậy hay không ? Đó cũng là ý tưởng chính cho việc hình thành Cryptocurrency.</p>
+<p>Khái niệm sổ cái (ledger)</p>
+<p>Bỏ chuyện tiền tệ giữa các quốc gia qua một bên. Mình xin kể lại câu chuyện về: Tí, Tèo, Nam và Minh. Bốn bạn này có đặt điểm chung là rất hay mượn tiền nhau nhưng lại thấy việc xài tiền mặt khá phiền phức nên đã nảy ra ý tưởng dùng tiền trung gian và họ thống nhất gọi nó là Coin.</p>
+<p>Mỗi đầu tháng bốn bạn này cùng bỏ vào 1 triệu đồng, họ quy ước 1 Coin = 1000 đồng, tương đương mỗi người sẽ có 1000 Coin. Vào cuối tháng họ sẽ dùng số Coin này đổi ra tiền mặt. Như vậy trong suốt một tháng họ sẽ không cần tới tiền mặt nữa.</p>
+<p>Nhưng làm thế nào để biết số Coin còn lại của mỗi người là bao nhiêu !? Họ quyết định dùng chung một cuốn sổ ghi chép lại tất cả các giao dịch trong một tháng qua. Khái niệm sổ cái (ledger) từ đó mà ra đời.</p>
+<blockquote>
+<p>Ledger<br>Tí bỏ vào 1000 Coins<br>Tèo bỏ vào 1000 Coins<br>Nam bỏ vào 1000 Coins<br>Minh bỏ vào 1000 Coins<br>Tí ——&gt; Tèo 50 Coins<br>Tèo ——&gt; Nam 100 Coins<br>Nam ——&gt; Minh 40 Coins<br>Sổ cái và chữ ký số</p>
+</blockquote>
+<p>Tới đây phát sinh một vấn đề đó là vì sổ cái ai cũng có thể ghi lại giao dịch của mình nên bất kỳ ai cũng có thể “ghi khống” vào. Ví dụ Nam tự ghi vào “Minh –&gt; Nam 200 Coins” trong khi không hề có giao dịch đó diễn ra.</p>
+<p>Để giải quyết tình trạng trên, cả bốn bạn sẽ dùng thêm chữ ký cá nhân của mình, ý tưởng cũng giống như việc chúng ta hay ký các loại hóa đơn tiền điện nước, tiền net hàng tháng.</p>
+<blockquote>
+<p>Ledger  Signature<br>Tí ——&gt; Tèo 50 Coins  Tí<br>Tèo ——&gt; Nam 100 Coins  Tèo<br>Nam ——&gt; Minh 40 Coins  Nam<br>Tuy nhiên đây là chữ ký tay, rất dễ làm giả. Lúc này bốn bạn quyết định ứng dụng chữ ký số (Digital Signature). Cụ thể ở đây các bạn ấy chọn mã hóa SHA-256. Cách hoạt động của loại mã hóa này khá dễ hiểu là mỗi bạn sẽ có một cặp khóa (key pair): public key (pk) và secret key (sk). SK của ai người đó giữ, PK thì ai giữ của ai cũng được, nhưng ít ra cũng phải giữ PK của nhau có để xác nhận chữ ký.</p>
+</blockquote>
+<p>Quá trình mã hóa và xác nhận thế nào thì mình xin được bỏ qua. Tóm gọn là chúng có dạng như sau:</p>
+<blockquote>
+<p>Sign(“Message”, sk) = Signature</p>
+</blockquote>
+<blockquote>
+<p>Verify(“Message”, Signature, pk) = TRUE/FALSE</p>
+</blockquote>
+<p>Như vậy không ai có thể tự ghi khống giao dịch được nữa. Vì đơn giản là nếu không có SK, chúng ta không thể tạo được một chữ ký hợp lệ. Các giao dịch cũ cũng lại càng không thể sửa đổi vì chỉ cần 1 chút thay đổi là chữ ký sẽ khác hoàn toàn. Xem ra chỉ còn một cách là copy lại một giao dịch trước đó. Điều này có thể được hóa giải hoàn toàn với việc mỗi giao dịch bây giờ sẽ có một Unique ID (UID). UID sẽ trở thành một phần của thông tin giao dịch luôn nên lúc này thông tin trên sổ cái là rất đáng tin cậy.</p>
+<blockquote>
+<p>UID  Ledger  Digital Signature<br>1  Tí ——&gt; Tèo 50 Coins  001100101010111110100001000110000100…<br>2  Tèo ——&gt; Nam 100 Coins  110000000010101011111010010001100110…<br>3  Nam ——&gt; Minh 40 Coins  101010110010101011100101001000110011…<br>Quản lý phi tập trung (Decentralization)</p>
+</blockquote>
+<p>Vấn đề tiếp theo bây giờ là “Ai sẽ là người giữ sổ cái”, nếu lỡ làm mất sổ cái, cả bốn bạn sẽ mất hết Coin và không thể lấy lại tiền. Nhưng không sao, cái khó ló cái khôn, chính khoảnh khắc quan trọng này Tèo đã đưa ra một sáng kiến: “Cả bốn người chúng ta sẽ sao chép sổ cái cho mỗi người một bản”. Bây giờ thay vì sổ cái tập trung ở một nơi nhất định thì nó lại trở thành phi tập trung.</p>
+<p>Có điều là bây giờ cứ mỗi khi có một giao dịch thì tất cả sổ cái phải được cập nhật lại và phải giống nhau y chang nhau từ thông tin cho tới thứ tự. Điều này thoạt nghe khá là tệ vì nếu Tí chuyển cho Tèo 100 Coins thì Tí sẽ thắc mắc không biết ba sổ cái còn lại đã được cập nhật hay chưa. Hoặc nếu Minh nghe được vài thông tin giao dịch thì Minh sẽ có chắc rằng mọi người sẽ cập nhật lại sổ cái đúng thứ tự giống như Minh đang làm.</p>
+<p>Với chỉ bốn người thì vấn đề này rất đơn giản nhưng với rất nhiều người thì đây là một việc hết sức khó khăn. Và đây chính là điểm mấu chốt của cả hệ thống Cryptocurrency.</p>
+<p>Blockchain và proof of work</p>
+<p>Bây giờ vấn đề là xác định các giao dịch hợp lệ và đáng tin như thế nào. Nam, một chuyên gia về mã hóa để đề xuất một ý tưởng đó là:</p>
+<p>“Chúng ta hãy xem mỗi giao dịch là một block, chúng ta có thể nhận được nhiều blocks nhưng hãy tin vào block có proof of work.”</p>
+<p>Mọi người nghe xong chả hiểu ất giáp gì cả. Nam từ từ giải thích:</p>
+<p>“Cụ thể ta sẽ ứng dụng Cryptographic Hash Function SHA256. Giả sử nếu có ai đó thông báo giao dịch mới, họ phải tìm được con số bất kỳ. Con số này cùng với sổ cái khi qua hàm SHA256 chắc chắn sẽ là dãy số nhị phân có 256 chữ số. Chúng ta quy định con số hợp lệ sau khi SHA256 phải có 60 chữ số đầu tiên đều là số 0.”</p>
+<blockquote>
+<p>SHA256(Ledger + Số hợp lệ) = 00000000000000000000…</p>
+</blockquote>
+<p>Như vậy block hợp lệ sẽ phải có đính kèm con số này, người nhận chỉ cần chạy hàm SHA256 là có thể check được kết quả ngay, quá trình này gọi là proof of work. Ngoài ra cách thức thêm block vào sổ cái sẽ thay đổi, block mới sẽ nối đuôi vào block cũ tạo thành một dãy mắc xích các blocks. Từ lúc này sổ cái còn được gọi là Blockchain.</p>
+<p>blockchain</p>
+<p>Trên header của block sẽ có chứa hash của block ngay trước nó, hash này tham gia vào proof of work cho block tiếp theo. Vì thế block một khi đã thêm vào thì không thể thay đổi thứ tự được nữa.</p>
+<p>Miner</p>
+<p>Câu hỏi tiếp theo đó là việc verify block thì dễ rồi nhưng việc tìm được con số hợp lệ để tạo block là rất khó. Việc này không có cách nào khác là dùng máy tính để đoán mò liên tục cho tới khi tìm được thì thôi.</p>
+<p>Xác xuất để tìm được con số thỏa mãn điều kiện đi qua hàm SHA256 để có 60 chữ số đầu tiên là số 0 chỉ là 1 trên 2^60. Có nghĩa là trong điều kiện xui nhất, máy tính phải đoán tới 2^60 lần. Điều này đòi hỏi nhiều sự tính toán của máy tính nên quá trình này còn được gọi là “computation work”.</p>
+<p>Nam với công việc là lập trình viên nên có máy tính để làm việc này nhưng Tí, Tèo và Minh thì không. Cả ba quyết định mời thêm người tham gia vào hệ thống.</p>
+<p>Những người này cũng bình thường thôi, họ vẫn có thể thực hiện giao dịch với bốn người cũ. Nhưng có điều là họ sở hữu những cỗ máy có cấu hình rất khủng. Họ lắng nghe tất cả các giao dịch, sử dụng sức mạnh máy tính của mình để tìm ra con số hợp lệ và tạo block. Họ có thể đoán số với bất kỳ hình thức nào nhưng ai ra đáp án nhanh nhất là người chiến thắng và sẽ có phần thưởng (block reward). Và họ chính là những thợ mỏ (miners) trong thế giới Cryptocurrency.</p>
+<p>Block Reward</p>
+<p>Mặt khác Block Reward cũng rất đặc biệt. Đó là khi có một Miner tìm được con số hợp lý, tạo block và thông báo tới tất cả mọi người thì anh ta cũng sẽ được chèn một giao dịch vào đầu của block hiện tại. Giao dịch đó chính là số Coin thưởng cho Miner từ hệ thống.</p>
+<p>Tuy nhiên đây là một giao dịch đặc biệt với các đặc tính sau đây:</p>
+<p>Giao dịch này không có sender (người gởi).<br>Giao dịch này không có chữ ký số (do không có sender).<br>Giao dịch này làm tăng tổng lượng tiền lưu hành của hệ thống.<br>Block Reward</p>
+<p>Xung đột Blockchain</p>
+<p>Đối với những người dùng bình thường, họ chỉ việc thực hiện các giao dịch, thông báo chúng cho các Miners và lắng nghe block từ Miners để cập nhập Blockchain của họ. Thế nhưng một ngày nọ Tèo lại nhận 2 phiên bản blockchain với lịch sử giao dịch hoàn toàn khác nhau. Chà hẳn là đã có một ai đó đã cố tình làm giả sổ sách với sức mạnh tính toán của họ.</p>
+<p>Công việc của Tèo lúc này khá đơn giản là chỉ cần kiên nhẫn chờ đợi các block tiếp theo từ các miners. Lúc này có 2 nhánh blockchain được cập nhật, Tèo vẫn chưa biết nên tin vào nhánh nào. Sau vài block khác được thêm vào, Tèo quyết định tin nhánh dài nhất và ngừng lắng nghe block từ miner ở nhánh ít ngắn hơn.</p>
+<p>Conflict Blockchain</p>
+<p>Lý giải cho việc này đó là khi có một ai đó thông báo một block gian lận. Họ sẽ phải so sức mạnh tính toán với toàn bộ các Miners còn lại của hệ thống. Các Miners bình thường vẫn làm công việc của họ để tạo block vào nhánh đúng. Như vậy người gian lận phải giữ công việc tính toán trên nhánh gian lận của mình để đánh lừa hệ thống. Như vậy trừ khi người đó sở hữu sức mạnh tính toán khủng tới mức “cân” được phần còn lại. Chưa kể việc mining rất hên xui, may mắn thì vài hash là ra, xui thì phải chạy hết tất cả trường hợp.</p>
+<p>Thêm vào đó là khi có rất nhiều Miner tham gia hệ thống, đây sẽ là một trận chiến không có cửa thắng cho bên gian lận.</p>
+<p>Điều này giúp xóa bỏ tư tưởng “giao dịch cần niềm tin” một cách cảm tính mà thay vào đó là công việc tính toán có thể chứng minh được. Đó cũng chính là một trong những đặc điểm quan trọng của Cryptocurrency.</p>
+<p>Kết</p>
+<p>Tới đây vì thấy hệ thống hoạt động quá tốt, càng ngày có thêm nhiều người tham gia thì tất cả đã quyết định xài luôn đồng Coin của họ cho tiện, không ai còn muốn đổi ra tiền mặt làm gì nữa. Vì loại tiền Coin này có liên quan tới Bit trong máy tính, họ đặt tên lại cho nó là BitCoin.</p>
+<p>Khoan đã, câu truyện trên hoàn toàn là hư cấu cho mình tự bịa ra kể lại. BitCoin do ai nghĩ ra chúng ta vẫn chưa có câu trả lời. Dựa trên BitCoin Pager ta chỉ biết là ai đó hoặc một tổ chức nào đó có tên Satoshi Nakamoto.</p>
+<p>Dù là câu chuyện bịa đặt nhưng các kỹ thuật về Blockchain thì … các bạn tự kiểm chứng nha. Đây là một công nghệ rất hay, đáng để ta tìm hiểu và ứng dụng vào các lĩnh vực khác. Dù mã hóa có có từ lâu đời nhưng Satoshi Nakamoto như một nghệ nhân đã nâng tầm nó lên thành một tác phẩm nghệ thuật, đánh dấu bước ngoặc phát triển cho thế giới tiền điện tử.</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/uncategorized/currency/">October 6th 2018, 9:57:11 pm</a>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/iOS/e-mc-2/" title= e=mc^2 >
+                    <div class="nextTitle">e=mc^2</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/life/loveBep/" title= S.H.E >
+                    <div class="prevTitle">S.H.E</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="mailto:phan.ngoc1905@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/pdn1905" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="https://www.facebook.com/enzo.no.12" class="iconfont-archer facebook" target="_blank" title=facebook></a>
+            
+        
+    
+        
+            
+                <a href="https://twitter.com/ngocpha44966679" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+            
+                <a href="https://www.instagram.com/19.05pn/" class="iconfont-archer instagram" target="_blank" title=instagram></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 9
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/iOS/e-mc-2/" >e=mc^2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span><a class="archive-post-title" href= "/uncategorized/currency/" >Blockchain Overview</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/06</span><a class="archive-post-title" href= "/life/loveBep/" >S.H.E</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/27</span><a class="archive-post-title" href= "/story/chiatay/" >Là đàn ông hãy học cách chia tay tử tế…</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/iOS/rxPart1/" >RxSwift( Part1) - Functional Reactive Programming & Observable</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/iOS/xcode-shortcut/" >Xcode Shortcut</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span><a class="archive-post-title" href= "/iOS/hello-world/" >Unidirectional Data Flow With Redux In Swift.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/iOS/xib-localize/" >XIB and Storyboard Localization</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/uncategorized/rain/" >Rain</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Lifestyle"><span class="iconfont-archer">&#xe606;</span>Lifestyle</span>
+    
+        <span class="sidebar-tag-name" data-tags="developer"><span class="iconfont-archer">&#xe606;</span>developer</span>
+    
+        <span class="sidebar-tag-name" data-tags="swift"><span class="iconfont-archer">&#xe606;</span>swift</span>
+    
+        <span class="sidebar-tag-name" data-tags="lifestyle"><span class="iconfont-archer">&#xe606;</span>lifestyle</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="story"><span class="iconfont-archer">&#xe60a;</span>story</span>
+    
+        <span class="sidebar-category-name" data-categories="life"><span class="iconfont-archer">&#xe60a;</span>life</span>
+    
+        <span class="sidebar-category-name" data-categories="iOS"><span class="iconfont-archer">&#xe60a;</span>iOS</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Ngoc Phan"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
