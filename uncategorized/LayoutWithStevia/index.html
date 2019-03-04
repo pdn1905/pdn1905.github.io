@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>RxSwift( Part1) - Functional Reactive Programming &amp; Observable · Home</title>
+    <title>Write readable auto-layout code with Stevia. · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">RxSwift( Part1) - Functional Reactive Programming & Observable</a>
+                <a href="#" class="post-name">Write readable auto-layout code with Stevia.</a>
             </div>
     </div>
     
@@ -236,13 +236,13 @@ height:50vh;
     <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/autolayout.jpeg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            RxSwift( Part1) - Functional Reactive Programming & Observable
+            Write readable auto-layout code with Stevia.
             <!-- 404 -->
             
         </h1>
@@ -265,16 +265,18 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "auto-layout">auto-layout</a>
+    
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">908</span> / Reading time: <span class="post-count">6 min</span></span>
+                        <span>Word count: <span class="post-count">775</span> / Reading time: <span class="post-count">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/09/09</span>
+                    <span class="post-intro-time">2019/03/04</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -398,68 +400,58 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. Vậy đâu là những lợi ích mà Rx mang lại để nó được sử dụng rộng rãi như vậy?</p>
-<h2 id="Functional-Reactive-Programming"><a href="#Functional-Reactive-Programming" class="headerlink" title="Functional Reactive Programming:"></a>Functional Reactive Programming:</h2><p>Trước khi tìm hiểu về thư viện RxSwift thì chúng ta phải biết về <strong>Functional Reactive Programming (FRP)</strong>. <strong>FPR</strong> là sự kết hợp giữa <strong>Reactive Programming</strong> và <strong>Functional Programming</strong>.</p>
-<p>Có rất nhiều định nghĩa về Reactive Programming và sau khi tìm hiểu, tham khảo thì mình thấy định nghĩa của <strong>Andre Staltz</strong> được thừa nhận rộng rãi nhất:</p>
-<blockquote>
-<p>“Reactive programming is programming with asynchronous data streams“ </p>
-</blockquote>
-<p><img src="/intro/stream.jpg" alt="Everything is stream"></p>
-<p>Có hai từ khóa bạn cần chú ý trong định nghĩa trên là <strong>asynchronous</strong> và <strong>streams</strong> . Trong FRP tất cả dữ liệu đều được truyền tải dưới dạng <strong>stream</strong> theo trình tự thời gian, việc này giúp cho việc xác định các trạng thái (như data trả về, error, completed…) của một tác vụ bất đồng bộ (<strong>asynchronous</strong>) trở nên dễ dàng hơn. Ngoài ra điều làm nên sức mạnh của FRP là việc áp dụng <strong>functional programming</strong> để filter, chuyển đổi hoặc kết hợp các stream với nhau để tạo nên stream mới mà không làm thay đổi trạng thái của nó. Khái niệm thì có vẻ khó hiểu nhưng nhìn chung ý tưởng chính của FRP là khả năng phản ứng với các thay đổi - các dữ liệu mới nhất bằng cách sử dụng <strong>data stream</strong> một cách linh hoạt. </p>
-<h2 id="RxSwift"><a href="#RxSwift" class="headerlink" title="RxSwift :"></a>RxSwift :</h2><p><strong>RxSwift</strong> là framework hỗ trợ lập trình FRP bằng ngôn ngữ Swift trong các ứng dụng iOS.</p>
-<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream :"></a>Stream :</h3><p>Trong <strong>FRP</strong> để các đối tượng chủ động phản hồi khi có sự thay đổi thì phải tạo ra 2 đối tượng là Observer (quan sát) và Observable (có thể quan sát), hai đối tương sẽ được kết với nhau thông qua <strong>stream</strong>. Mọi thứ trong <strong>FPR</strong> đều là <strong>stream</strong>.</p>
-<blockquote>
-<p> Click button: tap–tap–tap–tap -&gt; Stream<br> Scroll TableView: scroll–scroll–scroll -&gt; Stream<br> Request API: request–completed–data -&gt; Stream</p>
-</blockquote>
-<h3 id="Observable"><a href="#Observable" class="headerlink" title="Observable :"></a>Observable :</h3><p>Observable là trái tim của RX, là nơi khởi nguồn của stream.<br>Observer lắng nghe tới Observable, và nhận được những signal được emit từ Observable.<br>Các Observable thì có thể không phát hoặc phát là nhiều sự kiện trong suốt vòng đời tồn tại của mình. Trong RxSwift, mỗi một observable có thể có các trạng thái sau:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hello = <span class="type">Observable</span>.from([<span class="string">"H"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subscription = hello.subscribe &#123; event <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> event &#123;</span><br><span class="line">    <span class="keyword">case</span> .next(<span class="keyword">let</span> value):</span><br><span class="line">      <span class="built_in">print</span>(value)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">    <span class="keyword">case</span> .completed:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"completed"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">OUTPUT</span>:</span><br><span class="line"><span class="type">H</span> e l l o </span><br><span class="line">completed</span><br></pre></td></tr></table></figure>
+        <p>Có 2 cách xây dựng giao diện trên các ứng dụng iOS : dùng Interface Builder (Xib, Storyboard) và dùng code thuần. Việc auto-layout, kéo thả trong Interface Builder rất dễ dàng cho những developer mới tiếp cận, nhưng bên cạnh đó có những nhược điểm sau:</p>
 <ul>
-<li><p><strong>.next(value: T)</strong> :  Khi một giá trị hoặc một tập hợp các giá trị được thêm vào observable. Nó cũng sẽ gửi các giá trị này tới các <em> subscribers </em> đã subscribe trước đó.</p>
+<li>Việc kéo thả sẽ trở nên khó khăn đối với các giao diện phức tạp.</li>
+<li>Thời gian compile tăng.</li>
+<li>Dễ bị conflit code với người khác khi làm task trên cùng 1 storyboard.</li>
+<li>Không có tính tái sử dụng.<br>Còn việc code thuần giao diện với các API apple đã hỗ trợ sẵn rất phức tạp và không thân thiện với những người mới tiếp cận.<br>Hôm nay mình sẽ giới thiệu với các bạn một thư viện giúp việc code giao diện trở nên dễ dàng và rõ ràng xúc tích hơn : <a href="https://github.com/freshOS/Stevia" target="_blank" rel="noopener">Stevia</a></li>
+</ul>
+<h3 id="Tai-sao-la-Stevia"><a href="#Tai-sao-la-Stevia" class="headerlink" title="Tại sao là Stevia?"></a>Tại sao là Stevia?</h3><ul>
+<li>Với Stevia việc viết code auto-layout sẽ trở nên ngắn gọn và dễ hiểu.</li>
+<li>Giảm thời gian bảo trì cho dự án.</li>
+<li>Styles kiểu CSS rất thân thuộc với hầu hết mọi người.</li>
+</ul>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage:"></a>Usage:</h3><p>Sử dụng Podfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target ‘ProjectName’ do</span><br><span class="line">pod ‘Stevia’</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<h3 id="Auto-Layout"><a href="#Auto-Layout" class="headerlink" title="Auto Layout"></a>Auto Layout</h3><p><img src="https://images.viblo.asia/6d3447d7-9d41-4bb0-afd5-8c98a800de7f.png" alt=""></p>
+<p>Với giao diện như form login trên.</p>
+<ul>
+<li>Autou layout với native code:</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">email.translatesAutoresizingMaskIntoConstraints = <span class="literal">false</span></span><br><span class="line">password.translatesAutoresizingMaskIntoConstraints = <span class="literal">false</span></span><br><span class="line">login.translatesAutoresizingMaskIntoConstraints = <span class="literal">false</span></span><br><span class="line">addSubview(email)</span><br><span class="line">addSubview(password)</span><br><span class="line">addSubview(login)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Layout (using latest layoutAnchors)</span></span><br><span class="line">email.topAnchor.constraint(equalTo: topAnchor, constant: <span class="number">100</span>).isActive = <span class="literal">true</span></span><br><span class="line">email.leftAnchor.constraint(equalTo: leftAnchor, constant: <span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">email.rightAnchor.constraint(equalTo: rightAnchor, constant: -<span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">email.heightAnchor.constraint(equalToConstant: <span class="number">80</span>).isActive = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">password.topAnchor.constraint(equalTo: email.bottomAnchor, constant: <span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">password.leftAnchor.constraint(equalTo: leftAnchor, constant: <span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">password.rightAnchor.constraint(equalTo: rightAnchor, constant: -<span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">password.heightAnchor.constraint(equalToConstant: <span class="number">80</span>).isActive = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">login.bottomAnchor.constraint(equalTo: bottomAnchor, constant: <span class="number">0</span>).isActive = <span class="literal">true</span></span><br><span class="line">login.leftAnchor.constraint(equalTo: leftAnchor).isActive = <span class="literal">true</span></span><br><span class="line">login.rightAnchor.constraint(equalTo: rightAnchor).isActive = <span class="literal">true</span></span><br><span class="line">login.heightAnchor.constraint(equalToConstant: <span class="number">80</span>).isActive = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><strong>Với Stevia</strong> có 3 phong cách auto-layout như sau:</p>
+<ul>
+<li><p>Type-safe visual format</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add subviews</span></span><br><span class="line">sv(</span><br><span class="line">email,</span><br><span class="line">password,</span><br><span class="line">login</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">layout(</span><br><span class="line"><span class="number">100</span>,</span><br><span class="line">|-email-| ~ <span class="number">80</span>,</span><br><span class="line"><span class="number">8</span>,</span><br><span class="line">|-password-| ~ <span class="number">80</span>,</span><br><span class="line"><span class="string">""</span>,</span><br><span class="line">|login| ~ <span class="number">80</span>,</span><br><span class="line"><span class="number">0</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>.error(error: Error)</strong> : Nếu gặp lỗi, một observable sẽ phát ra một sự kiện lỗi . Và observable này cũng sẽ bị hủy.</p>
-</li>
-<li><p><strong>.completed</strong> : Nếu một observable kết thúc, nó cũng sẽ gửi một sự kiện kết thúc tới các subscribers.</p>
+<li><p>⛓ Chainable api</p>
 </li>
 </ul>
-<h4 id="Cach-tao-Observable"><a href="#Cach-tao-Observable" class="headerlink" title="Cách tạo Observable :"></a>Cách tạo Observable :</h4><p>RxSwift hỗ trợ khá nhiều hàm để tạo observable như of, from, create, deferred, just, interval..</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add subviews</span></span><br><span class="line">sv(</span><br><span class="line">email,</span><br><span class="line">password,</span><br><span class="line">login</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">email.top(<span class="number">100</span>).fillHorizontally(m: <span class="number">8</span>).height(<span class="number">80</span>)</span><br><span class="line">password.<span class="type">Top</span> == email.<span class="type">Bottom</span> + <span class="number">8</span></span><br><span class="line">password.fillHorizontally(m: <span class="number">8</span>).height(<span class="number">80</span>)</span><br><span class="line">login.bottom(<span class="number">0</span>).fillHorizontally().height(<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>create</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.create &#123; observer <span class="keyword">in</span></span><br><span class="line">  observer.onNext(data)</span><br><span class="line">  observer.onComplete()</span><br><span class="line">  <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line">  ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>of:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>) <span class="comment">// tạo ra 3 events "a", "b", "c"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>just:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.just([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// tạo ra 1 event với giá trị [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>interval:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scheduler = <span class="type">ConcurrentDispatchQueueScheduler</span>(globalConcurrentQueueQOS: .background)</span><br><span class="line"><span class="type">Observable</span>.interval(<span class="number">60</span>, scheduler: scheduler)</span><br></pre></td></tr></table></figure>
+<li>📐 Equation based layout<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add subviews</span></span><br><span class="line">sv(</span><br><span class="line">email,</span><br><span class="line">password,</span><br><span class="line">login</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">email.<span class="type">Top</span> == <span class="type">Top</span> + <span class="number">100</span></span><br><span class="line">email.<span class="type">Left</span> == <span class="type">Left</span> + <span class="number">8</span></span><br><span class="line">email.<span class="type">Right</span> == <span class="type">Right</span> - <span class="number">8</span></span><br><span class="line">email.<span class="type">Height</span> == <span class="number">80</span></span><br><span class="line"></span><br><span class="line">password.<span class="type">Top</span> == email.<span class="type">Bottom</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Left</span> == <span class="type">Left</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Right</span> == <span class="type">Right</span> - <span class="number">8</span></span><br><span class="line">password.<span class="type">Height</span> == <span class="number">80</span></span><br><span class="line"></span><br><span class="line">password.<span class="type">Top</span> == email.<span class="type">Bottom</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Left</span> == <span class="type">Left</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Right</span> == <span class="type">Right</span> - <span class="number">8</span></span><br><span class="line">password.<span class="type">Height</span> == <span class="number">80</span></span><br><span class="line"></span><br><span class="line">login.<span class="type">Left</span> == <span class="type">Left</span></span><br><span class="line">login.<span class="type">Right</span> == <span class="type">Right</span></span><br><span class="line">login.<span class="type">Bottom</span> == <span class="type">Bottom</span></span><br><span class="line">login.<span class="type">Height</span> == <span class="number">80</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>Đến đây thì các bạn đã có cái nhìn khái quát về Observable trong RxSwift hẹn gặp lại trong các bài về RxSwift tiếp theo.</p>
+<p>Ngoài ra <strong>Stevia</strong> còn cung cấp rất nhiều thuộc tính giúp cho việc code layout trở nên dễ dàng hơn, các bạn có thể xem docs tại đây: <a href="http://freshos.org/SteviaDocs/" target="_blank" rel="noopener">http://freshos.org/SteviaDocs/</a></p>
+<h3 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h3><p>Như các bạn thấy ở trên thì code giao diện với <strong>Stevia</strong> trở nên ngắn gọn dễ hiểu và vui hơn so với code layout “native”.  Hi vọng các bạn sẽ tìm được một phương pháp mới tốt hơn để thiết kế giao diện trong ứng dụng iOS đơn giản và hiệu quả hơn. Cảm ơn các bạn đã theo dõi.</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>Date: <a href="https://pdn1905.github.io/iOS/rxPart1/">September 9th 2018, 11:37:18 am</a>
+            <p>Date: <a href="https://pdn1905.github.io/uncategorized/LayoutWithStevia/">March 4th 2019, 10:38:50 pm</a>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/iOS/e-mc-2/" title= e=mc^2 >
-                    <div class="nextTitle">e=mc^2</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/story/usandthem/" title= Chúng ta của sau này... >
-                    <div class="prevTitle">Chúng ta của sau này...</div>
+                <a href= "/uncategorized/UITesting/" title= Automated UI Testing with KIF >
+                    <div class="prevTitle">Automated UI Testing with KIF</div>
                 </a>
             
         </li>
@@ -580,7 +572,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional-Reactive-Programming"><span class="toc-number">1.</span> <span class="toc-text">Functional Reactive Programming:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RxSwift"><span class="toc-number">2.</span> <span class="toc-text">RxSwift :</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream"><span class="toc-number">2.1.</span> <span class="toc-text">Stream :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observable"><span class="toc-number">2.2.</span> <span class="toc-text">Observable :</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cach-tao-Observable"><span class="toc-number">2.2.1.</span> <span class="toc-text">Cách tạo Observable :</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tai-sao-la-Stevia"><span class="toc-number">1.</span> <span class="toc-text">Tại sao là Stevia?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Usage"><span class="toc-number">2.</span> <span class="toc-text">Usage:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Layout"><span class="toc-number">3.</span> <span class="toc-text">Auto Layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ket"><span class="toc-number">4.</span> <span class="toc-text">Kết</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

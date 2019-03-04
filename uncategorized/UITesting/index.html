@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>RxSwift( Part1) - Functional Reactive Programming &amp; Observable · Home</title>
+    <title>Automated UI Testing with KIF · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">RxSwift( Part1) - Functional Reactive Programming & Observable</a>
+                <a href="#" class="post-name">Automated UI Testing with KIF</a>
             </div>
     </div>
     
@@ -236,13 +236,13 @@ height:50vh;
     <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/testing.jpeg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            RxSwift( Part1) - Functional Reactive Programming & Observable
+            Automated UI Testing with KIF
             <!-- 404 -->
             
         </h1>
@@ -265,16 +265,18 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ui-test">ui-test</a>
+    
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">908</span> / Reading time: <span class="post-count">6 min</span></span>
+                        <span>Word count: <span class="post-count">885</span> / Reading time: <span class="post-count">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/09/09</span>
+                    <span class="post-intro-time">2019/03/04</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -398,51 +400,36 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. Vậy đâu là những lợi ích mà Rx mang lại để nó được sử dụng rộng rãi như vậy?</p>
-<h2 id="Functional-Reactive-Programming"><a href="#Functional-Reactive-Programming" class="headerlink" title="Functional Reactive Programming:"></a>Functional Reactive Programming:</h2><p>Trước khi tìm hiểu về thư viện RxSwift thì chúng ta phải biết về <strong>Functional Reactive Programming (FRP)</strong>. <strong>FPR</strong> là sự kết hợp giữa <strong>Reactive Programming</strong> và <strong>Functional Programming</strong>.</p>
-<p>Có rất nhiều định nghĩa về Reactive Programming và sau khi tìm hiểu, tham khảo thì mình thấy định nghĩa của <strong>Andre Staltz</strong> được thừa nhận rộng rãi nhất:</p>
-<blockquote>
-<p>“Reactive programming is programming with asynchronous data streams“ </p>
-</blockquote>
-<p><img src="/intro/stream.jpg" alt="Everything is stream"></p>
-<p>Có hai từ khóa bạn cần chú ý trong định nghĩa trên là <strong>asynchronous</strong> và <strong>streams</strong> . Trong FRP tất cả dữ liệu đều được truyền tải dưới dạng <strong>stream</strong> theo trình tự thời gian, việc này giúp cho việc xác định các trạng thái (như data trả về, error, completed…) của một tác vụ bất đồng bộ (<strong>asynchronous</strong>) trở nên dễ dàng hơn. Ngoài ra điều làm nên sức mạnh của FRP là việc áp dụng <strong>functional programming</strong> để filter, chuyển đổi hoặc kết hợp các stream với nhau để tạo nên stream mới mà không làm thay đổi trạng thái của nó. Khái niệm thì có vẻ khó hiểu nhưng nhìn chung ý tưởng chính của FRP là khả năng phản ứng với các thay đổi - các dữ liệu mới nhất bằng cách sử dụng <strong>data stream</strong> một cách linh hoạt. </p>
-<h2 id="RxSwift"><a href="#RxSwift" class="headerlink" title="RxSwift :"></a>RxSwift :</h2><p><strong>RxSwift</strong> là framework hỗ trợ lập trình FRP bằng ngôn ngữ Swift trong các ứng dụng iOS.</p>
-<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream :"></a>Stream :</h3><p>Trong <strong>FRP</strong> để các đối tượng chủ động phản hồi khi có sự thay đổi thì phải tạo ra 2 đối tượng là Observer (quan sát) và Observable (có thể quan sát), hai đối tương sẽ được kết với nhau thông qua <strong>stream</strong>. Mọi thứ trong <strong>FPR</strong> đều là <strong>stream</strong>.</p>
-<blockquote>
-<p> Click button: tap–tap–tap–tap -&gt; Stream<br> Scroll TableView: scroll–scroll–scroll -&gt; Stream<br> Request API: request–completed–data -&gt; Stream</p>
-</blockquote>
-<h3 id="Observable"><a href="#Observable" class="headerlink" title="Observable :"></a>Observable :</h3><p>Observable là trái tim của RX, là nơi khởi nguồn của stream.<br>Observer lắng nghe tới Observable, và nhận được những signal được emit từ Observable.<br>Các Observable thì có thể không phát hoặc phát là nhiều sự kiện trong suốt vòng đời tồn tại của mình. Trong RxSwift, mỗi một observable có thể có các trạng thái sau:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hello = <span class="type">Observable</span>.from([<span class="string">"H"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subscription = hello.subscribe &#123; event <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> event &#123;</span><br><span class="line">    <span class="keyword">case</span> .next(<span class="keyword">let</span> value):</span><br><span class="line">      <span class="built_in">print</span>(value)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">    <span class="keyword">case</span> .completed:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"completed"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">OUTPUT</span>:</span><br><span class="line"><span class="type">H</span> e l l o </span><br><span class="line">completed</span><br></pre></td></tr></table></figure>
+        <h4 id="UI-Testing"><a href="#UI-Testing" class="headerlink" title="UI Testing:"></a>UI Testing:</h4><p>UITest là phương thức test thông qua các user interface đem lại các lợi ích sau:</p>
 <ul>
-<li><p><strong>.next(value: T)</strong> :  Khi một giá trị hoặc một tập hợp các giá trị được thêm vào observable. Nó cũng sẽ gửi các giá trị này tới các <em> subscribers </em> đã subscribe trước đó.</p>
-</li>
-<li><p><strong>.error(error: Error)</strong> : Nếu gặp lỗi, một observable sẽ phát ra một sự kiện lỗi . Và observable này cũng sẽ bị hủy.</p>
-</li>
-<li><p><strong>.completed</strong> : Nếu một observable kết thúc, nó cũng sẽ gửi một sự kiện kết thúc tới các subscribers.</p>
-</li>
+<li>Tránh những bug đã được fix rồi mà bị lại khi ta sửa một đoạn code nào đó.</li>
+<li>Giảm thời gian manual test.</li>
+<li>Test được ViewController.</li>
+<li>Giúp chúng ta có 1 cái nhìn tổng quát về follow của app.</li>
 </ul>
-<h4 id="Cach-tao-Observable"><a href="#Cach-tao-Observable" class="headerlink" title="Cách tạo Observable :"></a>Cách tạo Observable :</h4><p>RxSwift hỗ trợ khá nhiều hàm để tạo observable như of, from, create, deferred, just, interval..</p>
+<h4 id="KIF-framework"><a href="#KIF-framework" class="headerlink" title="KIF framework"></a>KIF framework</h4><p>Apple hỗ trợ cho chúng ta một framework khá tốt để viết UITest đó là <strong>XCUITest</strong>, tuy nhiên <strong>XCUITest</strong> với syntax không thân thiện cho lắm, nên việc mô tả các testcase chưa được rõ ràng gây ra khá nhiều khó khăn cho người mới tiếp cận UITest. <strong>KIF (Keep It Functional)</strong>  là một open source framework cung cấp rất rất nhiều phương thức hỗ trợ, giúp việc viết UITest nhanh gọn, dễ hiểu hơn. Với syntax gần gũi với ngôn ngữ tự nhiên, giúp việc mô tả các testcase rõ ràng và xúc tích hơn so với <strong>XCUITest</strong>.</p>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>Demo đơn giản với 2 textfield username và password. Nếu username và password rỗng thì disable SignIn button đi. Nếu username bằng “framgia” và password bằng “123456” thì khi nhấn signIn button sẽ show “Success” nếu không thì show “Error”.</p>
+<p><img src="https://images.viblo.asia/2afae1be-752b-4ec0-bd7a-ff7453c4a865.png" alt=""></p>
+<p>KIF không sử dụng <strong>iOS UI Testing Bundle</strong> mà sử dụng <strong>iOS Unit Testing Bundle</strong> nên ta cài đặt vào target Uni Test.Install KIF bằng cocoapd - thêm pod KIF vào target Tests sau đó run <strong>pod install</strong>:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">target '<span class="type">KIF</span>-<span class="type">UITestDemoTests'</span> <span class="keyword">do</span></span><br><span class="line">inherit! :search_paths</span><br><span class="line">pod '<span class="type">KIF'</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>Để làm việc với <strong>KIF</strong> thì ta cần add thêm các extension sau:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> XCTest</span><br><span class="line"><span class="meta">@testable</span> <span class="keyword">import</span> UITestDemo</span><br><span class="line"><span class="keyword">import</span> KIF</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">XCTestCase</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tester</span><span class="params">(file : String = #file, <span class="number">_</span> line : Int = #line)</span></span> -&gt; <span class="type">KIFUITestActor</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">KIFUITestActor</span>(inFile: file, atLine: line, delegate: <span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">system</span><span class="params">(file : String = #file, <span class="number">_</span> line : Int = #line)</span></span> -&gt; <span class="type">KIFSystemTestActor</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">KIFSystemTestActor</span>(inFile: file, atLine: line, delegate: <span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">KIFTestActor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tester</span><span class="params">(file : String = #file, <span class="number">_</span> line : Int = #line)</span></span> -&gt; <span class="type">KIFUITestActor</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">KIFUITestActor</span>(inFile: file, atLine: line, delegate: <span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">system</span><span class="params">(file : String = #file, <span class="number">_</span> line : Int = #line)</span></span> -&gt; <span class="type">KIFSystemTestActor</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">KIFSystemTestActor</span>(inFile: file, atLine: line, delegate: <span class="keyword">self</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Với ứng dụng Demo trên thì ta có thể nghĩ ra <strong>testcase</strong> sau:</p>
 <ul>
-<li><p>create</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.create &#123; observer <span class="keyword">in</span></span><br><span class="line">  observer.onNext(data)</span><br><span class="line">  observer.onComplete()</span><br><span class="line">  <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line">  ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>of:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>) <span class="comment">// tạo ra 3 events "a", "b", "c"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>just:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.just([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// tạo ra 1 event với giá trị [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>interval:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scheduler = <span class="type">ConcurrentDispatchQueueScheduler</span>(globalConcurrentQueueQOS: .background)</span><br><span class="line"><span class="type">Observable</span>.interval(<span class="number">60</span>, scheduler: scheduler)</span><br></pre></td></tr></table></figure>
-</li>
+<li>Username rỗng -&gt; SignButton Disable</li>
+<li>Password rỗng -&gt; SignButton Disable</li>
+<li>Username &amp;  Password không rỗng -&gt; SignButton Enable</li>
+<li>Username = “framgia” và password = “123456” -&gt; Show status Success.</li>
+<li>Username khác “framgia” hoặc password khác “123456” -&gt; Show status Error.</li>
 </ul>
-<p>Đến đây thì các bạn đã có cái nhìn khái quát về Observable trong RxSwift hẹn gặp lại trong các bài về RxSwift tiếp theo.</p>
+<p>Để viết UITest ta khai báo các <strong>accessibilityLabel</strong> cho các UIControl (với tableView và collectionView thì dùng <strong>accessibilityIdentifier</strong>):<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">usernameTextField.accessibilityLabel = <span class="string">"login.username.textfield"</span></span><br><span class="line">passwordTextField.accessibilityLabel = <span class="string">"login.password.textfield"</span></span><br><span class="line">signInButton.accessibilityLabel = <span class="string">"login.signIn.button"</span></span><br><span class="line">loginStatusLabel.accessibilityLabel = <span class="string">"login.status.label"</span></span><br></pre></td></tr></table></figure></p>
+<p>Dựa trên 5 <strong>testcase</strong> trên thì ta có 5 func UITest sau:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginTest</span>: <span class="title">KIFTestCase</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">beforeEach</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.beforeEach()</span><br><span class="line">        tester().clearTextFromView(withAccessibilityLabel: <span class="string">"login.username.textfield"</span>)</span><br><span class="line">        tester().clearTextFromView(withAccessibilityLabel: <span class="string">"login.password.textfield"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test_userNameIsEmpty_SignInButtonDisable</span><span class="params">()</span></span> &#123;</span><br><span class="line">        tester().clearTextFromView(withAccessibilityLabel: <span class="string">"login.username.textfield"</span>)</span><br><span class="line">        tester().enterText(<span class="string">"1234"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.password.textfield"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> signInButton = tester().waitForView(withAccessibilityLabel: <span class="string">"login.signIn.button"</span>) <span class="keyword">as</span>! <span class="type">UIButton</span></span><br><span class="line">        <span class="type">XCTAssertFalse</span>(signInButton.isEnabled)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test_passwordIsEmpty_SignInButtonDisable</span><span class="params">()</span></span> &#123;</span><br><span class="line">        tester().enterText(<span class="string">"framgia"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.username.textfield"</span>)</span><br><span class="line">        tester().clearTextFromView(withAccessibilityLabel: <span class="string">"login.password.textfield"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> signInButton = tester().waitForView(withAccessibilityLabel: <span class="string">"login.signIn.button"</span>) <span class="keyword">as</span>! <span class="type">UIButton</span></span><br><span class="line">        <span class="type">XCTAssertFalse</span>(signInButton.isEnabled)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test_validUsernameAndPassword_SignInButtonEnable</span><span class="params">()</span></span>&#123;</span><br><span class="line">        tester().enterText(<span class="string">"framgia"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.username.textfield"</span>)</span><br><span class="line">        tester().enterText(<span class="string">"framgia"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.password.textfield"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> signInButton = tester().waitForView(withAccessibilityLabel: <span class="string">"login.signIn.button"</span>) <span class="keyword">as</span>! <span class="type">UIButton</span></span><br><span class="line">        <span class="type">XCTAssertTrue</span>(signInButton.isEnabled)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test_SignInSuccess_showSuccessStatus</span><span class="params">()</span></span>&#123;</span><br><span class="line">        tester().enterText(<span class="string">"framgia"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.username.textfield"</span>)</span><br><span class="line">        tester().enterText(<span class="string">"123456"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.password.textfield"</span>)</span><br><span class="line"></span><br><span class="line">        tester().tapView(withAccessibilityLabel: <span class="string">"login.signIn.button"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> statusLabel = tester().waitForView(withAccessibilityLabel: <span class="string">"login.status.label"</span>) <span class="keyword">as</span>! <span class="type">UILabel</span></span><br><span class="line">        <span class="type">XCTAssert</span>(statusLabel.text == <span class="string">"Success"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test_SignInError_showErrorStatus</span><span class="params">()</span></span>&#123;</span><br><span class="line">        tester().enterText(<span class="string">"hanoi"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.username.textfield"</span>)</span><br><span class="line">        tester().enterText(<span class="string">"123456"</span>, intoViewWithAccessibilityLabel: <span class="string">"login.password.textfield"</span>)</span><br><span class="line"></span><br><span class="line">        tester().tapView(withAccessibilityLabel: <span class="string">"login.signIn.button"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> statusLabel = tester().waitForView(withAccessibilityLabel: <span class="string">"login.status.label"</span>) <span class="keyword">as</span>! <span class="type">UILabel</span></span><br><span class="line">        <span class="type">XCTAssert</span>(statusLabel.text == <span class="string">"Error"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Run Test:<br><img src="https://images.viblo.asia/3b566098-c9c4-413c-b82e-f347a1e62f1b.gif" alt=""></p>
+<h4 id="Ket-luan"><a href="#Ket-luan" class="headerlink" title="Kết luận:"></a>Kết luận:</h4><p>UITest mang lại rất nhiều lợi ích cho ứng dụng, giúp cho ứng dụng ít bug hơn và người vào sau cũng có thể dễ dàng nắm được follow.<br>Hi vọng qua bài viết các bạn có thể nắm sơ qua được UITest và áp dụng chúng vào các project.</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>Date: <a href="https://pdn1905.github.io/iOS/rxPart1/">September 9th 2018, 11:37:18 am</a>
+            <p>Date: <a href="https://pdn1905.github.io/uncategorized/UITesting/">March 4th 2019, 10:24:08 pm</a>
         </div>
     
     <!-- paginator  -->
@@ -450,16 +437,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/iOS/e-mc-2/" title= e=mc^2 >
-                    <div class="nextTitle">e=mc^2</div>
+                <a href= "/uncategorized/LayoutWithStevia/" title= Write readable auto-layout code with Stevia. >
+                    <div class="nextTitle">Write readable auto-layout code with Stevia.</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/story/usandthem/" title= Chúng ta của sau này... >
-                    <div class="prevTitle">Chúng ta của sau này...</div>
+                <a href= "/iOS/caculator-coreML/" title= Handwritten digit detection. >
+                    <div class="prevTitle">Handwritten digit detection.</div>
                 </a>
             
         </li>
@@ -580,7 +567,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional-Reactive-Programming"><span class="toc-number">1.</span> <span class="toc-text">Functional Reactive Programming:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RxSwift"><span class="toc-number">2.</span> <span class="toc-text">RxSwift :</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream"><span class="toc-number">2.1.</span> <span class="toc-text">Stream :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observable"><span class="toc-number">2.2.</span> <span class="toc-text">Observable :</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cach-tao-Observable"><span class="toc-number">2.2.1.</span> <span class="toc-text">Cách tạo Observable :</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#UI-Testing"><span class="toc-number">1.</span> <span class="toc-text">UI Testing:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KIF-framework"><span class="toc-number">2.</span> <span class="toc-text">KIF framework</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Demo"><span class="toc-number">3.</span> <span class="toc-text">Demo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ket-luan"><span class="toc-number">4.</span> <span class="toc-text">Kết luận:</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
