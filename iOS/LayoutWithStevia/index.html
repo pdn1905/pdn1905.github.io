@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Home</title>
+    <title>Write readable auto-layout code with Stevia. · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Write readable auto-layout code with Stevia.</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Home</a>
 </header>
@@ -213,24 +226,78 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/autolayout.jpeg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Write readable auto-layout code with Stevia.
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "auto-layout">auto-layout</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">775</span> / Reading time: <span class="post-count">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,74 +398,84 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/caculator-coreML/" >
-            
-                <span>Handwritten digit detection.</span>
-        </a>
-        <div class="abstract-content">
-            Machine Learning thực sự là một lĩnh vực rất hot trong CNTT hiện nay, hầu hết các công ty, doanh nghiệp lớn như Apple, Google.. đều đầu tư rất nhiều nguồn lực cũng như tiền bạc để tham gia vào lĩnh vực của tương lai này . Hàng loạt các ứng dụng , sản phẩm Machine Learning được giới thiệu, tiêu bi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/e-mc-2/" >
-            
-                <span>e=mc^2</span>
-        </a>
-        <div class="abstract-content">
-            Năm 1905 một định luật vật lý kinh điển được Enstein giới thiệu và được cả thế giới công nhận sau đó: e=mc^2. Hơn một thế kỉ sau, có lẻ ở nơi tiên cảnh Enstein cũng không thể ngờ được rằng định lý của mình lại một lần nửa chính xác trong ngành công nghiệp IT đầy “cạm bẫy” hiện nay (lol).
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Có 2 cách xây dựng giao diện trên các ứng dụng iOS : dùng Interface Builder (Xib, Storyboard) và dùng code thuần. Việc auto-layout, kéo thả trong Interface Builder rất dễ dàng cho những developer mới tiếp cận, nhưng bên cạnh đó có những nhược điểm sau:</p>
+<ul>
+<li>Việc kéo thả sẽ trở nên khó khăn đối với các giao diện phức tạp.</li>
+<li>Thời gian compile tăng.</li>
+<li>Dễ bị conflit code với người khác khi làm task trên cùng 1 storyboard.</li>
+<li>Không có tính tái sử dụng.<br>Còn việc code thuần giao diện với các API apple đã hỗ trợ sẵn rất phức tạp và không thân thiện với những người mới tiếp cận.<br>Hôm nay mình sẽ giới thiệu với các bạn một thư viện giúp việc code giao diện trở nên dễ dàng và rõ ràng xúc tích hơn : <a href="https://github.com/freshOS/Stevia" target="_blank" rel="noopener">Stevia</a></li>
+</ul>
+<h3 id="Tai-sao-la-Stevia"><a href="#Tai-sao-la-Stevia" class="headerlink" title="Tại sao là Stevia?"></a>Tại sao là Stevia?</h3><ul>
+<li>Với Stevia việc viết code auto-layout sẽ trở nên ngắn gọn và dễ hiểu.</li>
+<li>Giảm thời gian bảo trì cho dự án.</li>
+<li>Styles kiểu CSS rất thân thuộc với hầu hết mọi người.</li>
+</ul>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage:"></a>Usage:</h3><p>Sử dụng Podfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target ‘ProjectName’ do</span><br><span class="line">pod ‘Stevia’</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<h3 id="Auto-Layout"><a href="#Auto-Layout" class="headerlink" title="Auto Layout"></a>Auto Layout</h3><p><img src="https://images.viblo.asia/6d3447d7-9d41-4bb0-afd5-8c98a800de7f.png" alt=""></p>
+<p>Với giao diện như form login trên.</p>
+<ul>
+<li>Autou layout với native code:</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">email.translatesAutoresizingMaskIntoConstraints = <span class="literal">false</span></span><br><span class="line">password.translatesAutoresizingMaskIntoConstraints = <span class="literal">false</span></span><br><span class="line">login.translatesAutoresizingMaskIntoConstraints = <span class="literal">false</span></span><br><span class="line">addSubview(email)</span><br><span class="line">addSubview(password)</span><br><span class="line">addSubview(login)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Layout (using latest layoutAnchors)</span></span><br><span class="line">email.topAnchor.constraint(equalTo: topAnchor, constant: <span class="number">100</span>).isActive = <span class="literal">true</span></span><br><span class="line">email.leftAnchor.constraint(equalTo: leftAnchor, constant: <span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">email.rightAnchor.constraint(equalTo: rightAnchor, constant: -<span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">email.heightAnchor.constraint(equalToConstant: <span class="number">80</span>).isActive = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">password.topAnchor.constraint(equalTo: email.bottomAnchor, constant: <span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">password.leftAnchor.constraint(equalTo: leftAnchor, constant: <span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">password.rightAnchor.constraint(equalTo: rightAnchor, constant: -<span class="number">8</span>).isActive = <span class="literal">true</span></span><br><span class="line">password.heightAnchor.constraint(equalToConstant: <span class="number">80</span>).isActive = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">login.bottomAnchor.constraint(equalTo: bottomAnchor, constant: <span class="number">0</span>).isActive = <span class="literal">true</span></span><br><span class="line">login.leftAnchor.constraint(equalTo: leftAnchor).isActive = <span class="literal">true</span></span><br><span class="line">login.rightAnchor.constraint(equalTo: rightAnchor).isActive = <span class="literal">true</span></span><br><span class="line">login.heightAnchor.constraint(equalToConstant: <span class="number">80</span>).isActive = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><strong>Với Stevia</strong> có 3 phong cách auto-layout như sau:</p>
+<ul>
+<li><p>Type-safe visual format</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add subviews</span></span><br><span class="line">sv(</span><br><span class="line">email,</span><br><span class="line">password,</span><br><span class="line">login</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">layout(</span><br><span class="line"><span class="number">100</span>,</span><br><span class="line">|-email-| ~ <span class="number">80</span>,</span><br><span class="line"><span class="number">8</span>,</span><br><span class="line">|-password-| ~ <span class="number">80</span>,</span><br><span class="line"><span class="string">""</span>,</span><br><span class="line">|login| ~ <span class="number">80</span>,</span><br><span class="line"><span class="number">0</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>⛓ Chainable api</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add subviews</span></span><br><span class="line">sv(</span><br><span class="line">email,</span><br><span class="line">password,</span><br><span class="line">login</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">email.top(<span class="number">100</span>).fillHorizontally(m: <span class="number">8</span>).height(<span class="number">80</span>)</span><br><span class="line">password.<span class="type">Top</span> == email.<span class="type">Bottom</span> + <span class="number">8</span></span><br><span class="line">password.fillHorizontally(m: <span class="number">8</span>).height(<span class="number">80</span>)</span><br><span class="line">login.bottom(<span class="number">0</span>).fillHorizontally().height(<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>📐 Equation based layout<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add subviews</span></span><br><span class="line">sv(</span><br><span class="line">email,</span><br><span class="line">password,</span><br><span class="line">login</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">email.<span class="type">Top</span> == <span class="type">Top</span> + <span class="number">100</span></span><br><span class="line">email.<span class="type">Left</span> == <span class="type">Left</span> + <span class="number">8</span></span><br><span class="line">email.<span class="type">Right</span> == <span class="type">Right</span> - <span class="number">8</span></span><br><span class="line">email.<span class="type">Height</span> == <span class="number">80</span></span><br><span class="line"></span><br><span class="line">password.<span class="type">Top</span> == email.<span class="type">Bottom</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Left</span> == <span class="type">Left</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Right</span> == <span class="type">Right</span> - <span class="number">8</span></span><br><span class="line">password.<span class="type">Height</span> == <span class="number">80</span></span><br><span class="line"></span><br><span class="line">password.<span class="type">Top</span> == email.<span class="type">Bottom</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Left</span> == <span class="type">Left</span> + <span class="number">8</span></span><br><span class="line">password.<span class="type">Right</span> == <span class="type">Right</span> - <span class="number">8</span></span><br><span class="line">password.<span class="type">Height</span> == <span class="number">80</span></span><br><span class="line"></span><br><span class="line">login.<span class="type">Left</span> == <span class="type">Left</span></span><br><span class="line">login.<span class="type">Right</span> == <span class="type">Right</span></span><br><span class="line">login.<span class="type">Bottom</span> == <span class="type">Bottom</span></span><br><span class="line">login.<span class="type">Height</span> == <span class="number">80</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Ngoài ra <strong>Stevia</strong> còn cung cấp rất nhiều thuộc tính giúp cho việc code layout trở nên dễ dàng hơn, các bạn có thể xem docs tại đây: <a href="http://freshos.org/SteviaDocs/" target="_blank" rel="noopener">http://freshos.org/SteviaDocs/</a></p>
+<h3 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h3><p>Như các bạn thấy ở trên thì code giao diện với <strong>Stevia</strong> trở nên ngắn gọn dễ hiểu và vui hơn so với code layout “native”.  Hi vọng các bạn sẽ tìm được một phương pháp mới tốt hơn để thiết kế giao diện trong ứng dụng iOS đơn giản và hiệu quả hơn. Cảm ơn các bạn đã theo dõi.</p>
 
-error =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/iOS/LayoutWithStevia/">March 4th 2019, 10:38:50 pm</a>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/iOS/UserDefault/" title= UserDefaults in Swift >
+                    <div class="nextTitle">UserDefaults in Swift</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/uncategorized/UITesting/" title= Automated UI Testing with KIF >
+                    <div class="prevTitle">Automated UI Testing with KIF</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -484,6 +561,24 @@ error =...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tai-sao-la-Stevia"><span class="toc-number">1.</span> <span class="toc-text">Tại sao là Stevia?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Usage"><span class="toc-number">2.</span> <span class="toc-text">Usage:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Layout"><span class="toc-number">3.</span> <span class="toc-text">Auto Layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ket"><span class="toc-number">4.</span> <span class="toc-text">Kết</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -770,6 +865,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
