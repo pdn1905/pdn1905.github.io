@@ -398,28 +398,35 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Có nhiều cách để lưu trữ dữ liệu cục bộ trong ứng dụng iOS. <strong>UserDefaults</strong> là một trong số các cách phổ biến nhất để làm việc đó. </p>
-<h4 id="UserDefaults"><a href="#UserDefaults" class="headerlink" title="UserDefaults"></a>UserDefaults</h4><blockquote>
-<p>An interface to the user’s defaults database, where you store key-value<br>pairs persistently across launches of your app. (Một giao diện cơ sở dữ liệu mặc định, cho phép  lưu trữ các cặp <strong>key - value</strong> trong các lần khởi chạy ứng dụng.)</p>
+        <p>Có nhiều cách để lưu trữ dữ liệu cục bộ trong ứng dụng iOS. <strong>UserDefaults</strong> là một trong số các cách phổ biến nhất để làm việc đó.</p>
+<h4>UserDefaults</h4>
+<blockquote>
+<p>An interface to the user’s defaults database, where you store key-value
+pairs persistently across launches of your app. (Một giao diện cơ sở dữ liệu mặc định, cho phép  lưu trữ các cặp <strong>key - value</strong> trong các lần khởi chạy ứng dụng.)</p>
 </blockquote>
 <p>Loại dữ liệu nào chúng ta có thể lưu trữ trong UserDefaults?</p>
 <blockquote>
 <p>A default object must be a property list—that is, an instance of (or for collections, a combination of instances of) NSData, NSString, NSNumber, NSDate, NSArray, or NSDictionary. If you want to store any other type of object, you should typically archive it to create an instance of NSData. (Một đối tượng UserDefaults là một property list, đó là một thể hiện của NSData, NSString, NSNumber, NSDate, NSArray. Nếu bạn muốn lưu trữ bất kỳ loại đối tượng nào khác, bạn nên lưu trữ dưới dạng thể hiện của NSData.)</p>
 </blockquote>
-<p>Vậy “<strong>Property list</strong>“ là gì?</p>
-<p>Là các file có đuôi .plist, dùng để lưu các dữ liệu có dạng như một hệ thống phân cấp, như các biến NSArray, hay NSDictionary, với dung lượng không quá lớn. Việc lưu các dữ liệu kiểu này vào các file plist sẽ làm cho dữ liệu được lưu hiển thị một cách rõ ràng nhất. “Property list” phổ biến mà bạn hay gặp đó là file info.plist khi khởi tạo một project iOS.<br><img src="https://images.viblo.asia/29b73870-9890-4287-b4d9-5601472462a3.png" alt=""></p>
-<p>Khi bạn lưu trữ một đối tượng với <strong>UserDefaults</strong> thì nó sẽ được lưu ở 1 file .plist trong folder Library của ứng dụng. Chúng ta có thể kiểm tra trong folder Library như sau:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">UserDefaults</span>.standard.<span class="keyword">set</span>(<span class="string">"https://sun-asterisk.com"</span>, forKey: <span class="string">"website"</span>)</span><br><span class="line">    <span class="type">UserDefaults</span>.standard.<span class="keyword">set</span>(<span class="literal">false</span>, forKey: <span class="string">"framgia"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> library_path = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.libraryDirectory, .userDomainMask, <span class="literal">true</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"App Library Path is <span class="subst">\(library_path)</span>"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Chạy ứng dụng sau đó nhấn tổ hợp “cmd” + “shift” + “G”, copy đường dẫn vừa được in ra để đi tới folder Library của ứng dụng.</p>
+<p>Vậy &quot;<strong>Property list</strong>&quot; là gì?</p>
+<p>Là các file có đuôi .plist, dùng để lưu các dữ liệu có dạng như một hệ thống phân cấp, như các biến NSArray, hay NSDictionary, với dung lượng không quá lớn. Việc lưu các dữ liệu kiểu này vào các file plist sẽ làm cho dữ liệu được lưu hiển thị một cách rõ ràng nhất. &quot;Property list&quot; phổ biến mà bạn hay gặp đó là file info.plist khi khởi tạo một project iOS.
+<img src="https://images.viblo.asia/29b73870-9890-4287-b4d9-5601472462a3.png" alt=""></p>
+<p>Khi bạn lưu trữ một đối tượng với <strong>UserDefaults</strong> thì nó sẽ được lưu ở 1 file .plist trong folder Library của ứng dụng. Chúng ta có thể kiểm tra trong folder Library như sau:
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">UserDefaults</span>.standard.<span class="keyword">set</span>(<span class="string">"https://sun-asterisk.com"</span>, forKey: <span class="string">"website"</span>)</span><br><span class="line">    <span class="type">UserDefaults</span>.standard.<span class="keyword">set</span>(<span class="literal">false</span>, forKey: <span class="string">"framgia"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> library_path = <span class="type">NSSearchPathForDirectoriesInDomains</span>(.libraryDirectory, .userDomainMask, <span class="literal">true</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"App Library Path is <span class="subst">\(library_path)</span>"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Chạy ứng dụng sau đó nhấn tổ hợp &quot;cmd&quot; + &quot;shift&quot; + &quot;G&quot;, copy đường dẫn vừa được in ra để đi tới folder Library của ứng dụng.</p>
 <p><img src="https://images.viblo.asia/f28ff6d3-7e3a-430c-a168-fca1c01e0f7a.png" alt=""></p>
-<p>Bạn sẽ thấy hai folder “Caches” và  “Preferences”, file UserDefaults plist sẽ được lưu ở folder “Preferences”.<br><img src="https://images.viblo.asia/c744a06e-e02d-41b5-9159-e9a1e77fb8ca.png" alt=""></p>
+<p>Bạn sẽ thấy hai folder &quot;Caches&quot; và  &quot;Preferences&quot;, file UserDefaults plist sẽ được lưu ở folder &quot;Preferences&quot;.
+<img src="https://images.viblo.asia/c744a06e-e02d-41b5-9159-e9a1e77fb8ca.png" alt=""></p>
 <p><img src="https://images.viblo.asia/49e6ccef-8376-48fb-b44b-06a407f7b759.png" alt=""></p>
-<p>Double click vào file plist sẽ thấy được các key-value tương ứng đã được lưu:<br><img src="https://images.viblo.asia/a1dfefa5-caee-4ee7-a491-04f5a9fad455.png" alt=""></p>
+<p>Double click vào file plist sẽ thấy được các key-value tương ứng đã được lưu:
+<img src="https://images.viblo.asia/a1dfefa5-caee-4ee7-a491-04f5a9fad455.png" alt=""></p>
 <p>Vì UserDefaults sử dụng định dạng .plist để lưu dữ liệu, nên chỉ có thể lưu trữ dữ liệu với loại NSString, NSNumber, NSData, NSArray, NSDadata hoặc NSData. Nếu muốn lưu trữ đối tượng tùy chỉnh vào UserDefaults, chúng ta có thể sử dụng Codable và PropertyListEncoder convert sang NSData để lưu.</p>
 <p>Việc lưu trữ một lượng lớn dữ liệu vào UserDefaults có thể ảnh hưởng đáng kể đến hiệu suất của ứng dụng vì toàn bộ tệp plist UserDefaults được tải vào bộ nhớ khi ứng dụng của bạn khởi chạy. Như đã đề cập trong Apple Document:</p>
 <blockquote>
 <p>UserDefaults caches the information to avoid having to open the user’s defaults database each time you need a default value.</p>
 </blockquote>
-<h4 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h4><p><strong>UserDefaults</strong>  rất thích hợp để lưu trữ các dữ liệu “nhỏ, gọn” . Tuy nhiên do <strong>UserDefaults</strong> lưu trữ ở file plist trong folder Library  của ứng dụng, nên có thể dễ dàng bị can thiệp và thay đổi vì vậy không thích hợp lưu trữ các dữ liệu yêu cầu bảo mật. Với các dữ liệu yêu cầu bảo mật thì các bạn có thể dùng <strong>Keychain</strong> để lưu trữ.</p>
+<h4>Kết</h4>
+<p><strong>UserDefaults</strong>  rất thích hợp để lưu trữ các dữ liệu &quot;nhỏ, gọn&quot; . Tuy nhiên do <strong>UserDefaults</strong> lưu trữ ở file plist trong folder Library  của ứng dụng, nên có thể dễ dàng bị can thiệp và thay đổi vì vậy không thích hợp lưu trữ các dữ liệu yêu cầu bảo mật. Với các dữ liệu yêu cầu bảo mật thì các bạn có thể dùng <strong>Keychain</strong> để lưu trữ.</p>
 
     </article>
     <!-- license  -->
@@ -563,7 +570,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#UserDefaults"><span class="toc-number">1.</span> <span class="toc-text">UserDefaults</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ket"><span class="toc-number">2.</span> <span class="toc-text">Kết</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">UserDefaults</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Kết</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

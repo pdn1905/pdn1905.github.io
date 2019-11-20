@@ -269,7 +269,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">908</span> / Reading time: <span class="post-count">6 min</span></span>
+                        <span>Word count: <span class="post-count">907</span> / Reading time: <span class="post-count">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -398,42 +398,58 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. Vậy đâu là những lợi ích mà Rx mang lại để nó được sử dụng rộng rãi như vậy?</p>
-<h2 id="Functional-Reactive-Programming"><a href="#Functional-Reactive-Programming" class="headerlink" title="Functional Reactive Programming:"></a>Functional Reactive Programming:</h2><p>Trước khi tìm hiểu về thư viện RxSwift thì chúng ta phải biết về <strong>Functional Reactive Programming (FRP)</strong>. <strong>FPR</strong> là sự kết hợp giữa <strong>Reactive Programming</strong> và <strong>Functional Programming</strong>.</p>
+        <p>Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở &quot;trend&quot; trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và &quot;tin cậy&quot; hơn. Vậy đâu là những lợi ích mà Rx mang lại để nó được sử dụng rộng rãi như vậy?</p>
+<h2>Functional Reactive Programming:</h2>
+<p>Trước khi tìm hiểu về thư viện RxSwift thì chúng ta phải biết về <strong>Functional Reactive Programming (FRP)</strong>. <strong>FPR</strong> là sự kết hợp giữa <strong>Reactive Programming</strong> và <strong>Functional Programming</strong>.</p>
 <p>Có rất nhiều định nghĩa về Reactive Programming và sau khi tìm hiểu, tham khảo thì mình thấy định nghĩa của <strong>Andre Staltz</strong> được thừa nhận rộng rãi nhất:</p>
 <blockquote>
-<p>“Reactive programming is programming with asynchronous data streams“ </p>
+<p>“Reactive programming is programming with asynchronous data streams“</p>
 </blockquote>
 <p><img src="/intro/stream.jpg" alt="Everything is stream"></p>
-<p>Có hai từ khóa bạn cần chú ý trong định nghĩa trên là <strong>asynchronous</strong> và <strong>streams</strong> . Trong FRP tất cả dữ liệu đều được truyền tải dưới dạng <strong>stream</strong> theo trình tự thời gian, việc này giúp cho việc xác định các trạng thái (như data trả về, error, completed…) của một tác vụ bất đồng bộ (<strong>asynchronous</strong>) trở nên dễ dàng hơn. Ngoài ra điều làm nên sức mạnh của FRP là việc áp dụng <strong>functional programming</strong> để filter, chuyển đổi hoặc kết hợp các stream với nhau để tạo nên stream mới mà không làm thay đổi trạng thái của nó. Khái niệm thì có vẻ khó hiểu nhưng nhìn chung ý tưởng chính của FRP là khả năng phản ứng với các thay đổi - các dữ liệu mới nhất bằng cách sử dụng <strong>data stream</strong> một cách linh hoạt. </p>
-<h2 id="RxSwift"><a href="#RxSwift" class="headerlink" title="RxSwift :"></a>RxSwift :</h2><p><strong>RxSwift</strong> là framework hỗ trợ lập trình FRP bằng ngôn ngữ Swift trong các ứng dụng iOS.</p>
-<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream :"></a>Stream :</h3><p>Trong <strong>FRP</strong> để các đối tượng chủ động phản hồi khi có sự thay đổi thì phải tạo ra 2 đối tượng là Observer (quan sát) và Observable (có thể quan sát), hai đối tương sẽ được kết với nhau thông qua <strong>stream</strong>. Mọi thứ trong <strong>FPR</strong> đều là <strong>stream</strong>.</p>
+<p>Có hai từ khóa bạn cần chú ý trong định nghĩa trên là <strong>asynchronous</strong> và <strong>streams</strong> . Trong FRP tất cả dữ liệu đều được truyền tải dưới dạng <strong>stream</strong> theo trình tự thời gian, việc này giúp cho việc xác định các trạng thái (như data trả về, error, completed...) của một tác vụ bất đồng bộ (<strong>asynchronous</strong>) trở nên dễ dàng hơn. Ngoài ra điều làm nên sức mạnh của FRP là việc áp dụng <strong>functional programming</strong> để filter, chuyển đổi hoặc kết hợp các stream với nhau để tạo nên stream mới mà không làm thay đổi trạng thái của nó. Khái niệm thì có vẻ khó hiểu nhưng nhìn chung ý tưởng chính của FRP là khả năng phản ứng với các thay đổi - các dữ liệu mới nhất bằng cách sử dụng <strong>data stream</strong> một cách linh hoạt.</p>
+<h2>RxSwift :</h2>
+<p><strong>RxSwift</strong> là framework hỗ trợ lập trình FRP bằng ngôn ngữ Swift trong các ứng dụng iOS.</p>
+<h3>Stream :</h3>
+<p>Trong <strong>FRP</strong> để các đối tượng chủ động phản hồi khi có sự thay đổi thì phải tạo ra 2 đối tượng là Observer (quan sát) và Observable (có thể quan sát), hai đối tương sẽ được kết với nhau thông qua <strong>stream</strong>. Mọi thứ trong <strong>FPR</strong> đều là <strong>stream</strong>.</p>
 <blockquote>
-<p> Click button: tap–tap–tap–tap -&gt; Stream<br> Scroll TableView: scroll–scroll–scroll -&gt; Stream<br> Request API: request–completed–data -&gt; Stream</p>
+<p>Click button: tap--tap--tap--tap -&gt; Stream
+Scroll TableView: scroll--scroll--scroll -&gt; Stream
+Request API: request--completed--data -&gt; Stream</p>
 </blockquote>
-<h3 id="Observable"><a href="#Observable" class="headerlink" title="Observable :"></a>Observable :</h3><p>Observable là trái tim của RX, là nơi khởi nguồn của stream.<br>Observer lắng nghe tới Observable, và nhận được những signal được emit từ Observable.<br>Các Observable thì có thể không phát hoặc phát là nhiều sự kiện trong suốt vòng đời tồn tại của mình. Trong RxSwift, mỗi một observable có thể có các trạng thái sau:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hello = <span class="type">Observable</span>.from([<span class="string">"H"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subscription = hello.subscribe &#123; event <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> event &#123;</span><br><span class="line">    <span class="keyword">case</span> .next(<span class="keyword">let</span> value):</span><br><span class="line">      <span class="built_in">print</span>(value)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">    <span class="keyword">case</span> .completed:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"completed"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">OUTPUT</span>:</span><br><span class="line"><span class="type">H</span> e l l o </span><br><span class="line">completed</span><br></pre></td></tr></table></figure>
+<h3>Observable :</h3>
+<p>Observable là trái tim của RX, là nơi khởi nguồn của stream.
+Observer lắng nghe tới Observable, và nhận được những signal được emit từ Observable.
+Các Observable thì có thể không phát hoặc phát là nhiều sự kiện trong suốt vòng đời tồn tại của mình. Trong RxSwift, mỗi một observable có thể có các trạng thái sau:</p>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hello = <span class="type">Observable</span>.from([<span class="string">"H"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> subscription = hello.subscribe &#123; event <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">switch</span> event &#123;</span><br><span class="line">    <span class="keyword">case</span> .next(<span class="keyword">let</span> value):</span><br><span class="line">      <span class="built_in">print</span>(value)</span><br><span class="line">    <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">      <span class="built_in">print</span>(error)</span><br><span class="line">    <span class="keyword">case</span> .completed:</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"completed"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">OUTPUT</span>:</span><br><span class="line"><span class="type">H</span> e l l o </span><br><span class="line">completed</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><p><strong>.next(value: T)</strong> :  Khi một giá trị hoặc một tập hợp các giá trị được thêm vào observable. Nó cũng sẽ gửi các giá trị này tới các <em> subscribers </em> đã subscribe trước đó.</p>
+<li>
+<p><strong>.next(value: T)</strong> :  Khi một giá trị hoặc một tập hợp các giá trị được thêm vào observable. Nó cũng sẽ gửi các giá trị này tới các * subscribers * đã subscribe trước đó.</p>
 </li>
-<li><p><strong>.error(error: Error)</strong> : Nếu gặp lỗi, một observable sẽ phát ra một sự kiện lỗi . Và observable này cũng sẽ bị hủy.</p>
+<li>
+<p><strong>.error(error: Error)</strong> : Nếu gặp lỗi, một observable sẽ phát ra một sự kiện lỗi . Và observable này cũng sẽ bị hủy.</p>
 </li>
-<li><p><strong>.completed</strong> : Nếu một observable kết thúc, nó cũng sẽ gửi một sự kiện kết thúc tới các subscribers.</p>
+<li>
+<p><strong>.completed</strong> : Nếu một observable kết thúc, nó cũng sẽ gửi một sự kiện kết thúc tới các subscribers.</p>
 </li>
 </ul>
-<h4 id="Cach-tao-Observable"><a href="#Cach-tao-Observable" class="headerlink" title="Cách tạo Observable :"></a>Cách tạo Observable :</h4><p>RxSwift hỗ trợ khá nhiều hàm để tạo observable như of, from, create, deferred, just, interval..</p>
+<h4>Cách tạo Observable :</h4>
+<p>RxSwift hỗ trợ khá nhiều hàm để tạo observable như of, from, create, deferred, just, interval..</p>
 <ul>
-<li><p>create</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.create &#123; observer <span class="keyword">in</span></span><br><span class="line">  observer.onNext(data)</span><br><span class="line">  observer.onComplete()</span><br><span class="line">  <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line">  ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>
+<p>create
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.create &#123; observer <span class="keyword">in</span></span><br><span class="line">  observer.onNext(data)</span><br><span class="line">  observer.onComplete()</span><br><span class="line">  <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line">  ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>of:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>) <span class="comment">// tạo ra 3 events "a", "b", "c"</span></span><br></pre></td></tr></table></figure>
+<li>
+<p>of:
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>) <span class="comment">// tạo ra 3 events "a", "b", "c"</span></span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>just:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.just([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// tạo ra 1 event với giá trị [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<li>
+<p>just:
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.just([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// tạo ra 1 event với giá trị [1, 2, 3]</span></span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>interval:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scheduler = <span class="type">ConcurrentDispatchQueueScheduler</span>(globalConcurrentQueueQOS: .background)</span><br><span class="line"><span class="type">Observable</span>.interval(<span class="number">60</span>, scheduler: scheduler)</span><br></pre></td></tr></table></figure>
+<li>
+<p>interval:
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scheduler = <span class="type">ConcurrentDispatchQueueScheduler</span>(globalConcurrentQueueQOS: .background)</span><br><span class="line"><span class="type">Observable</span>.interval(<span class="number">60</span>, scheduler: scheduler)</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
 <p>Đến đây thì các bạn đã có cái nhìn khái quát về Observable trong RxSwift hẹn gặp lại trong các bài về RxSwift tiếp theo.</p>
@@ -580,7 +596,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional-Reactive-Programming"><span class="toc-number">1.</span> <span class="toc-text">Functional Reactive Programming:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RxSwift"><span class="toc-number">2.</span> <span class="toc-text">RxSwift :</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream"><span class="toc-number">2.1.</span> <span class="toc-text">Stream :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observable"><span class="toc-number">2.2.</span> <span class="toc-text">Observable :</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cach-tao-Observable"><span class="toc-number">2.2.1.</span> <span class="toc-text">Cách tạo Observable :</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Functional Reactive Programming:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">RxSwift :</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">Stream :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">Observable :</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.1.</span> <span class="toc-text">Cách tạo Observable :</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
