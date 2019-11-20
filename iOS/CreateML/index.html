@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>XIB and Storyboard Localization · Home</title>
+    <title>Training your Machine learning model with CreateML on iOS. · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >Home</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">XIB and Storyboard Localization</a>
+                <a href="#" class="post-name">Training your Machine learning model with CreateML on iOS.</a>
             </div>
     </div>
     
@@ -236,13 +236,13 @@ height:50vh;
     <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/404-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/apple.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            XIB and Storyboard Localization
+            Training your Machine learning model with CreateML on iOS.
             <!-- 404 -->
             
         </h1>
@@ -269,12 +269,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">502</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">1,409</span> / Reading time: <span class="post-count">9 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/06/08</span>
+                    <span class="post-intro-time">2019/11/20</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -398,47 +398,68 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p><img src="https://images.viblo.asia/46606284-7cb6-412c-a31e-1c9e0ced53d1.jpg" alt=""></p>
-<h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>Để ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file <strong>Localizable.strings</strong> tương ứng với ngôn ngữ đó. File <strong>Localizable.strings</strong> có syntax như sau:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&lt;key&gt;&quot; = &quot;&lt;value&gt;&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>Thông thường thì chúng ta sẽ kéo thả các outlet sau đó set localize cho outlet đó như ví dụ dưới đây.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> titleLabel: <span class="type">UILabel</span>!</span><br><span class="line"></span><br><span class="line">titleLabel.text  = <span class="type">NSLocalizedString</span>(<span class="string">"&lt;key&gt;"</span>, comment: <span class="string">""</span>)</span><br></pre></td></tr></table></figure></p>
-<p>Sau đây mình xin giới thiệu với các bạn cách Localization các UI trực tiếp trên file <strong>Xib</strong> hoặc <strong>Storyboard</strong> bằng <strong>@IBInspectable</strong> mà không cần phải kéo thả các <strong>outlet</strong>.</p>
-<h3 id="XIB-and-Storyboard-Localization"><a href="#XIB-and-Storyboard-Localization" class="headerlink" title="XIB and Storyboard Localization"></a>XIB and Storyboard Localization</h3><p><img src="https://images.viblo.asia/c158f205-051f-4c8b-b0ce-f39a7bedd2d2.png" alt=""></p>
-<p>Tạo một ứng dụng với form Sign In như trên. Ta sẽ tiến hành Localization ứng dụng với ngôn ngữ Vietnamese và Japanese.Trước tiên enable <strong>Localizations</strong> bằng cách vào <strong>Project</strong> -&gt; <strong>Info</strong> add các ngôn ngữ sử dụng trong ứng dụng.</p>
-<p><img src="https://images.viblo.asia/9c05f028-f609-429d-8c70-c58f6169210c.png" alt=""></p>
-<p>Project sẽ được generate ra 2 folder <strong>ja.lproj</strong> và <strong>vi.lproj</strong></p>
-<p><img src="https://images.viblo.asia/6dc6ec04-22ed-45bc-9da4-c4cad9949298.png" alt=""></p>
-<p>Bước tiếp theo ta tạo mới một string file <strong>Localizable.strings</strong></p>
-<p><img src="https://images.viblo.asia/0d42b510-e667-4e12-8459-45a19b2650b9.png" alt=""></p>
-<p>Tại file <strong>Localizable.strings</strong> click button <strong>Localize</strong> ở thanh navigator bên phải để tạo 2 file <strong>Localizable.strings(Vietnamese)</strong> và <strong>Localizable.strings(Japanese)</strong> :</p>
-<p><img src="https://images.viblo.asia/80d62e38-bbe8-4d50-9943-a153d888f952.png" alt=""></p>
-<p>Define các key và value tương ứng với các ngôn ngữ trong các file <strong>Localizable.strings</strong> :</p>
-<p><img src="https://images.viblo.asia/0fa20723-642c-4a78-82a6-c20e770732e0.png" alt=""></p>
-<p><img src="https://images.viblo.asia/81a953cd-7833-4510-9914-e3cf672d5bb7.png" alt=""></p>
-<p>Tạo các @IBInspectable localize cho các UI<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UILabel</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizeText: <span class="type">String</span> &#123;</span><br><span class="line">            <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                <span class="keyword">self</span>.text = <span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">get</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIButton</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizeTitle: <span class="type">String</span> &#123;</span><br><span class="line">                <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                    <span class="keyword">self</span>.setTitle(<span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">get</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UITextField</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizePlaceholder: <span class="type">String</span> &#123;</span><br><span class="line">                <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                    <span class="keyword">self</span>.placeholder = <span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">get</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Trong storyboard set các <strong>key</strong> @IBInspectable localize tương ứng cho các element</p>
-<p><img src="https://images.viblo.asia/c7da5e59-8f8b-4718-9e53-04f5c539c737.png" alt=""></p>
-<p>Vào <strong>Edit Scheme</strong> chọn ngôn ngữ và Run ứng dụng.</p>
-<p><img src="https://images.viblo.asia/9d11601c-e714-4699-b751-e96eb34de2a1.png" alt=""></p>
-<h3 id="Wrap-Up"><a href="#Wrap-Up" class="headerlink" title="Wrap Up"></a>Wrap Up</h3><p>Trên đây là cách Localization các UI mà không cần phải kéo thả <strong>outlet</strong> trong các ứng dụng iOS. Hi vọng bài viết sẽ giúp ích cho các bạn. Cảm ơn các bạn đã theo dõi. Source code: <a href="https://github.com/pdn1905/XibLocalize" target="_blank" rel="noopener">https://github.com/pdn1905/XibLocalize</a></p>
+        <h4 id="Gioi-thieu"><a href="#Gioi-thieu" class="headerlink" title="Giới thiệu:"></a>Giới thiệu:</h4><p>Vào mùa hè 2017, Apple đã giới thiệu <strong>CoreML</strong>, một framework cho phép bạn dễ dàng tích hợp các model Machine Learning vào ứng dụng của mình. Tuy nhiên, các model này chỉ có thể được tải xuống từ trang web của Apple hoặc được tạo ra với sự trợ giúp của một trong các thư viện Deep Learning của Python như Tensorflow, Keras, v.v. Vì vậy việc tạo ra model rất khó khăn đối với các iOS developer không có kinh nghiệm về Deep Learning. Tuy nhiên với sự ra đời của <strong>CreateML</strong> vào cuối năm 2018, các iOS developer đã có thể dễ dàng tạo ra các training model theo mong muốn.</p>
+<h4 id="What-can-it-do"><a href="#What-can-it-do" class="headerlink" title="What can it do?"></a>What can it do?</h4><p>Create ML cho phép bạn xây dựng model cho việc:</p>
+<ul>
+<li>Nhận dạng hình ảnh: bây giờ bạn có thể dễ dang tạo model để phân biện một con mèo với một con chó trên trong một bức ảnh :dog::cat:…v.v</li>
+<li>Phân loại văn bản: tạo ra một model để phân loại email spam cho riêng mình…v.v</li>
+<li>Dự đoán các giá trị bằng cách sử dụng dữ liệu cấu trúc: bạn có thể dự đoán giá nhà dựa trên diện tích vuông, vị trí và một số phòng ngủ….:houses:</li>
+</ul>
+<h4 id="HealthyLaucher-app"><a href="#HealthyLaucher-app" class="headerlink" title="HealthyLaucher app"></a>HealthyLaucher app</h4><h5 id="Chuc-nang"><a href="#Chuc-nang" class="headerlink" title="Chức năng:"></a>Chức năng:</h5><p>Ý tưởng đằng sau HealthyLuncher rất đơn giản: bạn tải lên một hình ảnh từ thư viện của mình và ứng dụng sẽ đánh giá xem bữa trưa của bạn có lành mạnh hay không. Bản thân nhiệm vụ này không dễ dàng, nhưng miễn là chúng ta sẽ tạo ra một mô hình Machine Learning cho mục đích giáo dục, chúng ta có thể đơn giản hóa nhiệm vụ. Vì vậy, giả sử rằng salad, trái cây và rau quả là tốt cho sức khỏe, trong khi các loại thức ăn nhanh phổ biến nhất thì không (bánh mì kẹp thịt, khoai tây chiên, pizza, bánh rán, v.v.).  Chúng ta sẽ tạo ra model theo điều kiện trên.</p>
+<h5 id="Data"><a href="#Data" class="headerlink" title="Data:"></a>Data:</h5><p>Trước hết, bạn cần sưu tầm các hình ảnh dữ liệu để training. Tôi đã tải xuống bộ dữ liệu salad, trái cây, rau và thức ăn nhanh từ bộ dữ liệu Open Images v4. Ngoài ra, tôi cũng đã tìm kiếm một vài hình ảnh trên<code>Google</code>, chọn tùy chọn <code>được gắn nhãn để sử dụng lại</code>. Cuối cùng, tôi đã nhận được 63 hình ảnh cho sức khỏe và 59 cho bộ dữ liệu đào tạo thức ăn nhanh + 20 hình ảnh cho sức khỏe và 17 cho bộ dữ liệu thử nghiệm thức ăn nhanh. </p>
+<p>Những điều cần nhớ:</p>
+<ul>
+<li><p>Apple khuyến nghị sử dụng ít nhất 10 hình ảnh cho mỗi nhãn.</p>
+</li>
+<li><p>Nhưng càng nhiều hình ảnh, càng tốt.</p>
+</li>
+<li><p>Bạn càng có nhiều hình ảnh, model đào tạo sẽ chính xác hơn.</p>
+</li>
+<li><p>Chuẩn bị tập dữ liệu và thử nghiệm.</p>
+</li>
+<li><p>Ngoài ra, bạn có thể chia một tập dữ liệu thành dữ liệu huấn luyện và kiểm tra trong mã.</p>
+</li>
+<li><p>Lý tưởng nhất là tỷ lệ dữ liệu / kiểm tra nên ở khoảng 80/20 hoặc 70/30.</p>
+</li>
+<li><p>Số lượng hình ảnh cho mỗi nhãn phải gần như nhau (tránh sự khác biệt lớn như 50 hình ảnh cho một và 500 cho hình ảnh khác).</p>
+</li>
+<li><p>Hình ảnh phải giống với hình ảnh mà model thực sẽ được sử dụng.</p>
+</li>
+<li><p>Cung cấp nhiều hình ảnh (góc khác nhau, điều kiện ánh sáng, v.v.).</p>
+</li>
+<li><p>Không có ràng buộc về kích thước, tuy nhiên nên ít nhất là 299x299 pixel.</p>
+</li>
+</ul>
+<p>Tiếp theo, bạn chỉ cần tạo hai thư mục với dữ liệu đào tạo và kiểm tra và thêm các thư mục con vào chúng với nhãn lớp làm tên của chúng.</p>
+<p><img src="https://images.viblo.asia/e7b9367b-6a0c-4c1f-8b91-e41b019ae336.png" alt=""></p>
+<h4 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h4><p><strong>MLImageClassifierBuilder</strong><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> CreateMLUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> builder = <span class="type">MLImageClassifierBuilder</span>()</span><br><span class="line">builder.showInLineView()</span><br></pre></td></tr></table></figure></p>
+<p>Run playground và thêm các hình ảnh test vào assistant editor. Bạn sẽ có mô hình của bạn trong vài giây.</p>
+<p><img src="https://i.ibb.co/2ds0kCY/1-03myt-G5-C8mv9j-MGq-Vowq-Lg-1.gif" alt=""></p>
+<p><strong>MLImageClassifier</strong></p>
+<p>Bạn có thể sử dụng <strong>MLImageClassifier</strong> có quy trình làm việc khá giống với <strong>MLImageClassifierBuider</strong>, chỉ khác là với nhiều code hơn. Trong MLImageClassifier, bạn có thể chỉ định các tham số đào tạo hoặc phân chia dữ liệu thành các tham số đào tạo. Bạn có thể nói MLImageClassifier cung cấp cho bạn nhiều không gian hơn để thử nghiệm. Nếu bạn đã quen thuộc với Machine Learning, tùy chọn này sẽ khiến bạn quan tâm hơn:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> CreateML</span><br><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="comment">// Initializing the properly labeled training data from Resources folder.</span></span><br><span class="line"><span class="keyword">let</span> trainingDataPath = <span class="type">Bundle</span>.main.path(forResource: <span class="string">"train"</span>, ofType: <span class="literal">nil</span>, inDirectory: <span class="string">"Data/image"</span>)!</span><br><span class="line"><span class="keyword">let</span> trainingData = <span class="type">MLImageClassifier</span>.<span class="type">DataSource</span>.labeledDirectories(at: <span class="type">URL</span>(fileURLWithPath: trainingDataPath))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Initializing the classifier with a training data.</span></span><br><span class="line"><span class="keyword">let</span> classifier = <span class="keyword">try</span>! <span class="type">MLImageClassifier</span>(trainingData: trainingData)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Evaluating training &amp; validation accuracies.</span></span><br><span class="line"><span class="keyword">let</span> trainingAccuracy = (<span class="number">1.0</span> - classifier.trainingMetrics.classificationError) * <span class="number">100</span> <span class="comment">// Result: 100%</span></span><br><span class="line"><span class="keyword">let</span> validationAccuracy = (<span class="number">1.0</span> - classifier.validationMetrics.classificationError) * <span class="number">100</span> <span class="comment">// Result: 100%</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Initializing the properly labeled testing data from Resources folder.</span></span><br><span class="line"><span class="keyword">let</span> testingDataPath = <span class="type">Bundle</span>.main.path(forResource: <span class="string">"test"</span>, ofType: <span class="literal">nil</span>, inDirectory: <span class="string">"Data/image"</span>)!</span><br><span class="line"><span class="keyword">let</span> testingData = <span class="type">MLImageClassifier</span>.<span class="type">DataSource</span>.labeledDirectories(at: <span class="type">URL</span>(fileURLWithPath: testingDataPath))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Counting the testing evaluation.</span></span><br><span class="line"><span class="keyword">let</span> evaluationMetrics = classifier.evaluation(on: testingData)</span><br><span class="line"><span class="keyword">let</span> evaluationAccuracy = (<span class="number">1.0</span> - evaluationMetrics.classificationError) * <span class="number">100</span>  <span class="comment">// Result: 97.22%</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Confusion matrix in order to see which labels were classified wrongly.</span></span><br><span class="line"><span class="keyword">let</span> confusionMatrix = evaluationMetrics.confusion</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Confusion matrix: <span class="subst">\(confusionMatrix)</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Metadata for saving the model.</span></span><br><span class="line"><span class="keyword">let</span> metadata = <span class="type">MLModelMetadata</span>(author: <span class="string">"Author"</span>,</span><br><span class="line">shortDescription: <span class="string">"A model trained to classify healthy and fast food lunch"</span>,</span><br><span class="line">version: <span class="string">"1.0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Saving the model. Remember to update the path. </span></span><br><span class="line"><span class="keyword">try</span> classifier.write(to: <span class="type">URL</span>(fileURLWithPath: <span class="string">"Path where you would like to save the model"</span>),</span><br><span class="line">metadata: metadata)</span><br></pre></td></tr></table></figure></p>
+<p><strong>Adding the model to the app</strong></p>
+<p>Bây giờ bạn có thể thêm model <strong>.mlmodel</strong> của mình vào HealthyLuncher.</p>
+<p><img src="https://images.viblo.asia/9a253c7e-2e13-489a-a6c1-fe277f8027b4.gif" alt=""></p>
+<h4 id="Ket"><a href="#Ket" class="headerlink" title="Kết:"></a>Kết:</h4><p>Bạn có thể cải thiện model bằng cách sử dụng các bộ dữ liệu lớn hơn. Hi vọng qua bài viết các bạn có thể tạo ra được các model riêng của mình để phục vụ trong ứng dụng. Cảm ơn các bạn đã theo dõi bài viết.</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
-            <p>Date: <a href="https://pdn1905.github.io/iOS/xib-localize/">June 8th 2018, 9:23:37 pm</a>
+            <p>Date: <a href="https://pdn1905.github.io/iOS/CreateML/">November 20th 2019, 7:00:41 pm</a>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/iOS/hello-world/" title= Unidirectional Data Flow With Redux In Swift. >
-                    <div class="nextTitle">Unidirectional Data Flow With Redux In Swift.</div>
-                </a>
-            
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS/compile/" title= Improve your Xcode (Swift) Compile Time >
+                    <div class="prevTitle">Improve your Xcode (Swift) Compile Time</div>
+                </a>
             
         </li>
     </ul>
@@ -558,7 +579,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduce"><span class="toc-number">1.</span> <span class="toc-text">Introduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XIB-and-Storyboard-Localization"><span class="toc-number">2.</span> <span class="toc-text">XIB and Storyboard Localization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wrap-Up"><span class="toc-number">3.</span> <span class="toc-text">Wrap Up</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Gioi-thieu"><span class="toc-number">1.</span> <span class="toc-text">Giới thiệu:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-can-it-do"><span class="toc-number">2.</span> <span class="toc-text">What can it do?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HealthyLaucher-app"><span class="toc-number">3.</span> <span class="toc-text">HealthyLaucher app</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Chuc-nang"><span class="toc-number">3.1.</span> <span class="toc-text">Chức năng:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Data"><span class="toc-number">3.2.</span> <span class="toc-text">Data:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Training"><span class="toc-number">4.</span> <span class="toc-text">Training</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ket"><span class="toc-number">5.</span> <span class="toc-text">Kết:</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
