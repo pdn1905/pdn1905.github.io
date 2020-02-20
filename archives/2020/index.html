@@ -194,10 +194,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -215,34 +213,21 @@
 
 
 
-height:50vh;
-
 >
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/rose_back.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Home
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                Stay hungry, stay foolish
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -354,147 +339,18 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/iOS/e-mc-2/" >
+        <a class="abstract-title" href = "/iOS/components/" >
             
-                <span>e=mc^2</span>
+                <span>Stateful vs Stateless vs Pure React Components</span>
         </a>
         <div class="abstract-content">
-            Năm 1905 một định luật vật lý kinh điển được Enstein giới thiệu và được cả thế giới công nhận sau đó: e=mc^2. Hơn một thế kỉ sau, có lẻ ở nơi tiên cảnh Enstein cũng không thể ngờ được rằng định lý của mình lại một lần nửa chính xác trong ngành công nghiệp IT đầy “cạm bẫy” hiện nay (lol).
-
-error =...
+            React tạo ra nhiều biến thể components để giải quyết nhiều vấn đề khác nhau.  Mỗi loại componet đều có những ưu nhược điểm riêng, tuỳ thuộc vào vấn đề gặp phải.Chúng ta có nhiệm vụ lựa chọn component phù hợp nhất để tối ưu hoá performance cho ứng dụng.
+Trong phạm phi bài viết này chúng ta sẽ tìm ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/rxPart1/" >
-            
-                <span>RxSwift( Part1) - Functional Reactive Programming &amp; Observable</span>
-        </a>
-        <div class="abstract-content">
-            Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xcode-shortcut/" >
-            
-                <span>Xcode Shortcut</span>
-        </a>
-        <div class="abstract-content">
-            
-Trong quá trình phát triển phần mềm, ngoài các kĩ năng về nền tảng, ngôn ngữ đang sử dụng thì việc làm chủ được IDE (integrated development environment) sẽ giúp cho quá trình coding được nhanh chóng và hiệu quả hơn. Sau đây mình xin giới thiệu với các bạn một số shortcuts trong Xcode - IDE để ph...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/hello-world/" >
-            
-                <span>Unidirectional Data Flow With Redux In Swift.</span>
-        </a>
-        <div class="abstract-content">
-            Trong bài viết này chúng ta cùng tìm hiểu về kiến trúc Flux trong lập trình iOS.
-
-IntroduceKhi bắt đầu tiếp cận với lập trình iOS có lẽ chúng ta đều tiếp xúc với mô hình MVC (Model - View - Controller) đầu tiên , một phần vì nó giúp chúng ta học nhanh hơn một phần vì cách viết code mà framework C...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xib-localize/" >
-            
-                <span>XIB and Storyboard Localization</span>
-        </a>
-        <div class="abstract-content">
-            
-IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file Localizable.strings tương ứng với ngôn ngữ đó. File Locali...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/08</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/20</span>
             </div>
             <!-- tags  -->
             
@@ -511,91 +367,8 @@ IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ b�
     
     <!-- paginator  -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-    
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" src= /avatar/Misaka.jpg >
-    <div class="profile-name">pdn1905</div>
-    
-    <div class="profile-signature">
-        Danang City
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="mailto:phan.ngoc1905@gmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/pdn1905" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-            
-                <a href="https://www.facebook.com/enzo.no.12" class="iconfont-archer facebook" target="_blank" title=facebook></a>
-            
-        
-    
-        
-            
-                <a href="https://twitter.com/ngocpha44966679" class="iconfont-archer twitter" target="_blank" title=twitter></a>
-            
-        
-    
-        
-            
-                <a href="https://www.instagram.com/19.05pn/" class="iconfont-archer instagram" target="_blank" title=instagram></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">

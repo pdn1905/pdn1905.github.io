@@ -396,74 +396,49 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4># Mở đầu:</h4>
-<p>Trong quá trình phát triển các ứng dụng iOS việc sử dụng các resources như images , font , localization khá đơn giản - chúng ta chỉ việc kéo thả, khai báo các resource đó vào project, sau đó gọi các đối tượng bằng việc init với <strong>string</strong> ứng với tên của các resources đó.</p>
-<p>Tuy nhiên với việc dùng <strong>string</strong> để gọi đến các đối tượng tiềm ẩn một số sai sót, khi ta gõ sai <strong>string</strong> hoặc khi gọi đến các resources đã bị xoá, lúc này thì quá trình compile không thể phát hiện được lỗi dẫn đến crash ứng dụng, hiển thị sai resources...</p>
+        <h4 id="Mo-dau"><a href="#Mo-dau" class="headerlink" title="# Mở đầu:"></a># Mở đầu:</h4><p>Trong quá trình phát triển các ứng dụng iOS việc sử dụng các resources như images , font , localization khá đơn giản - chúng ta chỉ việc kéo thả, khai báo các resource đó vào project, sau đó gọi các đối tượng bằng việc init với <strong>string</strong> ứng với tên của các resources đó.</p>
+<p>Tuy nhiên với việc dùng <strong>string</strong> để gọi đến các đối tượng tiềm ẩn một số sai sót, khi ta gõ sai <strong>string</strong> hoặc khi gọi đến các resources đã bị xoá, lúc này thì quá trình compile không thể phát hiện được lỗi dẫn đến crash ứng dụng, hiển thị sai resources…</p>
 <p><img src="https://images.viblo.asia/3a88a286-651c-4cc6-b456-8b7b8c5da344.jpg" alt=""></p>
 <p>Với thư viện <a href="https://github.com/mac-cain13/R.swift" target="_blank" rel="noopener"><strong>R.Swift</strong></a> chúng ta có thể dễ dàng giải quyết vấn đề trên.</p>
-<h4># R.swift:</h4>
-<p><a href="https://github.com/mac-cain13/R.swift" target="_blank" rel="noopener"><strong>R.Swift</strong></a> là một thư viện open source hỗ trợ generate ra các resources có trong source code trong quá trình compile, hỗ trợ <strong>autocompleted</strong> giúp chúng ta có thể dễ dàng truy vấn, cũng như tránh các lỗi khi sử dụng sai <strong>string</strong> hoặc sử dụng resource đã bị xoá. Ngoài resource ra thì R.swift còn hỗ trợ các string identifier như <strong>segue</strong>, <strong>storyboards</strong>, <strong>reuseable cell</strong>, <strong>nibs</strong>...</p>
-<h4># Install:</h4>
-<ul>
-<li>
-<p>Chúng ta install qua <a href="http://cocoapods.org/" target="_blank" rel="noopener">CocoaPods</a>:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod '<span class="type">R</span>.swift'</span><br></pre></td></tr></table></figure></p>
+<h4 id="R-swift"><a href="#R-swift" class="headerlink" title="# R.swift:"></a># R.swift:</h4><p><a href="https://github.com/mac-cain13/R.swift" target="_blank" rel="noopener"><strong>R.Swift</strong></a> là một thư viện open source hỗ trợ generate ra các resources có trong source code trong quá trình compile, hỗ trợ <strong>autocompleted</strong> giúp chúng ta có thể dễ dàng truy vấn, cũng như tránh các lỗi khi sử dụng sai <strong>string</strong> hoặc sử dụng resource đã bị xoá. Ngoài resource ra thì R.swift còn hỗ trợ các string identifier như <strong>segue</strong>, <strong>storyboards</strong>, <strong>reuseable cell</strong>, <strong>nibs</strong>…</p>
+<h4 id="Install"><a href="#Install" class="headerlink" title="# Install:"></a># Install:</h4><ul>
+<li><p>Chúng ta install qua <a href="http://cocoapods.org/" target="_blank" rel="noopener">CocoaPods</a>:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod '<span class="type">R</span>.swift'</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Trong <strong>TARGET</strong> của project chọn  <strong>Build Phases</strong> =&gt; click icon <strong>&quot;+&quot;</strong> thêm <strong>New Run Script Phase</strong></p>
+<li><p>Trong <strong>TARGET</strong> của project chọn  <strong>Build Phases</strong> =&gt; click icon <strong>“+”</strong> thêm <strong>New Run Script Phase</strong></p>
 </li>
-<li>
-<p>Kéo <strong>New Run Script Phase</strong> của bạn mới thêm ở step 2 lên nằm giữa  2 Scripts <strong>Compile Sources</strong> và  <strong>Check Pods Manifest.lock</strong>. Copy đoạn sau vào script mới thêm: <strong>&quot;$PODS_ROOT/R.swift/rswift&quot; generate &quot;$SRCROOT/R.generated.swift&quot;</strong></p>
+<li><p>Kéo <strong>New Run Script Phase</strong> của bạn mới thêm ở step 2 lên nằm giữa  2 Scripts <strong>Compile Sources</strong> và  <strong>Check Pods Manifest.lock</strong>. Copy đoạn sau vào script mới thêm: <strong>“$PODS_ROOT/R.swift/rswift” generate “$SRCROOT/R.generated.swift”</strong></p>
 </li>
-<li>
-<p>Thêm  <strong>$TEMP_DIR/rswift-lastrun</strong>  vào &quot;Input Files&quot; và  <strong>$SRCROOT/R.generated.swift</strong>  vào &quot;Output Files&quot; của script tạo ở step 2.</p>
+<li><p>Thêm  <strong>$TEMP_DIR/rswift-lastrun</strong>  vào “Input Files” và  <strong>$SRCROOT/R.generated.swift</strong>  vào “Output Files” của script tạo ở step 2.</p>
 </li>
-<li>
-<p>Build project sẽ thấy file <strong>R.generated.swift</strong> trong Finder của source, drag file đó vào project và <strong>uncheck Copy items if needed</strong></p>
+<li><p>Build project sẽ thấy file <strong>R.generated.swift</strong> trong Finder của source, drag file đó vào project và <strong>uncheck Copy items if needed</strong></p>
 </li>
 </ul>
 <p><img src="https://images.viblo.asia/5e58903c-d8bf-42f4-a7bc-2a9b0420243b.gif" alt=""></p>
-<h4># Sử dụng:</h4>
-<p><strong>1. Images</strong>:</p>
-<p>Vanila:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> settingsIcon = <span class="type">UIImage</span>(named: <span class="string">"settings-icon"</span>)</span><br><span class="line"><span class="keyword">let</span> gradientBackground = <span class="type">UIImage</span>(named: <span class="string">"gradient.jpg"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>R.swift:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> settingsIcon = <span class="type">R</span>.image.settingsIcon()</span><br><span class="line"><span class="keyword">let</span> gradientBackground = <span class="type">R</span>.image.gradientJpg()</span><br></pre></td></tr></table></figure></p>
-<p>Autocomplete:
-<img src="https://images.viblo.asia/1b25369c-8637-4c89-9d60-5757768e1c44.gif" alt=""></p>
+<h4 id="Su-dung"><a href="#Su-dung" class="headerlink" title="# Sử dụng:"></a># Sử dụng:</h4><p><strong>1. Images</strong>:</p>
+<p>Vanila:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> settingsIcon = <span class="type">UIImage</span>(named: <span class="string">"settings-icon"</span>)</span><br><span class="line"><span class="keyword">let</span> gradientBackground = <span class="type">UIImage</span>(named: <span class="string">"gradient.jpg"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>R.swift:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> settingsIcon = <span class="type">R</span>.image.settingsIcon()</span><br><span class="line"><span class="keyword">let</span> gradientBackground = <span class="type">R</span>.image.gradientJpg()</span><br></pre></td></tr></table></figure></p>
+<p>Autocomplete:<br><img src="https://images.viblo.asia/1b25369c-8637-4c89-9d60-5757768e1c44.gif" alt=""></p>
 <p><strong>2. Fonts</strong>:</p>
-<p>Vanila:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonURL = <span class="type">Bundle</span>.main.url(forResource: <span class="string">"seed-data"</span>, withExtension: <span class="string">"json"</span>)</span><br><span class="line"><span class="keyword">let</span> jsonPath = <span class="type">Bundle</span>.main.path(forResource: <span class="string">"seed-data"</span>, ofType: <span class="string">"json"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>R.swift:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonURL = <span class="type">R</span>.file.seedDataJson()</span><br><span class="line"><span class="keyword">let</span> jsonPath = <span class="type">R</span>.file.seedDataJson.path()</span><br></pre></td></tr></table></figure></p>
+<p>Vanila:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonURL = <span class="type">Bundle</span>.main.url(forResource: <span class="string">"seed-data"</span>, withExtension: <span class="string">"json"</span>)</span><br><span class="line"><span class="keyword">let</span> jsonPath = <span class="type">Bundle</span>.main.path(forResource: <span class="string">"seed-data"</span>, ofType: <span class="string">"json"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>R.swift:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonURL = <span class="type">R</span>.file.seedDataJson()</span><br><span class="line"><span class="keyword">let</span> jsonPath = <span class="type">R</span>.file.seedDataJson.path()</span><br></pre></td></tr></table></figure></p>
 <p><strong>3. Localized</strong></p>
-<p>Vanila:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> welcomeMessage = <span class="type">NSLocalizedString</span>(<span class="string">"welcome.message"</span>, comment: <span class="string">""</span>)</span><br><span class="line"><span class="keyword">let</span> settingsTitle = <span class="type">NSLocalizedString</span>(<span class="string">"title"</span>, tableName: <span class="string">"Settings"</span>, comment: <span class="string">""</span>)</span><br></pre></td></tr></table></figure></p>
-<p>R.swift:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> welcomeMessage = <span class="type">R</span>.string.localizable.welcomeMessage()</span><br><span class="line"><span class="keyword">let</span> settingsTitle = <span class="type">R</span>.string.settings.title()</span><br></pre></td></tr></table></figure></p>
+<p>Vanila:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> welcomeMessage = <span class="type">NSLocalizedString</span>(<span class="string">"welcome.message"</span>, comment: <span class="string">""</span>)</span><br><span class="line"><span class="keyword">let</span> settingsTitle = <span class="type">NSLocalizedString</span>(<span class="string">"title"</span>, tableName: <span class="string">"Settings"</span>, comment: <span class="string">""</span>)</span><br></pre></td></tr></table></figure></p>
+<p>R.swift:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> welcomeMessage = <span class="type">R</span>.string.localizable.welcomeMessage()</span><br><span class="line"><span class="keyword">let</span> settingsTitle = <span class="type">R</span>.string.settings.title()</span><br></pre></td></tr></table></figure></p>
 <p><strong>4.Storyboards</strong></p>
-<p>Vanila:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> storyboard = <span class="type">UIStoryboard</span>(name: <span class="string">"Main"</span>, bundle: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> initialTabBarController = storyboard.instantiateInitialViewController() <span class="keyword">as</span>? <span class="type">UITabBarController</span></span><br><span class="line"><span class="keyword">let</span> settingsController = storyboard.instantiateViewController(withIdentifier: <span class="string">"settingsController"</span>) <span class="keyword">as</span>? <span class="type">SettingsController</span></span><br></pre></td></tr></table></figure></p>
-<p>R.swift:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> storyboard = <span class="type">R</span>.storyboard.main()</span><br><span class="line"><span class="keyword">let</span> initialTabBarController = <span class="type">R</span>.storyboard.main.initialViewController()</span><br><span class="line"><span class="keyword">let</span> settingsController = <span class="type">R</span>.storyboard.main.settingsController()</span><br></pre></td></tr></table></figure></p>
+<p>Vanila:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> storyboard = <span class="type">UIStoryboard</span>(name: <span class="string">"Main"</span>, bundle: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> initialTabBarController = storyboard.instantiateInitialViewController() <span class="keyword">as</span>? <span class="type">UITabBarController</span></span><br><span class="line"><span class="keyword">let</span> settingsController = storyboard.instantiateViewController(withIdentifier: <span class="string">"settingsController"</span>) <span class="keyword">as</span>? <span class="type">SettingsController</span></span><br></pre></td></tr></table></figure></p>
+<p>R.swift:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> storyboard = <span class="type">R</span>.storyboard.main()</span><br><span class="line"><span class="keyword">let</span> initialTabBarController = <span class="type">R</span>.storyboard.main.initialViewController()</span><br><span class="line"><span class="keyword">let</span> settingsController = <span class="type">R</span>.storyboard.main.settingsController()</span><br></pre></td></tr></table></figure></p>
 <p><strong>5. Segues</strong></p>
-<p>Vanila:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">performSegue(withIdentifier: <span class="string">"openSettings"</span>, sender: <span class="keyword">self</span>)</span><br></pre></td></tr></table></figure></p>
-<p>R.swift:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">performSegue(withIdentifier: <span class="type">R</span>.segue.overviewController.openSettings, sender: <span class="keyword">self</span>)</span><br></pre></td></tr></table></figure></p>
+<p>Vanila:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">performSegue(withIdentifier: <span class="string">"openSettings"</span>, sender: <span class="keyword">self</span>)</span><br></pre></td></tr></table></figure></p>
+<p>R.swift:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">performSegue(withIdentifier: <span class="type">R</span>.segue.overviewController.openSettings, sender: <span class="keyword">self</span>)</span><br></pre></td></tr></table></figure></p>
 <p><strong>6. Nibs</strong></p>
-<p>Vanila:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nameOfNib = <span class="string">"CustomView"</span></span><br><span class="line"><span class="keyword">let</span> customViewNib = <span class="type">UINib</span>(nibName: <span class="string">"CustomView"</span>, bundle: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> rootViews = customViewNib.instantiate(withOwner: <span class="literal">nil</span>, options: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> customView = rootViews[<span class="number">0</span>] <span class="keyword">as</span>? <span class="type">CustomView</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> viewControllerWithNib = <span class="type">CustomViewController</span>(nibName: <span class="string">"CustomView"</span>, bundle: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure></p>
-<p>R.swift:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nameOfNib = <span class="type">R</span>.nib.customView.name   </span><br><span class="line"><span class="keyword">let</span> customViewNib = <span class="type">R</span>.nib.customView()</span><br><span class="line"><span class="keyword">let</span> rootViews = <span class="type">R</span>.nib.customView.instantiate(withOwner: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> customView = <span class="type">R</span>.nib.customView.firstView(owner: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> viewControllerWithNib = <span class="type">CustomViewController</span>(nib: <span class="type">R</span>.nib.customView)</span><br></pre></td></tr></table></figure></p>
+<p>Vanila:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nameOfNib = <span class="string">"CustomView"</span></span><br><span class="line"><span class="keyword">let</span> customViewNib = <span class="type">UINib</span>(nibName: <span class="string">"CustomView"</span>, bundle: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> rootViews = customViewNib.instantiate(withOwner: <span class="literal">nil</span>, options: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> customView = rootViews[<span class="number">0</span>] <span class="keyword">as</span>? <span class="type">CustomView</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> viewControllerWithNib = <span class="type">CustomViewController</span>(nibName: <span class="string">"CustomView"</span>, bundle: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure></p>
+<p>R.swift:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nameOfNib = <span class="type">R</span>.nib.customView.name   </span><br><span class="line"><span class="keyword">let</span> customViewNib = <span class="type">R</span>.nib.customView()</span><br><span class="line"><span class="keyword">let</span> rootViews = <span class="type">R</span>.nib.customView.instantiate(withOwner: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">let</span> customView = <span class="type">R</span>.nib.customView.firstView(owner: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> viewControllerWithNib = <span class="type">CustomViewController</span>(nib: <span class="type">R</span>.nib.customView)</span><br></pre></td></tr></table></figure></p>
 <p><strong>7. Reusable Cell</strong></p>
-<p>Vanila:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableView.register(textCellNib, forCellReuseIdentifier: <span class="string">"TextCellIdentifier"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>R.swift:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableView.register(<span class="type">R</span>.nib.textCell)</span><br></pre></td></tr></table></figure></p>
-<p>...</p>
-<h4># Kết:</h4>
-<p>Mặc dù hơi cồng kềnh trong việc cài đặt nhưng về lâu dài  <a href="https://github.com/mac-cain13/R.swift" target="_blank" rel="noopener"><strong>R.Swift</strong></a> sẽ giúp việc quản lý resources  trong project được rõ ràng hơn, nhanh hơn với autocompleted, cũng như tránh được những lỗi như quản lý resources bằng string thông thường.</p>
+<p>Vanila:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableView.register(textCellNib, forCellReuseIdentifier: <span class="string">"TextCellIdentifier"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>R.swift:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableView.register(<span class="type">R</span>.nib.textCell)</span><br></pre></td></tr></table></figure></p>
+<p>…</p>
+<h4 id="Ket"><a href="#Ket" class="headerlink" title="# Kết:"></a># Kết:</h4><p>Mặc dù hơi cồng kềnh trong việc cài đặt nhưng về lâu dài  <a href="https://github.com/mac-cain13/R.swift" target="_blank" rel="noopener"><strong>R.Swift</strong></a> sẽ giúp việc quản lý resources  trong project được rõ ràng hơn, nhanh hơn với autocompleted, cũng như tránh được những lỗi như quản lý resources bằng string thông thường.</p>
 
     </article>
     <!-- license  -->
@@ -607,7 +582,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text"># Mở đầu:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text"># R.swift:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text"># Install:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text"># Sử dụng:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text"># Kết:</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mo-dau"><span class="toc-number">1.</span> <span class="toc-text"># Mở đầu:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#R-swift"><span class="toc-number">2.</span> <span class="toc-text"># R.swift:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Install"><span class="toc-number">3.</span> <span class="toc-text"># Install:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Su-dung"><span class="toc-number">4.</span> <span class="toc-text"># Sử dụng:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ket"><span class="toc-number">5.</span> <span class="toc-text"># Kết:</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -779,20 +754,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 14
+        Total : 15
         </div>
         <!-- search  -->
         
@@ -802,6 +766,20 @@ top:50vh;
     
     
     
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href= "/iOS/components/" >Stateful vs Stateless vs Pure React Components</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -894,11 +872,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swift"><span class="iconfont-archer">&#xe606;</span>swift</span>
     
+        <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
+    
         <span class="sidebar-tag-name" data-tags="auto-layout"><span class="iconfont-archer">&#xe606;</span>auto-layout</span>
     
         <span class="sidebar-tag-name" data-tags="developer, swift"><span class="iconfont-archer">&#xe606;</span>developer, swift</span>
-    
-        <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
     
         <span class="sidebar-tag-name" data-tags="life-style"><span class="iconfont-archer">&#xe606;</span>life-style</span>
     
