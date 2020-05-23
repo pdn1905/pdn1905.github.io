@@ -269,7 +269,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">502</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">501</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -399,10 +399,14 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p><img src="https://images.viblo.asia/46606284-7cb6-412c-a31e-1c9e0ced53d1.jpg" alt=""></p>
-<h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>Để ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file <strong>Localizable.strings</strong> tương ứng với ngôn ngữ đó. File <strong>Localizable.strings</strong> có syntax như sau:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&lt;key&gt;&quot; = &quot;&lt;value&gt;&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>Thông thường thì chúng ta sẽ kéo thả các outlet sau đó set localize cho outlet đó như ví dụ dưới đây.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> titleLabel: <span class="type">UILabel</span>!</span><br><span class="line"></span><br><span class="line">titleLabel.text  = <span class="type">NSLocalizedString</span>(<span class="string">"&lt;key&gt;"</span>, comment: <span class="string">""</span>)</span><br></pre></td></tr></table></figure></p>
+<h3>Introduce</h3>
+<p>Để ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file <strong>Localizable.strings</strong> tương ứng với ngôn ngữ đó. File <strong>Localizable.strings</strong> có syntax như sau:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&lt;key&gt;&quot; = &quot;&lt;value&gt;&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>Thông thường thì chúng ta sẽ kéo thả các outlet sau đó set localize cho outlet đó như ví dụ dưới đây.
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> titleLabel: <span class="type">UILabel</span>!</span><br><span class="line"></span><br><span class="line">titleLabel.text  = <span class="type">NSLocalizedString</span>(<span class="string">"&lt;key&gt;"</span>, comment: <span class="string">""</span>)</span><br></pre></td></tr></table></figure></p>
 <p>Sau đây mình xin giới thiệu với các bạn cách Localization các UI trực tiếp trên file <strong>Xib</strong> hoặc <strong>Storyboard</strong> bằng <strong>@IBInspectable</strong> mà không cần phải kéo thả các <strong>outlet</strong>.</p>
-<h3 id="XIB-and-Storyboard-Localization"><a href="#XIB-and-Storyboard-Localization" class="headerlink" title="XIB and Storyboard Localization"></a>XIB and Storyboard Localization</h3><p><img src="https://images.viblo.asia/c158f205-051f-4c8b-b0ce-f39a7bedd2d2.png" alt=""></p>
+<h3>XIB and Storyboard Localization</h3>
+<p><img src="https://images.viblo.asia/c158f205-051f-4c8b-b0ce-f39a7bedd2d2.png" alt=""></p>
 <p>Tạo một ứng dụng với form Sign In như trên. Ta sẽ tiến hành Localization ứng dụng với ngôn ngữ Vietnamese và Japanese.Trước tiên enable <strong>Localizations</strong> bằng cách vào <strong>Project</strong> -&gt; <strong>Info</strong> add các ngôn ngữ sử dụng trong ứng dụng.</p>
 <p><img src="https://images.viblo.asia/9c05f028-f609-429d-8c70-c58f6169210c.png" alt=""></p>
 <p>Project sẽ được generate ra 2 folder <strong>ja.lproj</strong> và <strong>vi.lproj</strong></p>
@@ -414,12 +418,14 @@ height:50vh;
 <p>Define các key và value tương ứng với các ngôn ngữ trong các file <strong>Localizable.strings</strong> :</p>
 <p><img src="https://images.viblo.asia/0fa20723-642c-4a78-82a6-c20e770732e0.png" alt=""></p>
 <p><img src="https://images.viblo.asia/81a953cd-7833-4510-9914-e3cf672d5bb7.png" alt=""></p>
-<p>Tạo các @IBInspectable localize cho các UI<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UILabel</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizeText: <span class="type">String</span> &#123;</span><br><span class="line">            <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                <span class="keyword">self</span>.text = <span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">get</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIButton</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizeTitle: <span class="type">String</span> &#123;</span><br><span class="line">                <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                    <span class="keyword">self</span>.setTitle(<span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">get</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UITextField</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizePlaceholder: <span class="type">String</span> &#123;</span><br><span class="line">                <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                    <span class="keyword">self</span>.placeholder = <span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">get</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Tạo các @IBInspectable localize cho các UI
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UILabel</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizeText: <span class="type">String</span> &#123;</span><br><span class="line">            <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                <span class="keyword">self</span>.text = <span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">get</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIButton</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizeTitle: <span class="type">String</span> &#123;</span><br><span class="line">                <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                    <span class="keyword">self</span>.setTitle(<span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>), <span class="keyword">for</span>: .normal)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">get</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UITextField</span> </span>&#123;</span><br><span class="line">        <span class="meta">@IBInspectable</span> <span class="keyword">var</span> localizePlaceholder: <span class="type">String</span> &#123;</span><br><span class="line">                <span class="keyword">set</span>(value) &#123;</span><br><span class="line">                    <span class="keyword">self</span>.placeholder = <span class="type">NSLocalizedString</span>(value, comment: <span class="string">""</span>)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">get</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Trong storyboard set các <strong>key</strong> @IBInspectable localize tương ứng cho các element</p>
 <p><img src="https://images.viblo.asia/c7da5e59-8f8b-4718-9e53-04f5c539c737.png" alt=""></p>
 <p>Vào <strong>Edit Scheme</strong> chọn ngôn ngữ và Run ứng dụng.</p>
 <p><img src="https://images.viblo.asia/9d11601c-e714-4699-b751-e96eb34de2a1.png" alt=""></p>
-<h3 id="Wrap-Up"><a href="#Wrap-Up" class="headerlink" title="Wrap Up"></a>Wrap Up</h3><p>Trên đây là cách Localization các UI mà không cần phải kéo thả <strong>outlet</strong> trong các ứng dụng iOS. Hi vọng bài viết sẽ giúp ích cho các bạn. Cảm ơn các bạn đã theo dõi. Source code: <a href="https://github.com/pdn1905/XibLocalize" target="_blank" rel="noopener">https://github.com/pdn1905/XibLocalize</a></p>
+<h3>Wrap Up</h3>
+<p>Trên đây là cách Localization các UI mà không cần phải kéo thả <strong>outlet</strong> trong các ứng dụng iOS. Hi vọng bài viết sẽ giúp ích cho các bạn. Cảm ơn các bạn đã theo dõi. Source code: https://github.com/pdn1905/XibLocalize</p>
 
     </article>
     <!-- license  -->
@@ -558,7 +564,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduce"><span class="toc-number">1.</span> <span class="toc-text">Introduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XIB-and-Storyboard-Localization"><span class="toc-number">2.</span> <span class="toc-text">XIB and Storyboard Localization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wrap-Up"><span class="toc-number">3.</span> <span class="toc-text">Wrap Up</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Introduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">XIB and Storyboard Localization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">Wrap Up</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -730,9 +736,40 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -745,6 +782,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/iOS/universal-link/" >Universal Link iOS</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -848,11 +890,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swift"><span class="iconfont-archer">&#xe606;</span>swift</span>
     
-        <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
-    
         <span class="sidebar-tag-name" data-tags="auto-layout"><span class="iconfont-archer">&#xe606;</span>auto-layout</span>
     
         <span class="sidebar-tag-name" data-tags="developer, swift"><span class="iconfont-archer">&#xe606;</span>developer, swift</span>
+    
+        <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
     
         <span class="sidebar-tag-name" data-tags="life-style"><span class="iconfont-archer">&#xe606;</span>life-style</span>
     

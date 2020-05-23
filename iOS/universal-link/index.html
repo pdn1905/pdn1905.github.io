@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Home</title>
+    <title>Universal Link iOS · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Universal Link iOS</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Home</a>
 </header>
@@ -213,24 +226,76 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/solid.jpeg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Universal Link iOS
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">501</span> / Reading time: <span class="post-count">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/05/23</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,43 +396,66 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/SOLID/" >
-            
-                <span>S.O.L.I.D in iOS</span>
-        </a>
-        <div class="abstract-content">
-            What is SOLID?
-SOLID là một số các nguyên tắc thiết kế phần mềm được Uncle Bob sáng tạo. Mục tiêu chính của các nguyên tắc này là nhằm giúp cho code rõ ràng, dễ hiểu hơn từ đó trở nên dễ dàng mở rộng và bảo trì.
-Đối với hầu hết các developer thì SOLID giống như viên kim cương vầy, nghe nói đến th...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Universal Linking cho phép  khởi chạy ứng dụng từ một đường link trong email hoặc tin nhắn văn bản, nếu ưng dụng đã được cài đặt trên thiết bị người dùng.</p>
+<ul>
+<li>Bạn có thể truyền một số tham số trong url của link để có thể khởi chạy ứng dụng tại đúng một màn hình cụ thể với những dữ liệu phù hợp.</li>
+<li>Thiết lập khá dễ dàng với các máy chủ sử dụng HTTPS, và iphone chạy từ iOS 9 trở lên.</li>
+<li>Nếu muốn hộ trở HTTP link hoặc cho các thiết bị dưới iOS, thì universal link không dành cho ứng dụng của bạn :D</li>
+</ul>
+<h5>Universal link support</h5>
+<p>Để hỗ trợ universal link, đầu tiên là tạo một tệp liên kết có tên chính xác là <code>apple-app-site-association</code>. Vai trò của nó là chỉ ra ứng dụng iOS nào được liên kết với tên  web domain của bạn.</p>
+<p>Như  <a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html" target="_blank" rel="noopener"> docs của apple</a> có mô tả, file trên phải được đặt ở root folder của domain, sử dụng HTTPS và không có bất kỳ sự điều hướng nào.</p>
+<p>Dưới đây là một ví dụ về file <code>apple-app-site-association</code>  trông như thế nào:</p>
+<p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"applinks"</span>: &#123;</span><br><span class="line">        <span class="attr">"apps"</span>: [],</span><br><span class="line">        <span class="attr">"details"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"appID"</span>: <span class="string">"[TeamID].[Bundle id]"</span>,</span><br><span class="line">                <span class="attr">"paths"</span>: [ <span class="string">"*"</span> ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5>Universal link in  iOS</h5>
+<p>Bây giờ chúng ta bắt đầu setup Universal link ở phía iOS. Đầu tiên chúng ta cần enable <code>associated domains</code> tại <a href="https://developer.apple.com" target="_blank" rel="noopener">https://developer.apple.com</a> đối với appID của bạn.</p>
+<p><img src="https://images.viblo.asia/b665f346-810e-4fb9-824c-876719c8a24b.jpg" alt=""></p>
+<p>Sau đó trong Xcode, chúng ta cần chỉ ra cho ứng dụng iOS của mình các domain liên quan. Trong Targets project , click tạo thêm 1 Capability Associated Domain.
+<img src="https://images.viblo.asia/c423d7ce-1c4e-481e-a264-f848b0b805ae.png" alt=""></p>
+<p>Add domain liên kết với ứng dụng của bạn kèm applinks ở trước:</p>
+<p><img src="https://images.viblo.asia/61848874-2417-4327-a6a9-d7440d6dbcaa.png" alt=""></p>
+<p>Hầu như đã hoàn tất, tại AppDelegate ta gọi hàm sau bắt được các thông tin khi app được launch từ universal link:
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, <span class="keyword">continue</span> userActivity: NSUserActivity, restorationHandler: @escaping <span class="params">([Any]?)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> userActivity.activityType == <span class="type">NSUserActivityTypeBrowsingWeb</span> &#123;</span><br><span class="line">        <span class="comment">// navigate to userActivity.webpageURL</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Bây giờ bạn có thể launch ứng dụng của mình đến một màn hình cụ thể khi user click vào link với domain bạn đã cài đặt tương ứng ở trên :D</p>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/iOS/universal-link/">May 23rd 2020, 10:46:36 pm</a>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS/components/" title= Stateful vs Stateless vs Pure React Components >
+                    <div class="prevTitle">Stateful vs Stateless vs Pure React Components</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -453,6 +541,24 @@ SOLID là một số các nguyên tắc thiết kế phần mềm được Uncle
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Universal link support</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Universal link in  iOS</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -854,6 +960,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

@@ -400,21 +400,32 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p><img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1510&amp;q=80" alt="alt"><br>Thời gian compile của Xcode ảnh hưởng rất nhiều đến tốc độ phát triển ứng dụng của bạn, vì vậy chúng ta cần hiểu rõ và có những phương pháp cụ thể để không phải tiêu tốn đi những khoảng thời gian vô ích này. Sau đây là những tips giúp bạn hiểu rõ hơn về compile của Xcode để giúp cải thiện thời gian build trong project:</p>
-<h4 id="1-Measure-your-compile-time-correctly-⏱️"><a href="#1-Measure-your-compile-time-correctly-⏱️" class="headerlink" title="1) Measure your compile time correctly ⏱️"></a>1) Measure your compile time correctly ⏱️</h4><p>Để cải thiện thời gian compile đầu tiên bạn cần biết được thời gian build của dự án, mặc định thì Xcode sẽ không hiển thị nó, tuy nhiên bạn có thể show qua lệnh terminal sau:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES</span><br></pre></td></tr></table></figure>
-<p>Sau khi bật chức năng timer bạn bạn có thể nhìn thấy thời gian build của dự án trên thanh top của Xcode.<br><img src="https://images.viblo.asia/6f0d2aa4-12d9-497e-a59e-cb2eadaf5899.png" alt=""></p>
+        <p><img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1510&amp;q=80" alt="alt">
+Thời gian compile của Xcode ảnh hưởng rất nhiều đến tốc độ phát triển ứng dụng của bạn, vì vậy chúng ta cần hiểu rõ và có những phương pháp cụ thể để không phải tiêu tốn đi những khoảng thời gian vô ích này. Sau đây là những tips giúp bạn hiểu rõ hơn về compile của Xcode để giúp cải thiện thời gian build trong project:</p>
+<h4>1) Measure your compile time correctly ⏱️</h4>
+<p>Để cải thiện thời gian compile đầu tiên bạn cần biết được thời gian build của dự án, mặc định thì Xcode sẽ không hiển thị nó, tuy nhiên bạn có thể show qua lệnh terminal sau:</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES</span><br></pre></td></tr></table></figure></p>
+<p>Sau khi bật chức năng timer bạn bạn có thể nhìn thấy thời gian build của dự án trên thanh top của Xcode.
+<img src="https://images.viblo.asia/6f0d2aa4-12d9-497e-a59e-cb2eadaf5899.png" alt=""></p>
 <p>Nhưng thực tế, nếu bạn đã build ứng dụng trước đó thì thời gian build lần sau sẽ nhanh hơn vì chúng dùng các dữ liệu caches trước đó, vì vậy để biết được thời gian compile thực sự của project trước khi build bạn phải clean project (⌘+⌥+K) và xoá derived data.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Developer/Xcode/DerivedData</span><br></pre></td></tr></table></figure>
-<p><img src="https://images.viblo.asia/589bc89c-fd9d-44dc-87cf-03dfa9ad18d1.png" alt=""><br>Sau khi clean và build thì thời gian compile đã lâu hơi và đây mới chính là thời gian compile thực tế của project.</p>
-<h4 id="2-Get-a-warning-for-slow-code-⚠️"><a href="#2-Get-a-warning-for-slow-code-⚠️" class="headerlink" title="2) Get a warning for slow code ⚠️"></a>2) Get a warning for slow code ⚠️</h4><p>Xcode thật sự rất thông minh với tính năng này. Để enable  warning compile thì bạn thêm các đoạn mã sau vào <code>Other Swift Flags</code> trong <code>Build Setting</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xfrontend -warn-long-function-bodies=50</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xfrontend -warn-long-expression-type-checking=50</span><br></pre></td></tr></table></figure>
-<p>Nếu 1 function hoặc expression cần nhiều hơn 50mili giây để biên dịch thì Xcode sẽ báo warning. Bạn có thể tuỳ chỉnh các giá trị minimum mili giây để báo warning với các đoạn mã trên.<br><img src="https://images.viblo.asia/497b43c2-2ded-45a0-8066-0cde781c2f71.png" alt=""></p>
-<h4 id="The-basic-improvements"><a href="#The-basic-improvements" class="headerlink" title="The basic improvements"></a>The basic improvements</h4><p>Kích hoạt 1 tính năng mới trên Xcode gọi là <strong>concurrent build tasks</strong> bằng lệnh terminal sau, lưu ý tính năng này giúp thời gian build nhanh hơn nhưng sẽ ngốn nhiều memory máy của bạn hơn.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dt.Xcode BuildSystemScheduleInherentlyParallelCommandsExclusively -bool NO</span><br></pre></td></tr></table></figure></p>
-<h4 id="Some-coding-guidelines"><a href="#Some-coding-guidelines" class="headerlink" title="Some coding guidelines"></a>Some coding guidelines</h4><p>Sử dụng let thay cho var nếu có thể.</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf ~/Library/Developer/Xcode/DerivedData</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://images.viblo.asia/589bc89c-fd9d-44dc-87cf-03dfa9ad18d1.png" alt="">
+Sau khi clean và build thì thời gian compile đã lâu hơi và đây mới chính là thời gian compile thực tế của project.</p>
+<h4>2) Get a warning for slow code ⚠️</h4>
+<p>Xcode thật sự rất thông minh với tính năng này. Để enable  warning compile thì bạn thêm các đoạn mã sau vào <code>Other Swift Flags</code> trong <code>Build Setting</code>:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xfrontend -warn-long-function-bodies=50</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xfrontend -warn-long-expression-type-checking=50</span><br></pre></td></tr></table></figure></p>
+<p>Nếu 1 function hoặc expression cần nhiều hơn 50mili giây để biên dịch thì Xcode sẽ báo warning. Bạn có thể tuỳ chỉnh các giá trị minimum mili giây để báo warning với các đoạn mã trên.
+<img src="https://images.viblo.asia/497b43c2-2ded-45a0-8066-0cde781c2f71.png" alt=""></p>
+<h4>The basic improvements</h4>
+<p>Kích hoạt 1 tính năng mới trên Xcode gọi là <strong>concurrent build tasks</strong> bằng lệnh terminal sau, lưu ý tính năng này giúp thời gian build nhanh hơn nhưng sẽ ngốn nhiều memory máy của bạn hơn.
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dt.Xcode BuildSystemScheduleInherentlyParallelCommandsExclusively -bool NO</span><br></pre></td></tr></table></figure></p>
+<h4>Some coding guidelines</h4>
+<p>Sử dụng let thay cho var nếu có thể.</p>
 <p>Sử dụng final class nếu có thể để tăng performance của app và giảm thời gian compile <a href="https://developer.apple.com/swift/blog/?id=27" target="_blank" rel="noopener">Apple Docs</a>.</p>
-<p>Ngưng sử dụng các biến mà không khai báo kiểu dự liệu của nó </p>
-<p><code>Stop 🛑var name = getName()</code><br>=&gt;&gt; <code>var name: String = getName()</code></p>
+<p>Ngưng sử dụng các biến mà không khai báo kiểu dự liệu của nó</p>
+<p><code>Stop 🛑var name = getName()</code>
+=&gt;&gt; <code>var name: String = getName()</code></p>
 
     </article>
     <!-- license  -->
@@ -558,7 +569,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Measure-your-compile-time-correctly-⏱️"><span class="toc-number">1.</span> <span class="toc-text">1) Measure your compile time correctly ⏱️</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Get-a-warning-for-slow-code-⚠️"><span class="toc-number">2.</span> <span class="toc-text">2) Get a warning for slow code ⚠️</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-basic-improvements"><span class="toc-number">3.</span> <span class="toc-text">The basic improvements</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Some-coding-guidelines"><span class="toc-number">4.</span> <span class="toc-text">Some coding guidelines</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1) Measure your compile time correctly ⏱️</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2) Get a warning for slow code ⚠️</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">The basic improvements</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">Some coding guidelines</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -730,9 +741,40 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -745,6 +787,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/iOS/universal-link/" >Universal Link iOS</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -848,11 +895,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swift"><span class="iconfont-archer">&#xe606;</span>swift</span>
     
-        <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
-    
         <span class="sidebar-tag-name" data-tags="auto-layout"><span class="iconfont-archer">&#xe606;</span>auto-layout</span>
     
         <span class="sidebar-tag-name" data-tags="developer, swift"><span class="iconfont-archer">&#xe606;</span>developer, swift</span>
+    
+        <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
     
         <span class="sidebar-tag-name" data-tags="life-style"><span class="iconfont-archer">&#xe606;</span>life-style</span>
     
