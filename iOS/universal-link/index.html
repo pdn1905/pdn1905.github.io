@@ -404,20 +404,16 @@ height:50vh;
 <li>Thiết lập khá dễ dàng với các máy chủ sử dụng HTTPS, và iphone chạy từ iOS 9 trở lên.</li>
 <li>Nếu muốn hộ trở HTTP link hoặc cho các thiết bị dưới iOS, thì universal link không dành cho ứng dụng của bạn :D</li>
 </ul>
-<h5>Universal link support</h5>
-<p>Để hỗ trợ universal link, đầu tiên là tạo một tệp liên kết có tên chính xác là <code>apple-app-site-association</code>. Vai trò của nó là chỉ ra ứng dụng iOS nào được liên kết với tên  web domain của bạn.</p>
+<h5 id="Universal-link-support"><a href="#Universal-link-support" class="headerlink" title="Universal link support"></a>Universal link support</h5><p>Để hỗ trợ universal link, đầu tiên là tạo một tệp liên kết có tên chính xác là <code>apple-app-site-association</code>. Vai trò của nó là chỉ ra ứng dụng iOS nào được liên kết với tên  web domain của bạn.</p>
 <p>Như  <a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html" target="_blank" rel="noopener"> docs của apple</a> có mô tả, file trên phải được đặt ở root folder của domain, sử dụng HTTPS và không có bất kỳ sự điều hướng nào.</p>
 <p>Dưới đây là một ví dụ về file <code>apple-app-site-association</code>  trông như thế nào:</p>
-<p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"applinks"</span>: &#123;</span><br><span class="line">        <span class="attr">"apps"</span>: [],</span><br><span class="line">        <span class="attr">"details"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"appID"</span>: <span class="string">"[TeamID].[Bundle id]"</span>,</span><br><span class="line">                <span class="attr">"paths"</span>: [ <span class="string">"*"</span> ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h5>Universal link in  iOS</h5>
-<p>Bây giờ chúng ta bắt đầu setup Universal link ở phía iOS. Đầu tiên chúng ta cần enable <code>associated domains</code> tại <a href="https://developer.apple.com" target="_blank" rel="noopener">https://developer.apple.com</a> đối với appID của bạn.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"applinks"</span>: &#123;</span><br><span class="line">        <span class="attr">"apps"</span>: [],</span><br><span class="line">        <span class="attr">"details"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"appID"</span>: <span class="string">"[TeamID].[Bundle id]"</span>,</span><br><span class="line">                <span class="attr">"paths"</span>: [ <span class="string">"*"</span> ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Universal-link-in-iOS"><a href="#Universal-link-in-iOS" class="headerlink" title="Universal link in  iOS"></a>Universal link in  iOS</h5><p>Bây giờ chúng ta bắt đầu setup Universal link ở phía iOS. Đầu tiên chúng ta cần enable <code>associated domains</code> tại <a href="https://developer.apple.com" target="_blank" rel="noopener">https://developer.apple.com</a> đối với appID của bạn.</p>
 <p><img src="https://images.viblo.asia/b665f346-810e-4fb9-824c-876719c8a24b.jpg" alt=""></p>
-<p>Sau đó trong Xcode, chúng ta cần chỉ ra cho ứng dụng iOS của mình các domain liên quan. Trong Targets project , click tạo thêm 1 Capability Associated Domain.
-<img src="https://images.viblo.asia/c423d7ce-1c4e-481e-a264-f848b0b805ae.png" alt=""></p>
-<p>Add domain liên kết với ứng dụng của bạn kèm applinks ở trước:</p>
+<p>Sau đó trong Xcode, chúng ta cần chỉ ra cho ứng dụng iOS của mình các domain liên quan. Trong Targets project , click tạo thêm 1 Capability Associated Domain.<br><img src="https://images.viblo.asia/c423d7ce-1c4e-481e-a264-f848b0b805ae.png" alt=""></p>
+<p>Add domain liên kết với ứng dụng của bạn kèm applinks ở trước: </p>
 <p><img src="https://images.viblo.asia/61848874-2417-4327-a6a9-d7440d6dbcaa.png" alt=""></p>
-<p>Hầu như đã hoàn tất, tại AppDelegate ta gọi hàm sau bắt được các thông tin khi app được launch từ universal link:
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, <span class="keyword">continue</span> userActivity: NSUserActivity, restorationHandler: @escaping <span class="params">([Any]?)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> userActivity.activityType == <span class="type">NSUserActivityTypeBrowsingWeb</span> &#123;</span><br><span class="line">        <span class="comment">// navigate to userActivity.webpageURL</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Hầu như đã hoàn tất, tại AppDelegate ta gọi hàm sau bắt được các thông tin khi app được launch từ universal link:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, <span class="keyword">continue</span> userActivity: NSUserActivity, restorationHandler: @escaping <span class="params">([Any]?)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> userActivity.activityType == <span class="type">NSUserActivityTypeBrowsingWeb</span> &#123;</span><br><span class="line">        <span class="comment">// navigate to userActivity.webpageURL</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Bây giờ bạn có thể launch ứng dụng của mình đến một màn hình cụ thể khi user click vào link với domain bạn đã cài đặt tương ứng ở trên :D</p>
 
     </article>
@@ -430,6 +426,11 @@ height:50vh;
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/iOS/svgXcode12/" title= SVG Assets in Xcode 12 >
+                    <div class="nextTitle">SVG Assets in Xcode 12</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -557,7 +558,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Universal link support</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Universal link in  iOS</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Universal-link-support"><span class="toc-number">1.</span> <span class="toc-text">Universal link support</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Universal-link-in-iOS"><span class="toc-number">2.</span> <span class="toc-text">Universal link in  iOS</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -760,9 +761,12 @@ top:50vh;
     
     
     
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 16
+        Total : 17
         </div>
         <!-- search  -->
         
@@ -775,6 +779,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/iOS/svgXcode12/" >SVG Assets in Xcode 12</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -827,12 +836,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/iOS/LayoutWithStevia/" >Write readable auto-layout code with Stevia.</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/uncategorized/UITesting/" >Automated UI Testing with KIF</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/uncategorized/UITesting/" >Automated UI Testing with KIF</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/iOS/LayoutWithStevia/" >Write readable auto-layout code with Stevia.</a>
         </li>
     
     

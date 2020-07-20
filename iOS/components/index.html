@@ -398,25 +398,20 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>React tạo ra nhiều biến thể <strong>components</strong> để giải quyết nhiều vấn đề khác nhau.  Mỗi loại componet đều có những ưu nhược điểm riêng, tuỳ thuộc vào vấn đề gặp phải.
-Chúng ta có nhiệm vụ lựa chọn component phù hợp nhất để tối ưu hoá performance cho ứng dụng.</p>
+        <p>React tạo ra nhiều biến thể <strong>components</strong> để giải quyết nhiều vấn đề khác nhau.  Mỗi loại componet đều có những ưu nhược điểm riêng, tuỳ thuộc vào vấn đề gặp phải.<br>Chúng ta có nhiệm vụ lựa chọn component phù hợp nhất để tối ưu hoá performance cho ứng dụng.</p>
 <p>Trong phạm phi bài viết này chúng ta sẽ tìm hiểu các loại componet phổ biến trong React sau:</p>
 <ul>
 <li>Class components (hay còn gọi là ‘Stateful’ components)</li>
 <li>Pure components</li>
 <li>Function components (hay còn gọi ‘Stateless’ components)</li>
 </ul>
-<h5>Class Components</h5>
-<p>Class components là 1 ES6 classes được mở rộng từ Component của React.
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render () &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Text&gt;Hello World!&lt;/Text&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Class-Components"><a href="#Class-Components" class="headerlink" title="Class Components"></a>Class Components</h5><p>Class components là 1 ES6 classes được mở rộng từ Component của React.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render () &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Text&gt;Hello World!&lt;/Text&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Class Components cho phép component truy cập vào các phương thức lifecycle của React, như componentWillMount, componentDidMount, render và chúng ta có thể thao tác với states và props trong vòng đời của chúng.</p>
 <p>Class Component trên mặt khác sẽ không so sánh props và state của hiện tại với tương lai. Như vậy, component sẽ re-render bởi mặc định bất cứ khi nào shouldComponentUpdate gọi. Điều này đôi lúc sẽ làm giảm performance của ứng dụng.</p>
-<h5>Pure component</h5>
-<p>Mặc dù chuyển thành dạng React.Component nhưng component vẫn sẽ re-render không cần thiết, nguyên nhân là do hàm setState sẽ luôn kích hoạt sự kiện re-render, và điều đó sẽ đôi lúc dẫn tới việc re-render không cần thiết. Việc re-render này sẽ được thực hiện ở cả component hiện tại và component con trực tiếp của nó (kể cả props truyền xuống cho component con đó không có gì thay đổi). Giải pháp đặt ra là bạn có thể bổ sung code check props vào method shouldComponentUpdate để check khi nào thì cần thiết để re-render lại.Đó cũng là cách mà PureComponent hoạt động.</p>
-<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.props.firstProp === nextProps. firstProp &amp;&amp;</span><br><span class="line">           <span class="keyword">this</span>.props.secondProp === nextProps.secondProp) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Pure-component"><a href="#Pure-component" class="headerlink" title="Pure component"></a>Pure component</h5><p>Mặc dù chuyển thành dạng React.Component nhưng component vẫn sẽ re-render không cần thiết, nguyên nhân là do hàm setState sẽ luôn kích hoạt sự kiện re-render, và điều đó sẽ đôi lúc dẫn tới việc re-render không cần thiết. Việc re-render này sẽ được thực hiện ở cả component hiện tại và component con trực tiếp của nó (kể cả props truyền xuống cho component con đó không có gì thay đổi). Giải pháp đặt ra là bạn có thể bổ sung code check props vào method shouldComponentUpdate để check khi nào thì cần thiết để re-render lại.Đó cũng là cách mà PureComponent hoạt động.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.props.firstProp === nextProps. firstProp &amp;&amp;</span><br><span class="line">           <span class="keyword">this</span>.props.secondProp === nextProps.secondProp) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Khi props hoặc state thay đổi, PureComponent sẽ làm một shallow comparison (so sánh nông) trên cả props và state .Khi so sánh props và state trước và sau, một shallow comparison sẽ kiểm tra những giá trị nguyên thuỷ đó có cùng giá trị(ví dụ 1 bằng 1 hoặc true bằng với true) và rằng các references value là giống nhau giữa các giá trị javascript phức tạp như objects và arrays. Sử dụng Pure component giúp hạn chế việc re-render không cần thiết.</p>
-<h5>Function components</h5>
-<p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PageOne = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;h1&gt;Page One&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="Function-components"><a href="#Function-components" class="headerlink" title="Function components"></a>Function components</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PageOne = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;h1&gt;Page One&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>Function components đơn giản hơn. Nó không quản lý states của component và củng không có quyền truy cập vào các phương thức lifecycle do React Native cung cấp</p>
 <p>Function componentst nhận dữ liệu qua property binding (tương tự như arguments trong Javascript) và thông báo sự thay đổi qua sự kiện (tương tự như return block).</p>
 <p>Hay nói cách khác, Function components không bị tác động bởi các component khác nó. Do đó, chúng ta có thể tái sử dụng, dễ dàng test cũng như xóa chúng đi mà không lo lắng về ảnh hưởng của chúng với ứng dụng.</p>
@@ -428,8 +423,7 @@ Chúng ta có nhiệm vụ lựa chọn component phù hợp nhất để tối 
 <li>Có thể render ra stateless component con, hay thậm chí cả stateful components</li>
 <li>Có thể có các local UI state</li>
 </ul>
-<h5>Conclusion</h5>
-<p>Pure Component giúp tăng đáng kể hiệu năng của ứng dụng, giúp hạn chế việc re-render lại view, phù hợp với các UI có độ phức tạp lớn. Ngoài ra chúng ta có thể sử dụng các method lifecycle của component để xử lý cho các nghiệp vụ phức tạp.</p>
+<h5 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h5><p>Pure Component giúp tăng đáng kể hiệu năng của ứng dụng, giúp hạn chế việc re-render lại view, phù hợp với các UI có độ phức tạp lớn. Ngoài ra chúng ta có thể sử dụng các method lifecycle của component để xử lý cho các nghiệp vụ phức tạp.</p>
 <p>Function Component thì đơn giản hơn, nos phù hợp với các custom View hoặc các View nhỏ đơn giản, cách viết của component củng trở nên đơn giản và ngắn gọn hơn.</p>
 
     </article>
@@ -574,7 +568,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Class Components</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Pure component</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">Function components</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Class-Components"><span class="toc-number">1.</span> <span class="toc-text">Class Components</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Pure-component"><span class="toc-number">2.</span> <span class="toc-text">Pure component</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Function-components"><span class="toc-number">3.</span> <span class="toc-text">Function components</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Conclusion"><span class="toc-number">4.</span> <span class="toc-text">Conclusion</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -777,9 +771,12 @@ top:50vh;
     
     
     
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 16
+        Total : 17
         </div>
         <!-- search  -->
         
@@ -792,6 +789,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/iOS/svgXcode12/" >SVG Assets in Xcode 12</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -844,12 +846,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/iOS/LayoutWithStevia/" >Write readable auto-layout code with Stevia.</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/uncategorized/UITesting/" >Automated UI Testing with KIF</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/uncategorized/UITesting/" >Automated UI Testing with KIF</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/iOS/LayoutWithStevia/" >Write readable auto-layout code with Stevia.</a>
         </li>
     
     
