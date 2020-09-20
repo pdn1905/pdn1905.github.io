@@ -398,27 +398,16 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Với Xcode 12 Apple đã cho phép chúng ta sử dụng định dạng hình ảnh SVG trong project. Nó hoạt động như các file ảnh PDF mà chúng ta sử dụng trước đây. Mặc dù không có lợi ích kỹ thuật rõ ràng, thay đổi này mang lại rất nhiều lợi ích phụ.
-<img src="/intro/svg.jpg" alt=""></p>
-<h3>Benefits</h3>
-<h4>Unity</h4>
-<p>Cuối cùng, chúng ta có thể sử dụng cùng một định dạng vector trên các không gian thiết kế khác nhau, chúng ta chỉ cần export ra SVG là có thể dễ dàng sử dụng trên cả Android lẫn iOS.</p>
-<h4>Less work for designers</h4>
-<p>Các designer không cần phải tốn thời gian để export các định dạng bổ sung cho iOS nửa. Chỉ cần SVG thì đã đủ để sử dụng trên cả Android lẫn iOS.</p>
-<h4>Remove the need of designers or converting tools</h4>
-<p>Hầu hết các công cụ xử lý vecto chỉ support SVG. Trước đây bạn cần phải nhờ đến designers hoặc tìm kiếm một công cụ riêng biệt để chuyển đổi, với việc SVG đã dc support ở Xcode 12 thì không cần thiết nửa.</p>
-<h4>Size</h4>
-<p>Hầu hết các file SVG đều nhẹ hơn PDF, nên codebase của dự án sẽ được tối ưu hơn về dung lượng.</p>
-<h3>How to use</h3>
-<p>Bạn có thể sử dụng tương tự như PDF ở các phiên bản Xcode trước đây. Kéo file SVG vào <strong>Assets Catalog</strong> và thay đổi thuộc tính <strong>Scales</strong> thành <strong>Single Scale</strong>.</p>
+        <p>Với Xcode 12 Apple đã cho phép chúng ta sử dụng định dạng hình ảnh SVG trong project. Nó hoạt động như các file ảnh PDF mà chúng ta sử dụng trước đây. Mặc dù không có lợi ích kỹ thuật rõ ràng, thay đổi này mang lại rất nhiều lợi ích phụ.<br><img src="/intro/svg.jpg" alt=""></p>
+<h3 id="Benefits"><a href="#Benefits" class="headerlink" title="Benefits"></a>Benefits</h3><h4 id="Unity"><a href="#Unity" class="headerlink" title="Unity"></a>Unity</h4><p>Cuối cùng, chúng ta có thể sử dụng cùng một định dạng vector trên các không gian thiết kế khác nhau, chúng ta chỉ cần export ra SVG là có thể dễ dàng sử dụng trên cả Android lẫn iOS.</p>
+<h4 id="Less-work-for-designers"><a href="#Less-work-for-designers" class="headerlink" title="Less work for designers"></a>Less work for designers</h4><p>Các designer không cần phải tốn thời gian để export các định dạng bổ sung cho iOS nửa. Chỉ cần SVG thì đã đủ để sử dụng trên cả Android lẫn iOS.</p>
+<h4 id="Remove-the-need-of-designers-or-converting-tools"><a href="#Remove-the-need-of-designers-or-converting-tools" class="headerlink" title="Remove the need of designers or converting tools"></a>Remove the need of designers or converting tools</h4><p>Hầu hết các công cụ xử lý vecto chỉ support SVG. Trước đây bạn cần phải nhờ đến designers hoặc tìm kiếm một công cụ riêng biệt để chuyển đổi, với việc SVG đã dc support ở Xcode 12 thì không cần thiết nửa.</p>
+<h4 id="Size"><a href="#Size" class="headerlink" title="Size"></a>Size</h4><p>Hầu hết các file SVG đều nhẹ hơn PDF, nên codebase của dự án sẽ được tối ưu hơn về dung lượng.</p>
+<h3 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><p>Bạn có thể sử dụng tương tự như PDF ở các phiên bản Xcode trước đây. Kéo file SVG vào <strong>Assets Catalog</strong> và thay đổi thuộc tính <strong>Scales</strong> thành <strong>Single Scale</strong>.</p>
 <p><img src="https://images.viblo.asia/016eb30a-f136-45dc-83cd-ccad2869e0fb.png" alt=""></p>
-<h4>Limitations</h4>
-<p><img src="https://images.viblo.asia/9392cb4a-2b70-403f-a9e6-5e127013de1c.png" alt="">
-Bạn có thể sẽ hiểu nhầm với phần ghi chú ở trên rằng: SVG chỉ hỗ trợ cho macOS 10.15 trở lên, iOS 13 trở lên và iPadOS 13 trở lên. Trong thực tế, SVG hỗ trợ  tương thích ngược.</p>
-<p>Nếu để ý kĩ thì phần bị hạn chế với các deployment targets ở đây là chức năng <strong>Preserve vecto data</strong>. Nếu bạn không muốn scale hình ảnh của bạn khi runtime thì bạn có thể chuyển đổi tất cả các hình ảnh sang SVG một cách an toàn.
-<img src="https://images.viblo.asia/dd6ffa89-3f99-490d-975d-09319c12a914.png" alt=""></p>
-<h3>Conclusion</h3>
-<p>Hỗ trợ SVG là một thay đổi đáng hoan nghênh mà bạn có thể đã bỏ lỡ trong WWDC 2020. Thay đổi nhỏ này mang lại rất nhiều lợi ích tiềm ẩn cho nền tảng và điều tốt nhất là bạn có thể bắt đầu áp dụng ngay lập tức ( tất nhiên là có giới hạn ).</p>
+<h4 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h4><p><img src="https://images.viblo.asia/9392cb4a-2b70-403f-a9e6-5e127013de1c.png" alt=""><br>Bạn có thể sẽ hiểu nhầm với phần ghi chú ở trên rằng: SVG chỉ hỗ trợ cho macOS 10.15 trở lên, iOS 13 trở lên và iPadOS 13 trở lên. Trong thực tế, SVG hỗ trợ  tương thích ngược.</p>
+<p>Nếu để ý kĩ thì phần bị hạn chế với các deployment targets ở đây là chức năng <strong>Preserve vecto data</strong>. Nếu bạn không muốn scale hình ảnh của bạn khi runtime thì bạn có thể chuyển đổi tất cả các hình ảnh sang SVG một cách an toàn.<br>   <img src="https://images.viblo.asia/dd6ffa89-3f99-490d-975d-09319c12a914.png" alt=""></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Hỗ trợ SVG là một thay đổi đáng hoan nghênh mà bạn có thể đã bỏ lỡ trong WWDC 2020. Thay đổi nhỏ này mang lại rất nhiều lợi ích tiềm ẩn cho nền tảng và điều tốt nhất là bạn có thể bắt đầu áp dụng ngay lập tức ( tất nhiên là có giới hạn ).</p>
 
     </article>
     <!-- license  -->
@@ -430,6 +419,11 @@ Bạn có thể sẽ hiểu nhầm với phần ghi chú ở trên rằng: SVG c
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/iOS/flutter-introduce/" title= Why Use Flutter for Cross-Platform Apps >
+                    <div class="nextTitle">Why Use Flutter for Cross-Platform Apps</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -557,7 +551,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Benefits</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">Unity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">Less work for designers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">Remove the need of designers or converting tools</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.</span> <span class="toc-text">Size</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">How to use</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">Limitations</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Benefits"><span class="toc-number">1.</span> <span class="toc-text">Benefits</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Unity"><span class="toc-number">1.1.</span> <span class="toc-text">Unity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Less-work-for-designers"><span class="toc-number">1.2.</span> <span class="toc-text">Less work for designers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Remove-the-need-of-designers-or-converting-tools"><span class="toc-number">1.3.</span> <span class="toc-text">Remove the need of designers or converting tools</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Size"><span class="toc-number">1.4.</span> <span class="toc-text">Size</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-use"><span class="toc-number">2.</span> <span class="toc-text">How to use</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Limitations"><span class="toc-number">2.1.</span> <span class="toc-text">Limitations</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -763,9 +757,65 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 21
         </div>
         <!-- search  -->
         
@@ -781,12 +831,32 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/iOS/dart-intro/" >Flutter - Dart basic concepts.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/human/thanhxuan/" >Viết lại cho những ngày xanh.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href= "/iOS/flutter-introduce/" >Why Use Flutter for Cross-Platform Apps</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/iOS/svgXcode12/" >SVG Assets in Xcode 12</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/iOS/universal-link/" >Universal Link iOS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/20</span><a class="archive-post-title" href= "/iOS/ci-cd/" >iOS - Continuous Integration with Github & Travis CI</a>
         </li>
     
     
@@ -835,12 +905,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/uncategorized/UITesting/" >Automated UI Testing with KIF</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/iOS/LayoutWithStevia/" >Write readable auto-layout code with Stevia.</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/iOS/LayoutWithStevia/" >Write readable auto-layout code with Stevia.</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/uncategorized/UITesting/" >Automated UI Testing with KIF</a>
         </li>
     
     
@@ -887,13 +957,13 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="developer, swift"><span class="iconfont-archer">&#xe606;</span>developer, swift</span>
+    
         <span class="sidebar-tag-name" data-tags="developer"><span class="iconfont-archer">&#xe606;</span>developer</span>
     
         <span class="sidebar-tag-name" data-tags="swift"><span class="iconfont-archer">&#xe606;</span>swift</span>
     
         <span class="sidebar-tag-name" data-tags="auto-layout"><span class="iconfont-archer">&#xe606;</span>auto-layout</span>
-    
-        <span class="sidebar-tag-name" data-tags="developer, swift"><span class="iconfont-archer">&#xe606;</span>developer, swift</span>
     
         <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
     

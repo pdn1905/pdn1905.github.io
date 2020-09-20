@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Home</title>
+    <title>Why Use Flutter for Cross-Platform Apps · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Why Use Flutter for Cross-Platform Apps</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Home</a>
 </header>
@@ -213,24 +226,74 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/dog.jpeg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Why Use Flutter for Cross-Platform Apps
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "developer, swift">developer, swift</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">2,079</span> / Reading time: <span class="post-count">13 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/08/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,274 +394,100 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/UserDefault/" >
-            
-                <span>UserDefaults in Swift</span>
-        </a>
-        <div class="abstract-content">
-            Có nhiều cách để lưu trữ dữ liệu cục bộ trong ứng dụng iOS. UserDefaults là một trong số các cách phổ biến nhất để làm việc đó. 
-UserDefaults
-An interface to the user’s defaults database, where you store key-valuepairs persistently across launches of your app. (Một giao diện cơ sở dữ liệu mặc địn...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/LayoutWithStevia/" >
-            
-                <span>Write readable auto-layout code with Stevia.</span>
-        </a>
-        <div class="abstract-content">
-            Có 2 cách xây dựng giao diện trên các ứng dụng iOS : dùng Interface Builder (Xib, Storyboard) và dùng code thuần. Việc auto-layout, kéo thả trong Interface Builder rất dễ dàng cho những developer mới tiếp cận, nhưng bên cạnh đó có những nhược điểm sau:
+            <main class="main post-page">
+    <article class="article-entry">
+        <p><img src="https://images.viblo.asia/21058739-a8b0-4024-a6df-0ade22efce07.png" alt=""></p>
+<p>Hình trên là biểu đồ thể hiện số lượng câu hỏi trên <strong>Stackoverflow</strong> của các cross-platform frameworks mobile phổ biến hiện nay (tính đến cuối 2019). Không khó để nhận ra sự nổi bật của React Native và Flutter. Bài viết hôm nay sẽ nói về Flutter một framework ra đời sau, nhưng đang dần bắt kịp và vượt qua người anh em cùng cha khác ông nội React Native.</p>
+<p>Trước khi nói đến sự tuyệt vời của <strong>Flutter</strong>, chúng ta phải hiểu về 2 công nghệ cốt lõi của nó: </p>
+<ul>
+<li><strong>Skia</strong>  - thư viện đồ họa 2D của Google.</li>
+<li><strong>Dart</strong> - ngôn ngữ lập trình cũng do Google phát triển.</li>
+</ul>
+<h3 id="Skia"><a href="#Skia" class="headerlink" title="Skia"></a>Skia</h3><p> Vài nét về skia:</p>
+<ul>
+<li>Skia là một thư viện đồ họa 2D mã nguồn mở được viết bằng C++.</li>
+<li>Tập trung vào độ chính xác, chất lượng và hiệu suất cao trong việc renderings.</li>
+<li>Đa nền tảng: Windows, Mac, iOS 8 trở lên, Android 4.1 trở lên, Ubuntu 14.04</li>
+<li>Đã triển khai thành công trên Chrome OS, Firefox, Android và nhiều sản phẩm khác.</li>
+</ul>
+<p>Như các bạn thấy, Flutter là một cái tên mới nhưng 1 trong các công nghệ nền tảng của nó <strong>Skia</strong> đã rất quen thuộc, hiệu năng của nó đã được thừa nhận và được chạy trên nhiều sản phẩm doanh nghiệp như Google Chrome, Chrome OS và Firefox…</p>
+<h4 id="Why-Skia-is-So-Important-in-Flutter"><a href="#Why-Skia-is-So-Important-in-Flutter" class="headerlink" title="Why Skia is So Important in Flutter?"></a>Why Skia is So Important in Flutter?</h4><p>Cách tiếp cận của Flutter khác với hầu hết các cross-platform frameworks mobile phổ biến hiện nay. Trong khi React Native, Xamarin và Titanium cố gắng hiển thị ra các thành phần UI native (Android / iOS), thì Flutter quyết định tự hiển thị các thành phần UI. Điều đó có nghĩa là khi bạn nhìn thấy một thành phần giao diện người dùng —  như một Button chẳng hạn, thì đó không phải là Android Button hoặc iOS Button, mà đó chính là Button của Flutter được <strong>Skia</strong> render ra.</p>
+<p><img src="https://images.viblo.asia/6d001f3b-c6a2-4b6d-987e-e2e4205eb8a8.png" alt=""></p>
+<blockquote>
+<p>UI components are rendered directly in Flutter; there is no bridge with native components</p>
+</blockquote>
+<p>Khi lần đầu biết được Flutter tự vẽ nên các UI components thì đã có rất nhiều câu hỏi phát sinh?  Là một nhà phát triển Mobile có kinh nghiệm, tôi biết có rất nhiều thành phần giao diện người dùng trên cả Android và iOS với tập hợp các hành vi, thuộc tính và API phong phú của riêng chúng, và chúng có thể tùy chỉnh. Flutter có thể cung cấp các tùy chọn tương tự không? Ngoài ra, nếu tự vẽ các thành phần Flutter UI của riêng nó, thì nó có giống nhau trên tất cả các nền tảng không? Mặc dù chọn cách tiếp cận đa nền tảng, nhưng ứng dụng iOS của tôi phải có giao diện iOS và ứng dụng Android của tôi cũng phải có giao diện Android. Điều này có khả thi không?</p>
+<p>Trên thực tế, Flutter xử lý tất cả những điều trên rất tốt. Không có khoảng cách giữa các UI components native so với các Flutter widget. Bạn sẽ tìm thấy hầu hết mọi thứ: text, buttons, sliders, date/time picker, toggle, ImageView, v.v. Flutter thậm chí còn tốt hơn về thiết kế hiện đại, dễ sử dụng và có thể tùy chỉnh. Flutter cũng cung cấp các widget có sẵn trông giống cả iOS (Cupertino) và Android (Material). Điều này tạo ra một ứng dụng ổn định trông nhất quán trên các phiên bản iOS khác nhau. Ví dụ: ứng dụng của bạn sẽ trông giống nhau cho dù bạn cài đặt nó trên thiết bị Android L, M hoặc Q.</p>
+<h3 id="Why-the-Dart-Programming-Language"><a href="#Why-the-Dart-Programming-Language" class="headerlink" title="Why the Dart Programming Language?"></a>Why the Dart Programming Language?</h3><p>Một trong những lí do lớn Flutter được nhiều người yêu thích là do nó sử dụng ngôn ngữ lập trình Dart.</p>
+<p>Trước khi chọn Dart, nhóm phát triển của Flutter đã kiểm tra hàng chục ngôn ngữ, bao gồm các ngôn ngữ lập trình phổ biến như JavaScript và Java. Họ đã đánh giá chúng trên các khía cạnh chính khác nhau, bao gồm năng suất của nhà phát triển, object-oriented programming, hiệu suất cao và phân bổ nhanh. Một số ngôn ngữ đáp ứng một số tiêu chí. Tuy nhiên, Dart đạt điểm cao trên tất cả các tiêu chí đánh giá và đáp ứng tất cả các yêu cầu và tiêu chuẩn của nhóm Flutter.</p>
+<ul>
+<li>Dart là một trong số ít các ngôn ngữ hỗ trợ 2 kiểu compliers Ahead-of-Time (AOT) và Just-in-Time (JIT) compilers. Trong khi Ahead-of-Time (AOT) build ra code ARM để tối ưu hiệu năng (production release), thì Just-in-Time (JIT) cho phép inject các thay đổi mà không cần phải rebuild lại app giúp cho quá trình debug và phát triển nhanh chóng hơn.</li>
+</ul>
+<p><img src="https://images.viblo.asia/2befbf43-a3fd-42ec-aaaf-1b5188345f7c.png" alt=""></p>
+<blockquote>
+<p>JIT compiler with Dart VM for faster development, and AOT compiler in production for best performance and startup time</p>
+</blockquote>
+<ul>
+<li>Dart là một ngôn ngữ được tối ưu hóa. Nó cho phép Flutter dễ dàng tạo các animations mượt mà và các transactions chạy ở tốc độ 60 khung hình / giây (60 fps). Dart sử dụng declarative UI style hoàn toàn khác so với các frameworks khác.  Điều này cho phép Flutter tạo giao diện người dùng mà không có bất kỳ layout phân tách nào như tệp XML hoặc JSX. Các thành phần giao diện người dùng sẽ được xác định trong file .dart với khả năng dễ đọc và trực quan.</li>
+<li>Dart quản lý bộ nhớ bằng cách sử dụng fast object allocation và garbage collector.  Flutter thường xuyên rebuild lại các thành phần giao diện người dùng (widgets) của mình (trong mỗi lần thay đổi trạng thái). Các widget được xây dựng, sau đó bị phá hủy hết lần này đến lần khác, tạo ra nhiều đối tượng tồn tại trong thời gian ngắn của vòng đời ứng dụng. Đó là nơi mà garbage collector trong Dart đóng một vai trò thiết yếu trong việc quản lý bộ nhớ.</li>
+</ul>
+<p><img src="https://images.viblo.asia/83a62da9-6371-476c-899a-938d0d1934c4.png" alt=""></p>
+<blockquote>
+<p>The generational garbage collector in Dart for effectively managing short-lived object</p>
+</blockquote>
+<ul>
+<li>Dart tương đối dễ tiếp cận đặc biệt đối với những bạn có main Java hoặc Javascript. Chúng có syntax khá quen thuộc với hầu hết các ngôn ngữ phổ biến hiện tại.</li>
+</ul>
+<p>Chúng ta đã xem qua hai công nghệ chính của Flutter. Cả thư viện đồ họa Skia và ngôn ngữ lập trình Dart đều rất trưởng thành với nhiều ưu điểm đã được thị trường khẳng định. Với nền tảng vững chắc đó, Flutter cung cấp rất nhiều tính năng thú vị:</p>
+<h4 id="Hot-Reload"><a href="#Hot-Reload" class="headerlink" title="#Hot Reload:"></a>#Hot Reload:</h4><p>Tương tự như hot reload trên React Native chúng ta không cần phải rebuild lại toàn bộ ứng dụng mỗi khi có sự thay đổi. Điều này sẽ giúp tiết kiệm rất nhiều thời gian trong vòng đời phát triển ứng dung.</p>
+<h4 id="Rich-set-of-widgets-that-work-consistently-with-all-OS-versions"><a href="#Rich-set-of-widgets-that-work-consistently-with-all-OS-versions" class="headerlink" title="#Rich set of widgets that work consistently with all OS versions"></a>#Rich set of widgets that work consistently with all OS versions</h4><p>Như đã đề cập trước đây, Flutter cung cấp một loạt các Widget được tích hợp sẵn, bao gồm cả phong cách thiết kế Material (Android) và Cupertino (iOS), tạo điều kiện thuận lợi cho quá trình phát triển và giúp bạn viết một ứng dụng đẹp trên các nền tảng khác nhau.</p>
+<h4 id="Native-performance"><a href="#Native-performance" class="headerlink" title="#Native performance"></a>#Native performance</h4><p>Với nhiều điểm mạnh từ Dart và Skia như đã đề cập ở trên sẽ không có bất kỳ mối lo ngại nào về hiệu suất với Flutter, ít nhất là ở production. Trong debug mode, ứng dụng Flutter chạy với Dart VM và trình biên dịch JIT, do đó nó chậm hơn bình thường.</p>
+<h4 id="Productive"><a href="#Productive" class="headerlink" title="#Productive"></a>#Productive</h4><p>Dart là một ngôn ngữ lập trình mạnh mẽ và hiệu quả. Các Widget đươc Flutter thể hiện rất biểu cảm và có khả năng mở rộng cao, Android Studio là một IDE tuyệt vời và sử dụng declarative UI với hot reload tiết kiệm rất nhiều công sức. Những điều này làm cho Flutter có năng suất cao.</p>
+<h4 id="Top-documentation"><a href="#Top-documentation" class="headerlink" title="#Top documentation"></a>#Top documentation</h4><p>Không có gì để phàn nàn về documentation của Flutter. Mọi thứ được team phát triển thể hiện rất rõ ràng, ngắn ngọn nhưng đầy đủ.</p>
+<p>Gần đây, cộng đồng của Flutter đã phát triển nhanh chóng, nhưng vẫn chưa lớn bằng các cộng đồng khác như React Native. Các open-source plugins của Flutter vẫn đang trong giai đoạn xây dựng, vì vậy đôi khi bạn không có nhiều lựa chọn. Tuy nhiên, chúng có rất nhiều tiềm năng, nhiều ý tưởng và nguyên tắc thông minh cùng với các công nghệ nền tảng vững chắc khiến Flutter thực sự hứa hẹn trong thế giới cross-platform.</p>
+<p>Link tham khảo: <a href="https://www.pentalog.com/blog/flutter-game-changer-in-cross-platform-development" target="_blank" rel="noopener">https://www.pentalog.com/blog/flutter-game-changer-in-cross-platform-development</a></p>
 
-Việc kéo thả sẽ trở nên khó khăn đối với cá...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "auto-layout">auto-layout</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/caculator-coreML/" >
-            
-                <span>Handwritten digit detection.</span>
-        </a>
-        <div class="abstract-content">
-            Machine Learning thực sự là một lĩnh vực rất hot trong CNTT hiện nay, hầu hết các công ty, doanh nghiệp lớn như Apple, Google.. đều đầu tư rất nhiều nguồn lực cũng như tiền bạc để tham gia vào lĩnh vực của tương lai này . Hàng loạt các ứng dụng , sản phẩm Machine Learning được giới thiệu, tiêu bi...
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/iOS/flutter-introduce/">August 20th 2020, 10:35:20 pm</a>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/e-mc-2/" >
-            
-                <span>e=mc^2</span>
-        </a>
-        <div class="abstract-content">
-            Năm 1905 một định luật vật lý kinh điển được Enstein giới thiệu và được cả thế giới công nhận sau đó: e=mc^2. Hơn một thế kỉ sau, có lẻ ở nơi tiên cảnh Enstein cũng không thể ngờ được rằng định lý của mình lại một lần nửa chính xác trong ngành công nghiệp IT đầy “cạm bẫy” hiện nay (lol).
-
-error =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/rxPart1/" >
-            
-                <span>RxSwift( Part1) - Functional Reactive Programming &amp; Observable</span>
-        </a>
-        <div class="abstract-content">
-            Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xcode-shortcut/" >
-            
-                <span>Xcode Shortcut</span>
-        </a>
-        <div class="abstract-content">
-            
-Trong quá trình phát triển phần mềm, ngoài các kĩ năng về nền tảng, ngôn ngữ đang sử dụng thì việc làm chủ được IDE (integrated development environment) sẽ giúp cho quá trình coding được nhanh chóng và hiệu quả hơn. Sau đây mình xin giới thiệu với các bạn một số shortcuts trong Xcode - IDE để ph...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/hello-world/" >
-            
-                <span>Unidirectional Data Flow With Redux In Swift.</span>
-        </a>
-        <div class="abstract-content">
-            Trong bài viết này chúng ta cùng tìm hiểu về kiến trúc Flux trong lập trình iOS.
-
-IntroduceKhi bắt đầu tiếp cận với lập trình iOS có lẽ chúng ta đều tiếp xúc với mô hình MVC (Model - View - Controller) đầu tiên , một phần vì nó giúp chúng ta học nhanh hơn một phần vì cách viết code mà framework C...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xib-localize/" >
-            
-                <span>XIB and Storyboard Localization</span>
-        </a>
-        <div class="abstract-content">
-            
-IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file Localizable.strings tương ứng với ngôn ngữ đó. File Locali...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/iOS/dart-intro/" title= Flutter - Dart basic concepts. >
+                    <div class="nextTitle">Flutter - Dart basic concepts.</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS/svgXcode12/" title= SVG Assets in Xcode 12 >
+                    <div class="prevTitle">SVG Assets in Xcode 12</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/iOS/">&#60; PREV</a><a class="page-number" href="/categories/iOS/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -684,6 +573,24 @@ IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ b�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Skia"><span class="toc-number">1.</span> <span class="toc-text">Skia</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Why-Skia-is-So-Important-in-Flutter"><span class="toc-number">1.1.</span> <span class="toc-text">Why Skia is So Important in Flutter?</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Why-the-Dart-Programming-Language"><span class="toc-number">2.</span> <span class="toc-text">Why the Dart Programming Language?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hot-Reload"><span class="toc-number">2.1.</span> <span class="toc-text">#Hot Reload:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rich-set-of-widgets-that-work-consistently-with-all-OS-versions"><span class="toc-number">2.2.</span> <span class="toc-text">#Rich set of widgets that work consistently with all OS versions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Native-performance"><span class="toc-number">2.3.</span> <span class="toc-text">#Native performance</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Productive"><span class="toc-number">2.4.</span> <span class="toc-text">#Productive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Top-documentation"><span class="toc-number">2.5.</span> <span class="toc-text">#Top documentation</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1169,6 +1076,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

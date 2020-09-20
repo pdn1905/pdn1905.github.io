@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Home</title>
+    <title>iOS - Continuous Integration with Github &amp; Travis CI · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">iOS - Continuous Integration with Github & Travis CI</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Home</a>
 </header>
@@ -213,24 +226,74 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/robotandhuman.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            iOS - Continuous Integration with Github & Travis CI
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "developer, swift">developer, swift</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">911</span> / Reading time: <span class="post-count">6 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/05/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,274 +394,97 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/UserDefault/" >
-            
-                <span>UserDefaults in Swift</span>
-        </a>
-        <div class="abstract-content">
-            Có nhiều cách để lưu trữ dữ liệu cục bộ trong ứng dụng iOS. UserDefaults là một trong số các cách phổ biến nhất để làm việc đó. 
-UserDefaults
-An interface to the user’s defaults database, where you store key-valuepairs persistently across launches of your app. (Một giao diện cơ sở dữ liệu mặc địn...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/LayoutWithStevia/" >
-            
-                <span>Write readable auto-layout code with Stevia.</span>
-        </a>
-        <div class="abstract-content">
-            Có 2 cách xây dựng giao diện trên các ứng dụng iOS : dùng Interface Builder (Xib, Storyboard) và dùng code thuần. Việc auto-layout, kéo thả trong Interface Builder rất dễ dàng cho những developer mới tiếp cận, nhưng bên cạnh đó có những nhược điểm sau:
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="Continuous-Integration-CI"><a href="#Continuous-Integration-CI" class="headerlink" title="#Continuous Integration (CI)"></a>#Continuous Integration (CI)</h4><p>Continuous Integration là quá trình hợp nhất tất cả code của các thành viên trong bộ phận phát triển vào một source code chung, nó đảm bảo tất cả các code được đẩy lên không gây ra lỗi và không ảnh hưởng đến hệ thống hiện tại.</p>
+<p>Mọi commit đều được hệ thống kiểm tra, và sẽ lập tức thông báo lỗi đến các thành viên trong team khi có lỗi. Quá trình kiểm tra sẽ được thực thi trên một server khác vì vậy các bạn có thể tiếp tục phát triển các tính năng mới, giúp rút ngắn được thời gian phát triển.</p>
+<p>Nhìn chung hệ thống CI sẽ làm việc theo kich bản sau:<br><img src="https://images.viblo.asia/a8726cc2-894a-4b14-a372-df2d185d959e.png" alt=""></p>
+<ul>
+<li>Bạn cấp quyền cho hệ thông CI truy cập vào repository trên github của dự án.</li>
+<li>Khi có một commit mới, hệ thống CI sẽ pull code mới nhất về để build hoặc chạy test theo script đã config.</li>
+<li>Khi quá trình build, testing hoàn tất CI sẽ gửi thông báo qua mail hoặc tool chat nào đó cho các member trong team, nếu xảy ra lỗi thì member đó phải fix đến khi build, testing thành công  mới được merge.</li>
+</ul>
+<h4 id="Travis-CI-CI"><a href="#Travis-CI-CI" class="headerlink" title="#Travis CI (CI)"></a>#Travis CI (CI)</h4><p>Travis CI được coi như là 1 CI server tool, nó hỗ trợ tất cả tính năng của CI, cho phép người dùng đăng nhập, link tới các repository để build cũng như run test…Travis CI có thể dễ dàng tích hợp với các kho lưu trữ biến như GitHub và Bitbucket, hỗ trợ miễn phí cho các public repository  và yêu cầu trả phí đổi với các private repository.<br><img src="https://images.viblo.asia/3080b227-7e8a-422d-9740-3c9d12f5d019.png" alt=""></p>
+<ul>
+<li>Developer sẽ push code lên github</li>
+<li>Thông qua webhooks, Travis CI sẽ biết được có code mới được commit, nó sẽ pull code đó về</li>
+<li>Dựa vào file cấu hình .travis.ym travis sẽ tiến hành chạy và thông báo trở ngược lại cho người dùng.</li>
+</ul>
+<p>Bỏ qua lý thuyết dài dòng, sau đây mình sẽ demo Travis CI với một public repository:</p>
+<ol>
+<li>Tạo một public repository :<br><img src="https://images.viblo.asia/981b89ea-a07e-436c-bc8a-c87e6c8c39ed.png" alt=""></li>
+<li><p>Truy cập vào trang chủ <a href="http://Travis-ci.com" target="_blank" rel="noopener">Travis-ci.com</a> để tiến hành sign-up với Github<br><img src="https://images.viblo.asia/737d81ae-14ba-401f-8eec-2a115a0da077.png" alt=""></p>
+</li>
+<li><p>Chọn các tuỳ chỉnh bạn mong muốn sau đó click <strong>Authorize travis-ci</strong><br><img src="https://images.viblo.asia/11bbdc33-323c-4e4a-b007-4f1c06afca7e.png" alt=""></p>
+</li>
+<li>Sau khi đã active xong tài khoản Travis-ci, các public repository của bạn sẽ được link tới travis CI, bạn chọn repository tương ứng để chạy CI:<br><img src="https://images.viblo.asia/5852cc0e-11d8-4dea-b48f-f8de6c729d20.png" alt=""></li>
+<li>First Travis Build: để có 1  travis-ci build  đầu tiên bạn cần viết code test cho repository sau đó tạo file <strong>.travis.yml</strong> để tạo các kịch bản build.</li>
+</ol>
+<ul>
+<li><p>Tại file TravisCIDemoTests.swift ta thêm đoạn code sau:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testExample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> fail = <span class="literal">false</span></span><br><span class="line">    <span class="type">XCTAssertTrue</span>(fail, <span class="string">"Test Demo"</span>)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tạo file .travis.yml, mở terminal cd vào thư mục của repository:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .travis.yml</span><br><span class="line">open -a TextEdit .travis.yml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tại file .travis.yml ta tạo các kịch bản build như sau:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">osx_image: xcode10.2</span><br><span class="line">language: swift</span><br><span class="line">os: osx</span><br><span class="line">xcode_project: TravisCIDemo.xcodeproj</span><br><span class="line">xcode_scheme: TravisCIDemo</span><br><span class="line">xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone X</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>osx_image</strong>: chỉ định version xcode. <br><br><strong>language</strong>: ngôn ngữ build. <br><br><strong>xcode_project</strong>: chỉ định xcode project build, nếu xử dụng cocoapod thì dùng với .xcworkspace. <br><br><strong>xcode_scheme</strong>: chỉ định scheme build. <br><br><strong>xcode_destination</strong>: chỉ định device va os version để build.</p>
+<p>Ok tất cả đã đươc config, các bạn tiến hành push các thay đổi đó lên repository.</p>
+<p><img src="https://images.viblo.asia/e7ce0dc8-79c1-48a6-9537-fa2e853d0439.png" alt=""></p>
+<p>Kiểm tra tại travis CI ta thấy quá trình build đã được tiến hành và bị fail. Kiểm tra mail ta sẽ thấy một thông báo build CI fail như sau:?<br><img src="https://images.viblo.asia/4c120db2-6bfd-4418-a8e2-a77bd014f5a1.png" alt=""></p>
+<p>Sửa lại code test cho đúng sau đó push code lên repository:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testExample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> fail = <span class="literal">true</span></span><br><span class="line">    <span class="type">XCTAssertTrue</span>(fail, <span class="string">"Test Demo"</span>)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>Kết quả là build đã thành công.<br><img src="https://images.viblo.asia/c58941f1-d3d1-4bcc-8943-2077417e8365.png" alt=""></p>
+<h4 id="Ket"><a href="#Ket" class="headerlink" title="#Kết:"></a>#Kết:</h4><p>Chỉ với một số config cơ bản các bạn đã tích hợp thành công CI vào trong project. Mang đem rất nhiều lợi ích:</p>
+<ul>
+<li>Phát hiện lỗi sớm</li>
+<li>Tiết kiệm thời gian phát triển</li>
+<li>Chủ động hơn trong công việc…<br>Hi vọng bài viết có ích với mọi người.</li>
+</ul>
 
-Việc kéo thả sẽ trở nên khó khăn đối với cá...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "auto-layout">auto-layout</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/caculator-coreML/" >
-            
-                <span>Handwritten digit detection.</span>
-        </a>
-        <div class="abstract-content">
-            Machine Learning thực sự là một lĩnh vực rất hot trong CNTT hiện nay, hầu hết các công ty, doanh nghiệp lớn như Apple, Google.. đều đầu tư rất nhiều nguồn lực cũng như tiền bạc để tham gia vào lĩnh vực của tương lai này . Hàng loạt các ứng dụng , sản phẩm Machine Learning được giới thiệu, tiêu bi...
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/iOS/ci-cd/">May 20th 2020, 11:01:15 pm</a>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/e-mc-2/" >
-            
-                <span>e=mc^2</span>
-        </a>
-        <div class="abstract-content">
-            Năm 1905 một định luật vật lý kinh điển được Enstein giới thiệu và được cả thế giới công nhận sau đó: e=mc^2. Hơn một thế kỉ sau, có lẻ ở nơi tiên cảnh Enstein cũng không thể ngờ được rằng định lý của mình lại một lần nửa chính xác trong ngành công nghiệp IT đầy “cạm bẫy” hiện nay (lol).
-
-error =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/rxPart1/" >
-            
-                <span>RxSwift( Part1) - Functional Reactive Programming &amp; Observable</span>
-        </a>
-        <div class="abstract-content">
-            Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xcode-shortcut/" >
-            
-                <span>Xcode Shortcut</span>
-        </a>
-        <div class="abstract-content">
-            
-Trong quá trình phát triển phần mềm, ngoài các kĩ năng về nền tảng, ngôn ngữ đang sử dụng thì việc làm chủ được IDE (integrated development environment) sẽ giúp cho quá trình coding được nhanh chóng và hiệu quả hơn. Sau đây mình xin giới thiệu với các bạn một số shortcuts trong Xcode - IDE để ph...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/hello-world/" >
-            
-                <span>Unidirectional Data Flow With Redux In Swift.</span>
-        </a>
-        <div class="abstract-content">
-            Trong bài viết này chúng ta cùng tìm hiểu về kiến trúc Flux trong lập trình iOS.
-
-IntroduceKhi bắt đầu tiếp cận với lập trình iOS có lẽ chúng ta đều tiếp xúc với mô hình MVC (Model - View - Controller) đầu tiên , một phần vì nó giúp chúng ta học nhanh hơn một phần vì cách viết code mà framework C...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xib-localize/" >
-            
-                <span>XIB and Storyboard Localization</span>
-        </a>
-        <div class="abstract-content">
-            
-IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file Localizable.strings tương ứng với ngôn ngữ đó. File Locali...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/iOS/universal-link/" title= Universal Link iOS >
+                    <div class="nextTitle">Universal Link iOS</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS/components/" title= Stateful vs Stateless vs Pure React Components >
+                    <div class="prevTitle">Stateful vs Stateless vs Pure React Components</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/iOS/">&#60; PREV</a><a class="page-number" href="/categories/iOS/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -684,6 +570,24 @@ IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ b�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Continuous-Integration-CI"><span class="toc-number">1.</span> <span class="toc-text">#Continuous Integration (CI)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Travis-CI-CI"><span class="toc-number">2.</span> <span class="toc-text">#Travis CI (CI)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ket"><span class="toc-number">3.</span> <span class="toc-text">#Kết:</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1169,6 +1073,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

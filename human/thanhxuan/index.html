@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Home</title>
+    <title>Viết lại cho những ngày xanh. · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Viết lại cho những ngày xanh.</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Home</a>
 </header>
@@ -213,24 +226,74 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/shoes.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Viết lại cho những ngày xanh.
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "life-style">life-style</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">2,365</span> / Reading time: <span class="post-count">15 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/09/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,274 +394,114 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/UserDefault/" >
-            
-                <span>UserDefaults in Swift</span>
-        </a>
-        <div class="abstract-content">
-            Có nhiều cách để lưu trữ dữ liệu cục bộ trong ứng dụng iOS. UserDefaults là một trong số các cách phổ biến nhất để làm việc đó. 
-UserDefaults
-An interface to the user’s defaults database, where you store key-valuepairs persistently across launches of your app. (Một giao diện cơ sở dữ liệu mặc địn...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/LayoutWithStevia/" >
-            
-                <span>Write readable auto-layout code with Stevia.</span>
-        </a>
-        <div class="abstract-content">
-            Có 2 cách xây dựng giao diện trên các ứng dụng iOS : dùng Interface Builder (Xib, Storyboard) và dùng code thuần. Việc auto-layout, kéo thả trong Interface Builder rất dễ dàng cho những developer mới tiếp cận, nhưng bên cạnh đó có những nhược điểm sau:
+            <main class="main post-page">
+    <article class="article-entry">
+        <p><img src="https://images.viblo.asia/fe320acd-fd39-4f61-8513-6422e8f1a716.jpg" alt=""></p>
+<p><strong>FROM BEEP</strong></p>
+<p>Học cấp 3, nàng ngồi bên cạnh. Xinh đẹp tựa một bông cẩm chướng. Tôi thì rõ ràng không phải tả, nhàm chán, mọt sách.</p>
+<p>Nàng tuyệt đối cá tính, cười tươi như nắng sớm, là tâm điểm của lớp. Tôi thì rõ ràng vẫn không cần phải tả: chậm chạp, ít nói, và chỉ thích chơi điện tử – thuộc thể loại đi cũng được, nghỉ cũng chẳng thiếu.</p>
+<p>Cùng share nhau một cái bàn, nàng chẳng cần vạch phấn chia bờ như những lũ dở khác: tôi đơn giản, tôi nhường. Nàng thích thế nào tôi cũng chiều theo, chấp nhận. Nàng khoái lắm, cười tươi như ánh mặt trời.</p>
+<p>Nửa năm cuối của lớp 11, tôi trở thành người đưa thư cho nàng, thư chuyền tay tíu tít đến, số thư nàng nhận được trong thời gian ấy có khi tổng hợp lại phải đóng được thành cuốn tiểu thuyết cỡ vừa.</p>
+<p>Tôi âm thầm giao thư cho nàng, nàng đọc, cười khoe những chiếc răng trắng đều tăm tắp, thỉnh thoảng dúi cho tôi đọc vài bức, mắt nàng long lanh.</p>
+<p>Một ngày nàng hỏi: “này BeP, tôi có xênh (xinh, nói kiểu đài các) không?”</p>
+<p>“Xênh” – mắt tôi vẫn dúi vào cuốn sách</p>
+<p>“Xênh mà trả lời không thèm nhìn à?” – nàng cau có</p>
+<p>“Thì ngày nào mà chẳng nhìn, vẫn thế có gì thay đổi đâu” – tôi gập sách lại</p>
+<p>“Thế có bao giờ BeP để ý tôi không?” – Nàng chớp chớp mắt.</p>
+<p>“Có” “Thỉnh thoảng” – Tôi cười</p>
+<p>“Để ý thế nào?”</p>
+<p>“Xem che chắn có kỹ không lúc kiểm tra chứ bàn mình góc này dễ lộ quá” – Tôi cười, vén môi xòe răng.</p>
+<p>“Chán lắm, chẳng thèm nói nữa – Nàng bĩu môi.</p>
+<p>“Ờ thì thôi, mà có thư này” – Tôi dúi thư cho nàng, tiện thể cho nàng một mẩu Chocolate.</p>
+<p>“Ơ…, ở đâu ra thế? Tặng Valentine à?” – mắt nàng long lanh</p>
+<p>“Bố đi công tác về cho đấy, thấy để trong tủ lạnh ăn không hết, 2 đứa chia ra ăn cho đỡ phí, giờ Lý đổi chỗ cái nhé” – tôi thật thà.</p>
+<p>“Điên chưa!” – nàng đánh bộp cái vào lưng tôi – “Hôm nay Valentine đấy đồ dở, tặng Chocolate là có tình ý!”</p>
+<p>“Thế thôi nhè lại ra đây đi, thảo nào mấy cái thằng gửi thư hôm nay nó cứ thập thò bảo phải đưa tận tay, hóa ra nó sợ mình ăn Chocolate, nhè ra đây” – Tôi chìa tay ra trước mặt nàng.</p>
+<p>“Hâm thật, ăn rồi, coi như nhận lời!” – Nàng nói, đỏ mặt rồi ào đi như một cơn gió.</p>
+<p>“Ô, hóa ra con gái chỉ cần sô cô la hoặc đồ ăn bất kỳ, là có thể bảo nó đổi chỗ được, cũng dễ sống” – Tôi nghĩ bụng, tiết Lý nhờ ông Đức Ngơ lên ngồi cạnh kiểm tra cho an tâm.</p>
+<p>Tan trường, tôi dắt xe đạp chuẩn bị về, các nam thanh nữ tú của trường xe pháo xênh xang, cười nói ồn ào, huyên náo một góc phố.</p>
+<p>Tự nhiên thấy nàng gọi: “BeP ơi cho đi nhờ về cái!”</p>
+<p>“Xe máy đâu, bị thu phỏng?” – tôi ngạc nhiên</p>
+<p>“Sáng xịt lốp nhờ bố đèo đi học.” – Nàng nhìn tôi</p>
+<p>“Mà bà thiếu gì đứa nó muốn chở, ra kia túc tắc cũng phải có dăm anh chờ kìa, đi xe máy có sướng hơn không tôi đèo kẽo kẹt còn lâu mới về đến nhà”</p>
+<p>“Không chở thì thôi, đây không cần!” – nàng quay phắt đi.</p>
+<p>“Ầy, thôi lên tôi đèo nào, sao hôm nay khó tính thế nhỉ?” – tôi lật đật dắt con xe cà khổ chạy theo.</p>
+<p>Nàng cứ bước lững thững như thế, mới đầu tôi còn đạp theo, nhưng xe đạp thì nhanh còn người đi thì chậm, sau tôi nhảy xuống dắt bộ theo nàng. Nghĩ cảnh ấy mà ở thời bây giờ, công nhận là khó kiếm, vì dắt xe máy, hay đẩy ô tô thì nặng phải biết. Tôi chịu.</p>
+<p>Tôi cứ lật đật đi thế một đoạn, thì nàng quay ra, nhảy tót lên xe. “Đi, đồ ngốc, đồ hâm, đi chơi!”</p>
+<p>Tôi im lặng lọc cọc đèo nàng khắp các con phố, tháng 2 vẫn lạnh se sắt, đi qua Bờ Hồ, gió thổi một đợt, nàng co lại phía sau. Xong nàng hỏi : “Có lạnh không?”</p>
+<p>“Không, đang rèn thể lực thế này lạnh gì” – tôi thủng thẳng – “không tin lên đèo này”</p>
+<p>“Ôi, sao có người ngốc đến vậy chứ…” – Nàng thở dài.</p>
+<p>Tôi tạt vào vỉa hè, cởi bớt cái áo khoác ngoài đưa cho nàng “Này mặc vào, tôi đèo không thấy lạnh thật. Mà bà cũng lạ, cứ thời trang làm gì, lạnh như thế này! Khoác tạm đi, vừa giặt xong không hôi đâu.” – Thế là nàng mặc, giọng véo von “Ấm thế”</p>
+<p>Tôi gò lưng đạp, nàng cứ đằng sau líu lo hết chuyện này đến chuyện khác. Đường xa hóa gần, cuối cùng cũng về đến cửa nhà nàng.</p>
+<p>“Trả cái áo để đi về nào bà”</p>
+<p>“Sao bảo không lạnh?” – Nàng nhìn chằm chằm tôi, tự nhiên chạm ánh mắt nàng lúc ấy, tôi thấy gai người, một cảm giác thật lạ.</p>
+<p>“Giờ có đèo ai đâu mà chẳng lạnh” – Tôi cúi mặt, tránh cái nhìn của nàng.</p>
+<p>“Không trả, hôm nay tịch thu, mai đến đón thì trả” Nàng cười, chưa lúc nào tôi thấy nàng xinh đẹp như vậy.</p>
+<p>“Cái gì? Chiều về đi sửa xe đi mai mà đi học, không bà vào dắt xe ra đây tôi mang đi sửa cho” tôi rất sốt sắng, như mọi ngày.</p>
+<p>“Không! Kệ nó, cho nó hỏng, ko việc gì phải sửa! Mai ông có đón không, không thì đừng mơ lấy áo, mà không đón tôi mai đi bộ” – Nàng kiên quyết</p>
+<p>“Ờ rồi, được, đón thì đón, mai đón, cùng lắm dậy sớm tý. Mai nhé. Gọi điện 2 tiếng chuông dập máy là tôi từ nhà đi. Tôi sợ bố bà lắm.”<br>Tôi lục đục chuẩn bị về.</p>
+<p>“Đợi tý, xòe tay ra đây” – Nàng cười.</p>
+<p>Tôi đưa tay ra, nàng để vào một viên Chocolate. “Bóc ra ăn trước mặt tôi xem nào” – Nàng nói.</p>
+<p>“Đã ăn gì đâu mà bắt ăn Chocolate, để về rồi ăn” – Tôi nhăn mặt.</p>
+<p>“Không được, phải ăn trước mặt… em” Nàng nói như sắp khóc.</p>
+<p>“Cái gì đấy?” – Tôi giật mình.</p>
+<p>“Ăn đi, bóc ra ăn trước mặt tôi rồi hẵng về, ko về lại vứt xó!”</p>
+<p><img src="https://images.viblo.asia/54a4577d-c2eb-4011-a78e-312c0a97e8d9.jpg" alt=""></p>
+<p>Tôi bóc, ăn ngon lành, dù sao cũng đang rất đói. “Hê hê, ngon, thế thôi về nhé, mai như hẹn sẽ đến đón, nhớ mang ÁO” – tôi vẫn rất sợ mất áo.</p>
+<p>“Từ từ đã, quà này” – Nàng rút trong cặp ra một cuốn sách.</p>
+<p>“Uầy, được đấy nhờ, biết thế tôi chăm đèo bà về hơn, vừa được ăn vừa được gói mang về! Thank you thank you” Tôi mân mê cuốn sách.</p>
+<p>Bỗng nhiên nàng tiến đến gần, rất nhanh hôn tôi một cái. Tôi giật nảy mình. Cả người như có dòng điện chạy qua. Nàng chạy nhanh vào nhà. Tôi sững sờ mất một lúc, đưa tay sờ lên môi như chưa hiểu điều gì xảy ra. Trên suốt con đường ngày hôm đó. Tôi vẫn không thể hiểu nổi những gì đang xảy ra.</p>
+<p>Tối hôm đó, trước khi đi ngủ tôi lật cuốn sách nàng tặng, bỗng rơi ra một phong thư. Tôi giở thư ra đọc, nàng viết:</p>
+<p>“Điên!</p>
+<p>Anh đúng là người Ngốc nhất mà em từng biết. Em yêu anh. Cảm ơn anh luôn chăm sóc em trong suốt thời gian qua. Cảm ơn anh đã cầm hộ em cặp, xếp hàng mua hộ em bánh mỳ giờ ra chơi, dắt xe cho em ở lớp học thêm, chuyển thư cho em, cóp bài và nhận tội thay em. Em không biết một ngày mình sẽ ra sao nếu như anh không ở bên cạnh. Em chỉ biết rằng em sẽ buồn lắm nếu như anh không xuất hiện trong cuộc đời này.</p>
+<p>Yêu anh. Happy Valentine.</p>
+<p>p/s: Mai đừng đến đón muộn”</p>
+<p>Tôi như ngộp thở. Cả đêm hôm ấy tôi không tài nào ngủ được, tôi cứ thức mãi nhìn cái đồng hồ khốn nạn nơi đầu giường vật vờ trôi. Chúng nó – kim giây kim phút trêu ngươi tôi, thi nhau xem ai đi chậm nhất. Chưa hôm nào tôi mong trời sáng mau đến vậy. 6h sáng tôi đã có mặt ở nhà nàng, quên mất cả việc 2 hồi chuông rồi dập máy. Tôi đợi đến 45 phút trước cửa nhà nàng thì thấy nàng bước ra. Đó là lần đầu tiên tôi thấy nàng đẹp rạng rỡ đến như vậy. Nàng cười. Nhảy tót lên xe: “Đi thôi”</p>
+<p>Đạp đến bờ Hồ, gió sớm thổi rét run cầm cập. Nàng hỏi:</p>
+<p>“Có lạnh không?”</p>
+<p>“Có, hôm nay rét hơn hôm qua, không hiểu sao” Tôi nói, răng va vào nhau vì lạnh.</p>
+<p>“Có thế chứ, đồ ngốc!” Nàng vòng tay ôm lấy tôi thật chặt, ấm sực. Cái ôm đầu tiên trong đời. Tình yêu đầu tiên mà tôi biết tới.</p>
+<p>Tôi viết lại cho những ngày xanh…</p>
+<p>14/2/2014</p>
+<p>From BeP with Love</p>
+<p>(Tất cả câu chuyện này là hoàn toàn bịa đặt)</p>
 
-Việc kéo thả sẽ trở nên khó khăn đối với cá...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "auto-layout">auto-layout</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/caculator-coreML/" >
-            
-                <span>Handwritten digit detection.</span>
-        </a>
-        <div class="abstract-content">
-            Machine Learning thực sự là một lĩnh vực rất hot trong CNTT hiện nay, hầu hết các công ty, doanh nghiệp lớn như Apple, Google.. đều đầu tư rất nhiều nguồn lực cũng như tiền bạc để tham gia vào lĩnh vực của tương lai này . Hàng loạt các ứng dụng , sản phẩm Machine Learning được giới thiệu, tiêu bi...
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/human/thanhxuan/">September 20th 2020, 10:47:22 pm</a>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/e-mc-2/" >
-            
-                <span>e=mc^2</span>
-        </a>
-        <div class="abstract-content">
-            Năm 1905 một định luật vật lý kinh điển được Enstein giới thiệu và được cả thế giới công nhận sau đó: e=mc^2. Hơn một thế kỉ sau, có lẻ ở nơi tiên cảnh Enstein cũng không thể ngờ được rằng định lý của mình lại một lần nửa chính xác trong ngành công nghiệp IT đầy “cạm bẫy” hiện nay (lol).
-
-error =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/rxPart1/" >
-            
-                <span>RxSwift( Part1) - Functional Reactive Programming &amp; Observable</span>
-        </a>
-        <div class="abstract-content">
-            Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xcode-shortcut/" >
-            
-                <span>Xcode Shortcut</span>
-        </a>
-        <div class="abstract-content">
-            
-Trong quá trình phát triển phần mềm, ngoài các kĩ năng về nền tảng, ngôn ngữ đang sử dụng thì việc làm chủ được IDE (integrated development environment) sẽ giúp cho quá trình coding được nhanh chóng và hiệu quả hơn. Sau đây mình xin giới thiệu với các bạn một số shortcuts trong Xcode - IDE để ph...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/hello-world/" >
-            
-                <span>Unidirectional Data Flow With Redux In Swift.</span>
-        </a>
-        <div class="abstract-content">
-            Trong bài viết này chúng ta cùng tìm hiểu về kiến trúc Flux trong lập trình iOS.
-
-IntroduceKhi bắt đầu tiếp cận với lập trình iOS có lẽ chúng ta đều tiếp xúc với mô hình MVC (Model - View - Controller) đầu tiên , một phần vì nó giúp chúng ta học nhanh hơn một phần vì cách viết code mà framework C...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xib-localize/" >
-            
-                <span>XIB and Storyboard Localization</span>
-        </a>
-        <div class="abstract-content">
-            
-IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file Localizable.strings tương ứng với ngôn ngữ đó. File Locali...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS/dart-intro/" title= Flutter - Dart basic concepts. >
+                    <div class="prevTitle">Flutter - Dart basic concepts.</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/iOS/">&#60; PREV</a><a class="page-number" href="/categories/iOS/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -684,6 +587,24 @@ IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ b�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1169,6 +1090,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

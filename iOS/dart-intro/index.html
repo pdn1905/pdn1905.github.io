@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Home</title>
+    <title>Flutter - Dart basic concepts. · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Flutter - Dart basic concepts.</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Home</a>
 </header>
@@ -213,24 +226,74 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/apple.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Flutter - Dart basic concepts.
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "developer, swift">developer, swift</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">1,163</span> / Reading time: <span class="post-count">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/09/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,274 +394,111 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/UserDefault/" >
-            
-                <span>UserDefaults in Swift</span>
-        </a>
-        <div class="abstract-content">
-            Có nhiều cách để lưu trữ dữ liệu cục bộ trong ứng dụng iOS. UserDefaults là một trong số các cách phổ biến nhất để làm việc đó. 
-UserDefaults
-An interface to the user’s defaults database, where you store key-valuepairs persistently across launches of your app. (Một giao diện cơ sở dữ liệu mặc địn...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/LayoutWithStevia/" >
-            
-                <span>Write readable auto-layout code with Stevia.</span>
-        </a>
-        <div class="abstract-content">
-            Có 2 cách xây dựng giao diện trên các ứng dụng iOS : dùng Interface Builder (Xib, Storyboard) và dùng code thuần. Việc auto-layout, kéo thả trong Interface Builder rất dễ dàng cho những developer mới tiếp cận, nhưng bên cạnh đó có những nhược điểm sau:
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Dart là một ngôn ngữ lập trình được phát triển tại Google, nó được kì vọng là sẽ được phát triển mạnh mẽ và duy trì trong nhiều năm tới. Mục đích ban đầu đằng sau việc tạo Dart là để thay thế JavaScript trong các web browser vì Dart có máy ảo riêng (Virtua machine) nhưng có vẻ như mục tiêu này đã không đạt được. Tuy nhiên, Dart vẫn là một ngôn ngữ mạnh mẽ với các phẩm chất nổi bật của riêng mình, nó là một ngôn ngữ lập trình hướng đối tượng có thể được biên dịch sang mã máy, hoặc chuyển sang JavaScript hoặc có thể chạy giống như một trình thông dịch trên Dart VM bằng cách sử dụng Dart CLI (JIT Compilation). Dart là single-threaded language với vòng lặp sự kiện (event loop) tương tự như JavaScript và Node.js. Nhưng nó có thể hỗ trợ tạo các thread khác để khởi chạy các công việc background (AKA asynchronous programming). Bài viết hom nay sẽ giới thiệu những concepts quan trọng trong Dart.</p>
+<h4 id="Programming-in-Dart"><a href="#Programming-in-Dart" class="headerlink" title="Programming in Dart"></a>Programming in Dart</h4><p>Phương thức chính trong Dart có tên là main(). Khi chương trình được excute, hàm main sẽ được thực thi đầu tiên<br><img src="https://images.viblo.asia/c9eefd04-10aa-4403-bb57-1eb4bab90f55.png" alt=""></p>
+<ul>
+<li><p>Dart hỗ trợ top-level function (giống như main()), đồng nghĩa bạn có thể sử dụng hàm đó ở bất cứ đâu mà không cần thông qua tên class hay bất kỳ instance của class nào cả. Bạn cũng có thể tạo một hàm bên trong một hàm (còn gọi là nested function hoặc local function).</p>
+</li>
+<li><p>Kiểu type của 1 variable là optional bởi vì Dart có thể tự suy ra type dựa trên giá trị truyền vào cho biến (tương tự như Swift).</p>
+</li>
+<li><p>Dart là ngôn ngữ OOP nên tất cả mọi thứ đều là object, mọi object đều là instance của một class. Kể cả number, method (hàm), hay null cũng đều là object.</p>
+</li>
+<li><p>Dart hỗ trợ generic type.</p>
+</li>
+<li><p>Dart không hỗ trợ public, protected, và private. Nếu như identifier (tên biến, hàm,…) bắt đâu vời dấu gạch dưới ( _ ) , thì nó private trong file code của nó. </p>
+</li>
+<li><p>Dart tools có thể báo cho bạn 2 loại vấn đề: warnings và errors. Warnings là những dấu hiểu chỉ ra rằng code của bạn có thể không hoạt động, nhưng chương trình của bạn vẫn có thể chạy. Errors có thể là error lúc compile-time hoặc run-time. Error lúc compile-time hiển nhiên sẽ khiến code bạn không chạy được, còn kết quả của error run-time sẽ là những exceptions được throw ra khi chạy.</p>
+</li>
+</ul>
+<h5 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h5><p>Dart có thể tự suy ra type của variable dựa trên giá trị truyền vào:</p>
+<p><img src="https://images.viblo.asia/4e18afbd-b86f-4b0d-8433-7b83a7b2e1dc.png" alt=""></p>
+<p>Như ví dụ trên thì có thể thấy ta không cần phải khai báo type của variable, dart sẽ đoán được type dựa trên các gía trị truyền vào của biến. Nếu muốn thì chúng ta có thể khai báo type trước variable.</p>
+<p>Có thêm một số cách để khai báo biến trong Dart:</p>
+<ul>
+<li><p>static variables: có thể được gọi trên chính class đó thay vì instance của nó.</p>
+</li>
+<li><p>final variable: không thể được gán lại, chúng phải được khởi tạo.</p>
+</li>
+<li><p>const variable: Giá trị của một biến const được xác định tại thời điểm biên dịch và không thể thay đổi tại thời điểm chạy.</p>
+</li>
+</ul>
+<h5 id="Built-in-types"><a href="#Built-in-types" class="headerlink" title="Built-in types"></a>Built-in types</h5><p>Dart hỗ trợ những loại dữ liệu sau đây:</p>
+<ul>
+<li><p>numbers</p>
+</li>
+<li><p>strings</p>
+</li>
+<li><p>booleans</p>
+</li>
+<li><p>lists (cũng có thể coi như arrays)</p>
+</li>
+<li><p>maps</p>
+</li>
+<li><p>runers (dùng để hiện thị các ký hiệu Unicode trong string, kiểu như mấy emotion)</p>
+</li>
+</ul>
+<h5 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h5><p>Dart hỗ trợ multi-line strings.Bạn có thể truyền value vào trong string rất đơn giản <strong>$variable</strong> hoặc ${expression}</p>
+<p><img src="https://images.viblo.asia/a0ff6f7e-d313-4211-ae33-d4dee3234247.png" alt=""></p>
+<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h5><p>Các kiểu số trong Dart tồn tại dưới 2 dạng chính: int và double. Cả int và double đều là subtypes của num. Do chúng đều là object nên có khá nhiều method hỗ trợ như abs(), ceil()…</p>
+<p><img src="https://images.viblo.asia/7ae91d40-78a5-4ec2-a9ff-9692846503e8.png" alt=""></p>
+<h5 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h5><p>Collection được sử dụng nhiều nhất trong Dart là Lists, nó tương tự array trên các ngôn ngữ khác.</p>
+<p><img src="https://images.viblo.asia/e4cb32bb-98b9-4bb1-97a7-c0cce3bc8b0f.png" alt=""></p>
+<h5 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h5><p>Ở các ngôn ngữ khác thường được gọi là dictionary, là tập hợp của các cặp key-value không có thứ tự.<br><img src="https://images.viblo.asia/a1dd0e8b-f39a-4f8d-a62d-62795138feee.png" alt=""></p>
+<h5 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h5><p>Function cũng là object và có type Function. Có nghĩa là một function cũng có thể gán cho 1 variable và truyền nó cho một function khác như một 1 argument.</p>
+<p>Dưới đây là cách implement 1 function:<br><img src="https://images.viblo.asia/f6f17d4c-0bfd-4c23-9c0f-34f93c9f1d17.png" alt=""></p>
+<p>Bạn hoàn toàn có thể bỏ qua type trong function, tuy nhiên Dart không recommend theo cách này:<br><img src="https://images.viblo.asia/2ce79c81-36e8-4671-9767-7eb0233341cd.png" alt=""></p>
+<p>Nếu function chỉ có một expression (biểu thức), bạn có thể viết 1 cách ngắn gọn sau:</p>
+<p><img src="https://images.viblo.asia/bad019c9-45b4-43f3-8f48-f3625ef044a3.png" alt=""></p>
+<h5 id="Null-aware-operations"><a href="#Null-aware-operations" class="headerlink" title="Null aware operations"></a>Null aware operations</h5><p>Dart support một số cách nhận biết null như bên dưới:<br><img src="https://images.viblo.asia/ab58dd59-3de9-4988-92ff-9e55ca7c1b4f.png" alt=""></p>
+<h5 id="Casting-in-Dart"><a href="#Casting-in-Dart" class="headerlink" title="Casting in Dart"></a>Casting in Dart</h5><p><img src="https://images.viblo.asia/6cb5cd2b-c1f1-42e5-9ffe-ba93dfb2afdd.png" alt=""></p>
+<p>Bạn có thể truy cập variable của instance bằng as:</p>
+<p><img src="https://images.viblo.asia/adf489c8-6ccc-416a-86c4-8298a0d3d15b.png" alt=""></p>
+<h5 id="Optional-positional-parameters"><a href="#Optional-positional-parameters" class="headerlink" title="Optional positional parameters"></a>Optional positional parameters</h5><p>Với optional parameter bạn có thể không cần truyền giá trị cho parameter đó. Bằng cách cho chúng vào trong []:<br><img src="https://images.viblo.asia/3766d46a-50aa-4d6f-b5f7-afb30114b663.png" alt=""></p>
+<h5 id="Default-parameter-values"><a href="#Default-parameter-values" class="headerlink" title="Default parameter values"></a>Default parameter values</h5><p>Bạn có thể sử dụng = để gán giá trị default cho parameter. Giá trị default phải là các compile-time constant:<br><img src="https://images.viblo.asia/25848d37-9c4e-4f8b-8092-c5877d46700a.png" alt=""></p>
 
-Việc kéo thả sẽ trở nên khó khăn đối với cá...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "auto-layout">auto-layout</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/caculator-coreML/" >
-            
-                <span>Handwritten digit detection.</span>
-        </a>
-        <div class="abstract-content">
-            Machine Learning thực sự là một lĩnh vực rất hot trong CNTT hiện nay, hầu hết các công ty, doanh nghiệp lớn như Apple, Google.. đều đầu tư rất nhiều nguồn lực cũng như tiền bạc để tham gia vào lĩnh vực của tương lai này . Hàng loạt các ứng dụng , sản phẩm Machine Learning được giới thiệu, tiêu bi...
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/iOS/dart-intro/">September 20th 2020, 10:37:31 pm</a>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/e-mc-2/" >
-            
-                <span>e=mc^2</span>
-        </a>
-        <div class="abstract-content">
-            Năm 1905 một định luật vật lý kinh điển được Enstein giới thiệu và được cả thế giới công nhận sau đó: e=mc^2. Hơn một thế kỉ sau, có lẻ ở nơi tiên cảnh Enstein cũng không thể ngờ được rằng định lý của mình lại một lần nửa chính xác trong ngành công nghiệp IT đầy “cạm bẫy” hiện nay (lol).
-
-error =...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/rxPart1/" >
-            
-                <span>RxSwift( Part1) - Functional Reactive Programming &amp; Observable</span>
-        </a>
-        <div class="abstract-content">
-            Nếu là iOS Developer chắc các bạn không còn xa lạ gì với thư việc RxSwift nửa rồi, theo thời gian hoàn thiện thì trong vòng 2 năm trở lại đây nó đã trở “trend” trong lập trình ứng dung iOS.  Mọi công ty, cá nhân.. đều sử dụng để giúp cho quá trình phát triển ứng dụng được nhanh và “tin cậy” hơn. ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xcode-shortcut/" >
-            
-                <span>Xcode Shortcut</span>
-        </a>
-        <div class="abstract-content">
-            
-Trong quá trình phát triển phần mềm, ngoài các kĩ năng về nền tảng, ngôn ngữ đang sử dụng thì việc làm chủ được IDE (integrated development environment) sẽ giúp cho quá trình coding được nhanh chóng và hiệu quả hơn. Sau đây mình xin giới thiệu với các bạn một số shortcuts trong Xcode - IDE để ph...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/hello-world/" >
-            
-                <span>Unidirectional Data Flow With Redux In Swift.</span>
-        </a>
-        <div class="abstract-content">
-            Trong bài viết này chúng ta cùng tìm hiểu về kiến trúc Flux trong lập trình iOS.
-
-IntroduceKhi bắt đầu tiếp cận với lập trình iOS có lẽ chúng ta đều tiếp xúc với mô hình MVC (Model - View - Controller) đầu tiên , một phần vì nó giúp chúng ta học nhanh hơn một phần vì cách viết code mà framework C...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/iOS/xib-localize/" >
-            
-                <span>XIB and Storyboard Localization</span>
-        </a>
-        <div class="abstract-content">
-            
-IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ bản là ứng dụng phải được hỗ trợ nhiều ngôn ngữ. Với ứng dụng iOS thì việc Localization khá dễ dàng bằng việc add thêm các ngôn ngữ muốn sử dụng trong ứng dụng và tạo ra các file Localizable.strings tương ứng với ngôn ngữ đó. File Locali...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/human/thanhxuan/" title= Viết lại cho những ngày xanh. >
+                    <div class="nextTitle">Viết lại cho những ngày xanh.</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS/flutter-introduce/" title= Why Use Flutter for Cross-Platform Apps >
+                    <div class="prevTitle">Why Use Flutter for Cross-Platform Apps</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/iOS/">&#60; PREV</a><a class="page-number" href="/categories/iOS/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -684,6 +584,24 @@ IntroduceĐể ứng dụng có nhiều users sử dụng thì yêu cầu cơ b�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Programming-in-Dart"><span class="toc-number">1.</span> <span class="toc-text">Programming in Dart</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Variables"><span class="toc-number">1.1.</span> <span class="toc-text">Variables</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Built-in-types"><span class="toc-number">1.2.</span> <span class="toc-text">Built-in types</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Strings"><span class="toc-number">1.3.</span> <span class="toc-text">Strings</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-number">1.4.</span> <span class="toc-text">Number</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Lists"><span class="toc-number">1.5.</span> <span class="toc-text">Lists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Maps"><span class="toc-number">1.6.</span> <span class="toc-text">Maps</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Functions"><span class="toc-number">1.7.</span> <span class="toc-text">Functions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Null-aware-operations"><span class="toc-number">1.8.</span> <span class="toc-text">Null aware operations</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Casting-in-Dart"><span class="toc-number">1.9.</span> <span class="toc-text">Casting in Dart</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Optional-positional-parameters"><span class="toc-number">1.10.</span> <span class="toc-text">Optional positional parameters</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Default-parameter-values"><span class="toc-number">1.11.</span> <span class="toc-text">Default parameter values</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1169,6 +1087,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
