@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Ngoc Phan">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Ngoc Phan">
+    <meta name="keywords" content=" | Ngoc Phan">
+    <meta name="description" content="">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Diffable Data Source · Home</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/avatar/me.jpg" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Diffable Data Source</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Home</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/compile.jpeg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Diffable Data Source
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "auto-layout">auto-layout</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">1,504</span> / Reading time: <span class="post-count">9 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/01/21</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>DiffableDataSource là một API mới của UITableView và UICollectionView được giới thiệu tại WWDC19 trên IOS 13 để thay thế cho UITableViewDataSource và UICollectionViewDataSource.</p>
+<p>Trong bài viết này, chúng ta sẽ tìm hiểu sơ lược về UITableViewDataSource, sau đó c sẽ đi thẳng đến API mới và xem nó hoạt động như thế nào với một ví dụ.</p>
+<h4 id="UITableViewDataSource"><a href="#UITableViewDataSource" class="headerlink" title="UITableViewDataSource"></a>UITableViewDataSource</h4><p>Trước đây, khi làm việc với UITableView hoặc UICollectionView, bạn cần phải implement protocol UITableViewDataSource để chỉ định chi tiết những dữ liệu được hiển thị trên cell hay các supplementary views như headers and footers.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Providing number of Rows and Sections</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(UITableView, numberOfRowsInSection: Int)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numberOfSections</span><span class="params">(<span class="keyword">in</span>: UITableView)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Providing Cells, Headers, and Footers</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(UITableView, cellForRowAt: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(UITableView, titleForHeaderInSection: Int)</span></span> -&gt; <span class="type">String</span>?</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(UITableView, titleForFooterInSection: Int)</span></span> -&gt; <span class="type">String</span>?</span><br><span class="line"><span class="comment">// other datasource methods</span></span><br></pre></td></tr></table></figure>
+<p>bất cứ khi nào dữ liệu ở controller thay đổi, thông thường chúng ta phải reload toàn bộ các thành phần của tableView bằng cách gọi <code>reloadData()</code> hoặc <code>performBatchUpdates(_:completion:)...</code> để cập nhật (insert, delete, move) các item hay section cụ thể, tương tự như sau: </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.tableView.performBatchUpdates(&#123;</span><br><span class="line">    <span class="keyword">self</span>.tableView.deleteRows(at: deletedIndexPaths, with: .fade)</span><br><span class="line">    <span class="keyword">self</span>.tableView.insertRows(at: insertedIndexPaths, with: .<span class="keyword">right</span>)</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p>Nhưng bạn cần phải cẩn thận khi thực hiện các thay đổi và đảm bảo các thay đổi được áp dụng theo đúng thứ tự.<br>Nếu không, khi cập nhật sẽ bị lỗi, bạn sẽ nhận được một cái gì đó như:<br><img src="https://images.viblo.asia/04ba9764-330f-4780-9e28-ab7312f0b7b7.png" alt=""></p>
+<blockquote>
+<p>Mặc dù cách tiếp cận UITableViewDataSource đơn giản và linh hoạt nhưng nó cũng dễ xảy ra lỗi và là nguồn phát sinh crash phổ biến khi có sự sai lệch giữa trạng thái UI hiện tại với  data do controller quản lý.</p>
+</blockquote>
+<h5 id="Diffable-data-source"><a href="#Diffable-data-source" class="headerlink" title="Diffable data source"></a>Diffable data source</h5><p>Giờ đây với <code>UITableViewDiffableDataSource</code>,  bạn có thể tạo dataSource và <code>apply</code> các thay đổi giữa các <code>state</code> một cách an toàn hơn bằng cách thao tác với <code>snapshot</code> (một khái niệm mới đại diện cho trạng thái hiện tại của tableView).</p>
+<p>Để hiển thị hoặc cập nhật dữ liệu, bạn chỉ cần tạo một đối tượng của NSDiffableDataSourceSnapshot với dữ liệu đã được cập nhật và cung cấp nó cho dataSource thông qua việc gọi phương thức apply (_: animatingDifferences :), nó sẽ so sánh sanpshot hiện tại ( rendered models ) với snapshot mới để xem sự khác biệt sau đó hiển thị lên tableView.</p>
+<h4 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h4><p>Bây giờ chúng ta hãy xem một ví dụ về màn hình hiển các contact list với thanh tìm kiếm cho phép người dùng tìm kiếm danh bạ của mình theo tên.</p>
+<p>Như đã đề cập, với cách tiếp cận mới, chúng tôi chỉ cần hai loại</p>
+<ul>
+<li><p><code>UITableViewDiffableDataSource</code> có hai kiểu chung: Kiểu item và kiểu section, để chỉ định tableView cách hiện thị cell và các supplementary views.</p>
+</li>
+<li><p><code>NSDiffableDataSourceSnapshot &lt;SectionIdentifierType, ItemIdentifierType&gt;</code>: đại diện cho dataSource mới sẽ được hiển thị.</p>
+</li>
+</ul>
+<h5 id="Create-the-model"><a href="#Create-the-model" class="headerlink" title="Create the model"></a>Create the model</h5><p>Bắt đầu bằng cách tạo 1 model Contact, nó là dữ liệu sẽ được hiển thị trong TableView.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Contact</span> : <span class="title">Hashable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> id = <span class="type">UUID</span>()</span><br><span class="line">  <span class="keyword">var</span> firstName: <span class="type">String</span></span><br><span class="line">  <span class="keyword">var</span> lastName: <span class="type">String</span></span><br><span class="line">  <span class="keyword">var</span> emailAddress: <span class="type">String</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">hash</span><span class="params">(into hasher: <span class="keyword">inout</span> Hasher)</span></span> &#123;</span><br><span class="line">    hasher.combine(id)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> == <span class="params">(lhs: Contact, rhs: Contact)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    lhs.id == rhs.id</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: Diffable data source yêu cầu SectionIdentifierType và ItemIdentifierType (model) phải kế thừa Hashable để cho phép dataSource so sánh giữa các snapshot với nhau để tìm ra sự khac biệt (để biết chính xác những gì đã được chèn, xóa hoặc di chuyển).</p>
+</blockquote>
+<h5 id="Setting-up-the-data-source"><a href="#Setting-up-the-data-source" class="headerlink" title="Setting up the data source"></a>Setting up the data source</h5><p>Đầu tiên, tạo 1 Section type chúng sẽ được sử dụng dưới dạng SectionIdentifierType,  gồm 2 section:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Section</span> : <span class="title">Int</span> , <span class="title">CaseIterable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> friendsContacts</span><br><span class="line">    <span class="keyword">case</span> allContacts</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sau đó, tạo và tuỳ chỉnh diffable data source để cung cấp cho TableView với chi tiết về cách hiện thị cells va các supplementary view ( section headers and footers )</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">DataSource</span> = <span class="type">UITableViewDiffableDataSource</span>&lt;<span class="type">Section</span>, <span class="type">Contact</span>&gt;</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> dataSource = makeDataSource()</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeDataSource</span><span class="params">()</span></span> -&gt; <span class="type">DataSource</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> dataSource = <span class="type">DataSource</span>(tableView: tableView, cellProvider: &#123;( tableView, indexPath, contact) -&gt; <span class="type">UITableViewCell</span>? <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="type">ContactTableCell</span>.reuseIdentifier, <span class="keyword">for</span>: indexPath) <span class="keyword">as</span>? <span class="type">ContactTableCell</span></span><br><span class="line">        cell?.configure(with: contact)</span><br><span class="line">        <span class="keyword">return</span> cell</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> dataSource</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Note:  bạn thường làm các việc trên bằng cách triển khai cellForRowAt, titleForHeaderInSection, v.v. với UITableViewDataSource</p>
+</blockquote>
+<h5 id="Creating-a-Snapshot"><a href="#Creating-a-Snapshot" class="headerlink" title="Creating a Snapshot"></a>Creating a Snapshot</h5><p>Bây giờ TableView đã biết chính xác cách hiển thị dữ liệu, chúng ta cần cung cấp cho TableView dữ liệu để hiển thị. Đây là lúc NSDiffableDataSourceSnapshot xuất hiện.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> friendsContacts : [<span class="type">Contact</span>] = <span class="type">Contact</span>.friendsContacts</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> allContacts : [<span class="type">Contact</span>] = <span class="type">Contact</span>.allContacts</span><br><span class="line"><span class="keyword">typealias</span> <span class="type">Snapshot</span> = <span class="type">NSDiffableDataSourceSnapshot</span>&lt;<span class="type">Section</span>, <span class="type">Contact</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    <span class="comment">// some other UI Configurations</span></span><br><span class="line">    applySnapshot(animatingDifferences: <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applySnapshot</span><span class="params">(animatingDifferences: Bool = <span class="literal">true</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> snapshot = <span class="type">Snapshot</span>()</span><br><span class="line">    snapshot.appendSections( <span class="type">Section</span>.allCases )</span><br><span class="line">    snapshot.appendItems(friendsContacts, toSection: .friendsContacts)</span><br><span class="line">    snapshot.appendItems(allContacts, toSection: .allContacts)</span><br><span class="line">    dataSource.apply(snapshot, animatingDifferences: animatingDifferences)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Tạo một snapshot với các section và item sẽ được hiển thị. Bất cứ khi nào <code>apply</code> một snapshot mới, TableView sẽ so sánh với snapshot hiện tại để biết chính xác những gì được cập nhật, sau đó hiển thị và tạo các animation cho các cập nhật đó.</p>
+<h5 id="Add-UISearchController"><a href="#Add-UISearchController" class="headerlink" title="Add UISearchController"></a>Add UISearchController</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> friendsContacts : [<span class="type">Contact</span>] = <span class="type">Contact</span>.friendsContacts</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> allContacts : [<span class="type">Contact</span>] = <span class="type">Contact</span>.allContacts</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> searchController = <span class="type">UISearchController</span>(searchResultsController: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    <span class="comment">// some other UI Configurations</span></span><br><span class="line">    configureSearchController()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ContactsTableViewController</span>: <span class="title">UISearchResultsUpdating</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">configureSearchController</span><span class="params">()</span></span> &#123;</span><br><span class="line">        searchController.searchResultsUpdater = <span class="keyword">self</span></span><br><span class="line">        searchController.obscuresBackgroundDuringPresentation = <span class="literal">false</span></span><br><span class="line">        searchController.searchBar.placeholder = <span class="string">"Search Contacts"</span></span><br><span class="line">        navigationItem.searchController = searchController</span><br><span class="line">        definesPresentationContext = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">updateSearchResults</span><span class="params">(<span class="keyword">for</span> searchController: UISearchController)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> myContacts = <span class="type">Contact</span>.allContacts</span><br><span class="line">        <span class="keyword">let</span> myFriends = <span class="type">Contact</span>.friendsContacts</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> text = searchController.searchBar.text, !text.isEmpty &#123;</span><br><span class="line">            allContacts = myContacts.<span class="built_in">filter</span> &#123; contact <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">return</span> contact.firstName.<span class="built_in">contains</span>(text) || contact.lastName.<span class="built_in">contains</span>(text)</span><br><span class="line">            &#125;</span><br><span class="line">            friendsContacts = myFriends.<span class="built_in">filter</span> &#123; contact <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">return</span> contact.firstName.<span class="built_in">contains</span>(text) || contact.lastName.<span class="built_in">contains</span>(text)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            allContacts = myContacts</span><br><span class="line">            friendsContacts = myFriends</span><br><span class="line">        &#125;</span><br><span class="line">        applySnapshot()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Bất cứ khi nào người dùng thay đổi text trong searchBar, chúng ta sẽ cập nhật danh sách allContacts và friendsContacts cho phù hợp sau đó apply một snapshot mới, và các danh sách cập nhật sẽ được hiển thị.</p>
+<h4 id="Supplementary-Views"><a href="#Supplementary-Views" class="headerlink" title="Supplementary Views"></a>Supplementary Views</h4><p>Cuối cùng hãy header cho cả hai section.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SectionHeaderReusableView</span>: <span class="title">UITableViewHeaderFooterView</span> </span>&#123;</span><br><span class="line">   <span class="comment">// whatever how it looks</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Sau đó implement các method cần thiết của UITableViewDelegate như sau:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - UITableViewDelegate</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ContactsTableViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, heightForHeaderInSection section: Int)</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">30</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, heightForFooterInSection section: Int)</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">CGFloat</span>.leastNormalMagnitude</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, viewForHeaderInSection section: Int)</span></span> -&gt; <span class="type">UIView</span>? &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> header = tableView.dequeueReusableHeaderFooterView(</span><br><span class="line">            withIdentifier: <span class="type">SectionHeaderReusableView</span>.reuseIdentifier) <span class="keyword">as</span>? <span class="type">SectionHeaderReusableView</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> section == <span class="type">Section</span>.allContacts.rawValue &#123;</span><br><span class="line">            header.titleLabel.text = <span class="string">"Your Contacts"</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            header.titleLabel.text = <span class="string">"Friends Contacts"</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> header</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, viewForFooterInSection section: Int)</span></span> -&gt; <span class="type">UIView</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Final"><a href="#Final" class="headerlink" title="Final"></a>Final</h4><p><img src="https://images.viblo.asia/2a6e675f-23eb-44d8-bb54-89c2816ffe3e.png" alt=""></p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/iOS/diffDatasource/">January 21st 2021, 11:01:04 pm</a>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/human/thanhxuan/" title= Viết lại cho những ngày xanh. >
+                    <div class="prevTitle">Viết lại cho những ngày xanh.</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="mailto:phan.ngoc1905@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/pdn1905" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="https://www.facebook.com/enzo.no.12" class="iconfont-archer facebook" target="_blank" title=facebook></a>
+            
+        
+    
+        
+            
+                <a href="https://twitter.com/ngocpha44966679" class="iconfont-archer twitter" target="_blank" title=twitter></a>
+            
+        
+    
+        
+            
+                <a href="https://www.instagram.com/19.05pn/" class="iconfont-archer instagram" target="_blank" title=instagram></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#UITableViewDataSource"><span class="toc-number">1.</span> <span class="toc-text">UITableViewDataSource</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Diffable-data-source"><span class="toc-number">1.1.</span> <span class="toc-text">Diffable data source</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Getting-Started"><span class="toc-number">2.</span> <span class="toc-text">Getting Started</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Create-the-model"><span class="toc-number">2.1.</span> <span class="toc-text">Create the model</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Setting-up-the-data-source"><span class="toc-number">2.2.</span> <span class="toc-text">Setting up the data source</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Creating-a-Snapshot"><span class="toc-number">2.3.</span> <span class="toc-text">Creating a Snapshot</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Add-UISearchController"><span class="toc-number">2.4.</span> <span class="toc-text">Add UISearchController</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Supplementary-Views"><span class="toc-number">3.</span> <span class="toc-text">Supplementary Views</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Final"><span class="toc-number">4.</span> <span class="toc-text">Final</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 22
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/iOS/diffDatasource/" >Diffable Data Source</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/iOS/dart-intro/" >Flutter - Dart basic concepts.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/human/thanhxuan/" >Viết lại cho những ngày xanh.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href= "/iOS/flutter-introduce/" >Why Use Flutter for Cross-Platform Apps</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/20</span><a class="archive-post-title" href= "/iOS/svgXcode12/" >SVG Assets in Xcode 12</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href= "/iOS/universal-link/" >Universal Link iOS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/20</span><a class="archive-post-title" href= "/iOS/ci-cd/" >iOS - Continuous Integration with Github & Travis CI</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href= "/iOS/components/" >Stateful vs Stateless vs Pure React Components</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/iOS/CreateML/" >Training your Machine learning model with CreateML on iOS.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/20</span><a class="archive-post-title" href= "/iOS/compile/" >Improve your Xcode (Swift) Compile Time</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/20</span><a class="archive-post-title" href= "/iOS/R-swift/" >Use R.Swift to safely manage resources.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href= "/iOS/SOLID/" >S.O.L.I.D in iOS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/27</span><a class="archive-post-title" href= "/human/happy/" >Cũng là một phiên toà !!</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/20</span><a class="archive-post-title" href= "/iOS/UserDefault/" >UserDefaults in Swift</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/uncategorized/UITesting/" >Automated UI Testing with KIF</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/iOS/LayoutWithStevia/" >Write readable auto-layout code with Stevia.</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/iOS/caculator-coreML/" >Handwritten digit detection.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/iOS/e-mc-2/" >e=mc^2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/iOS/rxPart1/" >RxSwift( Part1) - Functional Reactive Programming & Observable</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/iOS/xcode-shortcut/" >Xcode Shortcut</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span><a class="archive-post-title" href= "/iOS/hello-world/" >Unidirectional Data Flow With Redux In Swift.</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/iOS/xib-localize/" >XIB and Storyboard Localization</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="developer, swift"><span class="iconfont-archer">&#xe606;</span>developer, swift</span>
+    
+        <span class="sidebar-tag-name" data-tags="developer"><span class="iconfont-archer">&#xe606;</span>developer</span>
+    
+        <span class="sidebar-tag-name" data-tags="swift"><span class="iconfont-archer">&#xe606;</span>swift</span>
+    
+        <span class="sidebar-tag-name" data-tags="auto-layout"><span class="iconfont-archer">&#xe606;</span>auto-layout</span>
+    
+        <span class="sidebar-tag-name" data-tags="ui-test"><span class="iconfont-archer">&#xe606;</span>ui-test</span>
+    
+        <span class="sidebar-tag-name" data-tags="life-style"><span class="iconfont-archer">&#xe606;</span>life-style</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="iOS"><span class="iconfont-archer">&#xe60a;</span>iOS</span>
+    
+        <span class="sidebar-category-name" data-categories="human"><span class="iconfont-archer">&#xe60a;</span>human</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Ngoc Phan"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
