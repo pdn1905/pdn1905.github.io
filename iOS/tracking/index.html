@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>About Me · Home</title>
+    <title>App Tracking Transparency · Home</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,7 +196,7 @@
 </head>
 
     
-        <body class="about-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -202,6 +204,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Home</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">App Tracking Transparency</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Home</a>
 </header>
@@ -222,23 +233,69 @@ height:50vh;
     <!-- 主页  -->
     
     
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/rose.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/autolayout.jpeg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            About Me
+            App Tracking Transparency
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "developer">developer</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "swift">swift</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">1,325</span> / Reading time: <span class="post-count">8 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/06/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -339,56 +396,78 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
+            <main class="main post-page">
     <article class="article-entry">
-        <h4 id="About-me"><a href="#About-me" class="headerlink" title="About me:"></a>About me:</h4><p><strong>Personal Information</strong>:</p>
+        <p>Tại WWDC 20 vào tháng 6 năm 2020, Apple đã thông báo rằng bắt đầu từ iOS 14, các nhà phát triển cần phải xin phép người dùng trước khi được phép “tracking” họ. Nói cách khác, các ứng dụng sẽ không thể truy cập IDFA (Mã định danh dành cho nhà quảng cáo) của thiết bị trừ khi được cấp phép.</p>
+<p>Đến tháng 9 năm 2020, Apple đã trì hoãn sự thay đổi này để các nhà phát triển có thêm thời gian thích ứng với sự thay đổi quyền riêng tư mới này.</p>
+<p>Tuy nhiên vào tháng 4 năm 2021, Apple đã đưa ra thông báo công khai, yêu cầu tất cả các nhà phát triển sẵn sàng cho AppTrackingTransparency,  cho biết rằng Apple sẽ thực thi đầy đủ quyền theo dõi trong bản phát hành công khai iOS 14.5.</p>
+<p>Nếu ứng dụng của bạn trước đó có truy cập IDFA thì bạn cần phải tuân thủ AppTrackingTransparency ở bản update sắp tới, nêu không muốn bị Apple reject.</p>
+<h5 id="Understanding-IDFA"><a href="#Understanding-IDFA" class="headerlink" title="Understanding IDFA"></a>Understanding IDFA</h5><p>Trước khi đi sâu vào code, đầu tiên chúng ta hãy tìm hiểu xem IDFA là gì? Trước hết, hãy đảm bảo rằng bạn không nhầm lẫn IDFA và IDFV (Mã định danh cho nhà cung cấp), Apple chỉ thực thi hỏi quyền trên IDFA. Nói cách khác, nếu ứng dụng của bạn chỉ sử dụng IDFV, thì không cần thay đổi.</p>
+<p>IDFA là một chuỗi unique chữ và số cho mỗi thiết bị, nó chủ yếu được sử dụng để nhằm mục tiêu quảng cáo, giới hạn tần suất, phát hiện gian lận quảng cáo, đo lường  v.v. Dưới đây là ví dụ về IDFA có thể trông như thế nào:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">CE3BB49C</span>-0F44-4DB9-9F6D-<span class="type">B2025A8A4FF7</span></span><br></pre></td></tr></table></figure></p>
+<p>IDFA có các đặc tính sau:</p>
 <ul>
-<li><p>Full Name: Phan Dương Ngọc</p>
-</li>
-<li><p>Address: Đà Nẵng</p>
-</li>
-<li><p>Facebook: <a href="https://www.facebook.com/enzo.no.12" target="_blank" rel="noopener">https://www.facebook.com/enzo.no.12</a></p>
-</li>
-<li><p>Current work place: Sun-Asterisk Việt Nam</p>
+<li>Mỗi thiết bị sẽ có IDFA duy nhất của riêng nó.</li>
+<li>Đây là mã nhận dạng cấp thiết bị, có nghĩa là các ứng dụng của các nhà cung cấp khác nhau được cài đặt trên cùng một thiết bị sẽ có cùng một IDFA.</li>
+<li>Việc xóa ứng dụng sẽ không thay đổi IDFA (vì nó là mã định danh thiết bị).</li>
+<li>Việc tắt và bật lại tính năng app-tracking  của một thiết bị sẽ đặt lại IDFA của thiết bị đó.<blockquote>
+<p>Pro tip:<br>iOS 14,  bạn có thể disable app tracking bằng cách vào Settings &gt; Privacy &gt; Tracking &gt; Turn off “Allow Apps to Request to Track” &gt; Ask Apps to Stop Tracking.</p>
+</blockquote>
 </li>
 </ul>
-<p><strong>Education</strong></p>
+<h5 id="Asking-Permission-to-Track"><a href="#Asking-Permission-to-Track" class="headerlink" title="Asking Permission to Track"></a>Asking Permission to Track</h5><p>Trước iOS 14.5, bạn có thể dễ dàng lấy IDFA mà không bị hạn chế bằng cách sử dụng code sau:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> idfa = <span class="type">ASIdentifierManager</span>.shared().advertisingIdentifier</span><br></pre></td></tr></table></figure></p>
+<p>Tuy nhiên đối với iOS 14.5, IDFA sẽ bị xóa nếu bạn cố gắng truy cập nó mà không có sự cho phép của người dùng:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Zeroed out IDFA:</span><br><span class="line">00000000-0000-0000-0000-000000000000</span><br></pre></td></tr></table></figure></p>
+<p>Để có được quyền của người dùng, trước tiên bạn phải thêm khóa <code>NSUserTrackingUsageDescription</code> vào info.plist. Giá trị String mô tả cho người dùng biết lý do tại sao ứng dụng yêu cầu quyền theo dõi người dùng hoặc thiết bị.</p>
+<p><img src="https://images.viblo.asia/c252e631-40f5-4b51-8242-a5be2c43dfea.png" alt=""></p>
+<p>Với điều đó, bây giờ bạn có thể sử dụng framework AppTrackingTransparency để hiển thị yêu cầu cảnh báo về quyền hệ thống:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> AdSupport</span><br><span class="line"><span class="keyword">import</span> AppTrackingTransparency</span><br><span class="line"></span><br><span class="line"><span class="type">ATTrackingManager</span>.requestTrackingAuthorization &#123; status <span class="keyword">in</span></span><br><span class="line">    <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">        <span class="keyword">switch</span> status &#123;</span><br><span class="line">        <span class="keyword">case</span> .authorized:</span><br><span class="line">            <span class="comment">// Authorized</span></span><br><span class="line">            <span class="keyword">let</span> idfa = <span class="type">ASIdentifierManager</span>.shared().advertisingIdentifier</span><br><span class="line">            <span class="keyword">self</span>.label.text = idfa.uuidString</span><br><span class="line">        <span class="keyword">case</span> .denied,</span><br><span class="line">             .notDetermined,</span><br><span class="line">             .restricted:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        @unknown <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Trong đoạn mã trên, có 3 điều bạn cần lưu ý:</p>
 <ul>
-<li><p>Bachelor of Computer Science in University Information Of Technology</p>
-</li>
-<li><p>Major: Embedded system</p>
-</li>
-<li><p>Thesis: “Social media app”</p>
-</li>
+<li>Hàm <code>requestTrackingAuthorization (completeHandler : )</code> sẽ chỉ hiển thị cảnh báo cấp quyền hệ thống khi trạng thái app’s tracking của ứng dụng là .notDetined. Khi trạng thái ủy quyền đã được set, việc gọi hàm sẽ chỉ trả về completeHandler mà không hiển thị cảnh báo.</li>
+<li>Cảnh báo cấp quyền hệ thống sẽ không hiển thị nếu “Allow Apps to Request to Track” bị tắt trong cài đặt quyền riêng tư của hệ thống.</li>
+<li>completeHandler sẽ không được thực thi trên main thread, vì vậy bạn cần sử dụng main thread nếu muốn update UI của ừng dụng khi việc cấp quyền được hoàn thành.</li>
 </ul>
-<p><strong>Work Experiences</strong></p>
-<ul>
-<li><p>iOS Developer at SmartDev</p>
-</li>
-<li><p>Mobile Software Engineer at Sun-Asterisk</p>
-</li>
-<li><p>Parttime software developer at FTech-AI</p>
-</li>
-</ul>
-<p><strong>Technical Skills</strong></p>
-<ul>
-<li><p>Mobile Development Platform: iOS, React Native.</p>
-</li>
-<li><p>Programming Languages: Swift, Objective-C, Javascript, Koltin, Python.</p>
-</li>
-<li><p>Design Patterns: MVC, MVVM, Clean architecture, Viper, Redux.</p>
-</li>
-<li><p>Dependencies iOS: Alamofire, Kingfisher, WebRTC, RxSwift, RxCocoa, SwiftStoreKit, Chart, PromiseKit, Snapkit, Google Map, Paypal-SDK…</p>
-</li>
-<li>Dependencies React-native: lodash, react-navigator, react-push-notification, axios, react-native-firebase, ESLint, lottie-react-native, react-redux, redux-sagas, redux-persist..</li>
-<li><p>Dependencies Android: retrofit, Picasso, Gson, ViewPagerIndicator, ShimmerRecyclerView.<br>IDE: VSCode, Sublime Text, Android Studio, Xcode, PyCharm. Source Version Control: Git (Git command line, SourceTree, SmartGit).</p>
-</li>
-<li><p>Interests and Activities:<br>Traveling, Trekking, Soccer, Musics, Technology…</p>
-</li>
-</ul>
+<p>Cuối cùng, bạn cũng có thể sử dụng mã bên dưới để xác định trạng thái app’s tracking hiện tại của ứng dụng:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> status = <span class="type">ATTrackingManager</span>.trackingAuthorizationStatus</span><br></pre></td></tr></table></figure></p>
+<h5 id="Handling-Access-Denied"><a href="#Handling-Access-Denied" class="headerlink" title="Handling Access Denied"></a>Handling Access Denied</h5><p>Bây giờ bạn đã biết cách yêu cầu quyền theo dõi ứng dụng, điều gì sẽ xảy ra nếu người dùng từ chối quyền truy cập của bạn vào IDFA?</p>
+<p>Một cách để xử lý điều này là đưa người dùng đến Cài đặt để người dùng có thể dễ dàng thay đổi quyền theo dõi. Đây là cách thực hiện:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">gotoAppPrivacySettings</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> url = <span class="type">URL</span>(string: <span class="type">UIApplication</span>.openSettingsURLString),</span><br><span class="line">        <span class="type">UIApplication</span>.shared.canOpenURL(url) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">assertionFailure</span>(<span class="string">"Not able to open App privacy settings"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">UIApplication</span>.shared.<span class="keyword">open</span>(url, options: [:], completionHandler: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Wrapping-Up"><a href="#Wrapping-Up" class="headerlink" title="Wrapping Up"></a>Wrapping Up</h5><p>Một lần nữa, Apple đã thắt chặt kiểm soát quyền riêng tư trong hệ sinh thái sản phẩm của họ. Nó một lần nữa cho thấy Apple thực sự quan tâm đến quyền riêng tư của người dùng.</p>
+<p>Với tư cách là nhà phát triển, chúng ta có nhiệm vụ đảm bảo rằng các ứng dụng luôn tuân thủ chính sách bảo mật của Apple, để người dùng có thể cảm thấy an toàn và bảo mật khi sử dụng các ứng dụng.</p>
+<p>Link tham khảo: <a href="https://swiftsenpai.com/development/get-ready-apptrackingtransparency/" target="_blank" rel="noopener">https://swiftsenpai.com/development/get-ready-apptrackingtransparency/</a></p>
 
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Date: <a href="https://pdn1905.github.io/iOS/tracking/">June 20th 2021, 11:01:04 pm</a>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/iOS/diffDatasource/" title= Diffable Data Source >
+                    <div class="prevTitle">Diffable Data Source</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -474,6 +553,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Understanding-IDFA"><span class="toc-number">1.</span> <span class="toc-text">Understanding IDFA</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Asking-Permission-to-Track"><span class="toc-number">2.</span> <span class="toc-text">Asking Permission to Track</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Handling-Access-Denied"><span class="toc-number">3.</span> <span class="toc-text">Handling Access Denied</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Wrapping-Up"><span class="toc-number">4.</span> <span class="toc-text">Wrapping Up</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1032,6 +1129,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
